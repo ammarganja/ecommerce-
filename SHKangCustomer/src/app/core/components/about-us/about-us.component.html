@@ -1,0 +1,31 @@
+<section class="about">
+  <div class="inner-page-container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="about-content" [innerHtml]="aboutus?.description">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials" class="testimonials">
+  <div class="container inner-page-container" data-aos="zoom-in">
+    <h1><span class="heading-border">Testimonials</span></h1>
+    <ng-container *ngIf="testimonials && testimonials.length > 0">
+      <owl-carousel [options]="SlideOptions" [carouselClasses]="['owl-theme', 'sliding']">
+        <div class="testimonial-item" *ngFor="let testimonaial of testimonials">
+          <p>
+            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+            {{testimonaial.message}}
+          </p>
+          <div class="testimonials-name">
+            <h3>{{testimonaial.userFirstName}} {{testimonaial.userLastName}}</h3>
+            <img src="{{testimonaial.userImage}}" class="testimonial-img" alt="">
+          </div>
+        </div>
+      </owl-carousel>
+    </ng-container>
+    
+  </div>
+</section>

@@ -1,0 +1,129 @@
+
+
+Exception Date : 14/04/2021 12:27:28
+Input string was not in a correct format.  :::::     at System.Number.ParseDouble(ReadOnlySpan`1 value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.String.System.IConvertible.ToDouble(IFormatProvider provider)
+   at SHKang.Core.Helpers.DBHelper.ParseDouble(Object value, Double defaultValue) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\Helpers\DBHelper.cs:line 112
+   at SHKang.Core.ModelHelper.OrderInvoiceHelper.BindGetorderInvoiceDetailModel(List`1 orderDetailModel, List`1 orderInvoiceSizeDetailModel, List`1 productSizeDetailsModel, String hostingURL, List`1 productImagesModel, List`1 sizeDetailsModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\ModelHelper\OrderInvoiceHelper.cs:line 343
+   at SHKang.API.Areas.Admin.Controllers.OrderInvoiceController.GetOrderInvoice(DeleteOrderModel model) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\OrderInvoiceController.cs:line 210
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 14/04/2021 12:27:52
+Input string was not in a correct format.  :::::     at System.Number.ParseDouble(ReadOnlySpan`1 value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.String.System.IConvertible.ToDouble(IFormatProvider provider)
+   at SHKang.Core.Helpers.DBHelper.ParseDouble(Object value, Double defaultValue) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\Helpers\DBHelper.cs:line 112
+   at SHKang.Core.ModelHelper.OrderInvoiceHelper.BindGetorderInvoiceDetailModel(List`1 orderDetailModel, List`1 orderInvoiceSizeDetailModel, List`1 productSizeDetailsModel, String hostingURL, List`1 productImagesModel, List`1 sizeDetailsModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\ModelHelper\OrderInvoiceHelper.cs:line 343
+   at SHKang.API.Areas.Admin.Controllers.OrderInvoiceController.GetOrderInvoice(DeleteOrderModel model) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\OrderInvoiceController.cs:line 210
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 14/04/2021 14:52:16
+Column 'ProductColorId' does not belong to table Table.  :::::     at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at SHKang.Repository.Repository.StyleCampaignRepository.GetCampaignProductList(Int32 pageNo, Int32 rowsPerPage, String searchString, String hostingURL, String column, String direction, Int64 productCategoryTypeId) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\StyleCampaignRepository.cs:line 228
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 14/04/2021 14:52:16
+Column 'ProductColorId' does not belong to table Table.  :::::     at SHKang.Repository.Repository.StyleCampaignRepository.GetCampaignProductList(Int32 pageNo, Int32 rowsPerPage, String searchString, String hostingURL, String column, String direction, Int64 productCategoryTypeId) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\StyleCampaignRepository.cs:line 283
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 14/04/2021 14:52:16
+Column 'ProductColorId' does not belong to table Table.  :::::     at SHKang.Repository.Repository.StyleCampaignRepository.GetCampaignProductList(Int32 pageNo, Int32 rowsPerPage, String searchString, String hostingURL, String column, String direction, Int64 productCategoryTypeId) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\StyleCampaignRepository.cs:line 290
+   at SHKang.API.Areas.Admin.Controllers.CampaignController.GetCampaignProductList(GetCampaignProductListModel getCampaignProductListModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\CampaignController.cs:line 192
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 14/04/2021 14:54:27
+Column 'ProductColorId' does not belong to table Table.  :::::     at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at SHKang.Repository.Repository.StyleCampaignRepository.GetCampaignProductList(Int32 pageNo, Int32 rowsPerPage, String searchString, String hostingURL, String column, String direction, Int64 productCategoryTypeId) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\StyleCampaignRepository.cs:line 228
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 14/04/2021 14:54:27
+Column 'ProductColorId' does not belong to table Table.  :::::     at SHKang.Repository.Repository.StyleCampaignRepository.GetCampaignProductList(Int32 pageNo, Int32 rowsPerPage, String searchString, String hostingURL, String column, String direction, Int64 productCategoryTypeId) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\StyleCampaignRepository.cs:line 283
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 14/04/2021 14:54:27
+Column 'ProductColorId' does not belong to table Table.  :::::     at SHKang.Repository.Repository.StyleCampaignRepository.GetCampaignProductList(Int32 pageNo, Int32 rowsPerPage, String searchString, String hostingURL, String column, String direction, Int64 productCategoryTypeId) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\StyleCampaignRepository.cs:line 290
+   at SHKang.API.Areas.Admin.Controllers.CampaignController.GetCampaignProductList(GetCampaignProductListModel getCampaignProductListModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\CampaignController.cs:line 192
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 14/04/2021 14:55:17
+Column 'ProductColorId' does not belong to table Table.  :::::     at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at SHKang.Repository.Repository.StyleCampaignRepository.GetCampaignProductList(Int32 pageNo, Int32 rowsPerPage, String searchString, String hostingURL, String column, String direction, Int64 productCategoryTypeId) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\StyleCampaignRepository.cs:line 266
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 14/04/2021 14:55:17
+Column 'ProductColorId' does not belong to table Table.  :::::     at SHKang.Repository.Repository.StyleCampaignRepository.GetCampaignProductList(Int32 pageNo, Int32 rowsPerPage, String searchString, String hostingURL, String column, String direction, Int64 productCategoryTypeId) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\StyleCampaignRepository.cs:line 283
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 14/04/2021 14:55:17
+Column 'ProductColorId' does not belong to table Table.  :::::     at SHKang.Repository.Repository.StyleCampaignRepository.GetCampaignProductList(Int32 pageNo, Int32 rowsPerPage, String searchString, String hostingURL, String column, String direction, Int64 productCategoryTypeId) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\StyleCampaignRepository.cs:line 290
+   at SHKang.API.Areas.Admin.Controllers.CampaignController.GetCampaignProductList(GetCampaignProductListModel getCampaignProductListModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\CampaignController.cs:line 192
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 14/04/2021 14:56:04
+Column 'ProductColorId' does not belong to table Table.  :::::     at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at SHKang.Repository.Repository.StyleCampaignRepository.GetCampaignProductList(Int32 pageNo, Int32 rowsPerPage, String searchString, String hostingURL, String column, String direction, Int64 productCategoryTypeId) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\StyleCampaignRepository.cs:line 266
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 14/04/2021 15:30:18
+Cannot find table 7.  :::::     at System.Data.DataTableCollection.get_Item(Int32 index)
+   at SHKang.Repository.Repository.StyleCampaignRepository.GetCampaignProductList(Int32 pageNo, Int32 rowsPerPage, String searchString, String hostingURL, String column, String direction, Int64 productCategoryTypeId) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\StyleCampaignRepository.cs:line 202
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 14/04/2021 15:30:18
+Cannot find table 7.  :::::     at SHKang.Repository.Repository.StyleCampaignRepository.GetCampaignProductList(Int32 pageNo, Int32 rowsPerPage, String searchString, String hostingURL, String column, String direction, Int64 productCategoryTypeId) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\StyleCampaignRepository.cs:line 283
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 14/04/2021 15:30:18
+Cannot find table 7.  :::::     at SHKang.Repository.Repository.StyleCampaignRepository.GetCampaignProductList(Int32 pageNo, Int32 rowsPerPage, String searchString, String hostingURL, String column, String direction, Int64 productCategoryTypeId) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\StyleCampaignRepository.cs:line 290
+   at SHKang.API.Areas.Admin.Controllers.CampaignController.GetCampaignProductList(GetCampaignProductListModel getCampaignProductListModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\CampaignController.cs:line 193
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 14/04/2021 18:58:10
+Column 'SizeName' does not belong to table Table4.  :::::     at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at SHKang.Repository.Repository.ProductRepository.GetProductDetail(Int64 productId, String hostingURL) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductRepository.cs:line 324
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 14/04/2021 18:58:10
+Column 'SizeName' does not belong to table Table4.  :::::     at SHKang.Repository.Repository.ProductRepository.GetProductDetail(Int64 productId, String hostingURL) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductRepository.cs:line 385
+   at SHKang.API.Areas.Admin.Controllers.ProductController.ProductDetail(GetProductDetailModel productDetailModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\ProductController.cs:line 260
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 14/04/2021 19:54:20
+Input string was not in a correct format.  :::::     at System.Number.StringToNumber(ReadOnlySpan`1 str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt64(ReadOnlySpan`1 value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.String.System.IConvertible.ToInt64(IFormatProvider provider)
+   at SHKang.Core.Helpers.DBHelper.ParseInt64(Object value, Int64 defaultValue) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\Helpers\DBHelper.cs:line 90
+   at SHKang.Core.ModelHelper.OrderInvoiceHelper.BindOrderInvoiceDetailModel(List`1 addOrderInvoiceProductModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\ModelHelper\OrderInvoiceHelper.cs:line 68
+   at SHKang.API.Areas.Admin.Controllers.OrderInvoiceController.AddOrderInvoice(AddOrderInvoiceModel orderInvoiceModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\OrderInvoiceController.cs:line 121
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 14/04/2021 19:56:02
+Input string was not in a correct format.  :::::     at System.Number.StringToNumber(ReadOnlySpan`1 str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt64(ReadOnlySpan`1 value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.String.System.IConvertible.ToInt64(IFormatProvider provider)
+   at SHKang.Core.Helpers.DBHelper.ParseInt64(Object value, Int64 defaultValue) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\Helpers\DBHelper.cs:line 90
+   at SHKang.Core.ModelHelper.OrderInvoiceHelper.BindOrderInvoiceDetailModel(List`1 addOrderInvoiceProductModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\ModelHelper\OrderInvoiceHelper.cs:line 68
+   at SHKang.API.Areas.Admin.Controllers.OrderInvoiceController.AddOrderInvoice(AddOrderInvoiceModel orderInvoiceModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\OrderInvoiceController.cs:line 121
+----------------------------------------------------------------------------------------------

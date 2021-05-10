@@ -1,0 +1,66 @@
+input {
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom: 1px solid #dedede;
+  padding-left: 30px;
+  background: transparent;
+  vertical-align: 5px;
+  padding-bottom: 10px;
+  outline: 0;
+}
+input:focus {
+border: none;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  color: #e0007a;
+  border-bottom: 1px solid #dedede;
+}
+.form-control:focus{
+    border: none;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    color: #e0007a;
+    border-bottom: 1px solid #dedede;
+    padding-top: 5px;
+}
+
+.form-group{
+margin-top: 40px;
+}
+.btnbackground {
+    background-color: #e0007a;
+    border-top: 1px solid #e7e7e7;
+    border-right: 1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
+    padding: 30px 30px 10px 30px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .width-100{
+width: 100%;
+  }
+  .price{
+    font-family: "Jost", sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #ec008c;
+    text-align: left;
+  }
+
+
+
+
+  .Modal{
+    display: inline-block;
+    border-radius: 6px;
+    width: 500px !important;
+    padding-bottom: 36px;
+    position: relative;
+    background-color: #f5f5f7;
+    box-shadow: 0 12px 30px 0 rgb(0 0 0 / 50%), inset 0 1px 0 0 hsl(0deg 0% 100% / 65%);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }

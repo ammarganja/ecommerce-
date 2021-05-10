@@ -1,0 +1,21 @@
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  .datatable-row-detail{
+    height: 100px;
+    overflow-y: auto ;
+  
+  }
+  .prd-table{
+   margin: 15px 15px 15px 0;
+  }
+  .prd-img{
+    height: 60px;
+  }
+  .modal-body {
+    overflow-x: hidden;
+    height: 70vh;
+  }

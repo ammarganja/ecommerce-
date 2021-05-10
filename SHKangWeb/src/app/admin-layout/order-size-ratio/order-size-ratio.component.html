@@ -1,0 +1,63 @@
+<div class="modal-content">
+
+    <ng-container>
+        <div class="modal-header">
+            <div class="modal-title h4" id="example-modal-sizes-title-lg">
+                Ordered Size Ratio
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-container>
+        <div class="overlay overlay-block cursor-default modal-body">
+            <form class="form" id="customer_form" #ordersizeform="ngForm"
+                (ngSubmit)="ordersizeform.form.valid && submit()">
+                <div class="row mb-3">
+                    <div class="col-md-4 mt-3">
+                        <label>S</label>
+                        <input class="form-control form-control-lg form-control-solid ng-pristine  ng-touched"
+                            name="smallSize" type="text" [(ngModel)]="orderRatio.S" #smallSize="ngModel" required
+                            autocomplete="off" placeholder="Small" />
+                        <div *ngIf="ordersizeform.submitted || (smallSize.invalid && (smallSize.dirty))"
+                            class="is-invalid fv-plugins-message-container">
+                            <div *ngIf="smallSize.errors?.required" class="fv-help-block">
+                                Please fill this field.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mt-3">
+                        <label>M</label>
+                        <input class="form-control form-control-lg form-control-solid ng-pristine  ng-touched"
+                            name="mediumSize" type="text" [(ngModel)]="orderRatio.M" #mediumSize="ngModel" required
+                            autocomplete="off" placeholder="Medium" />
+                        <div *ngIf="ordersizeform.submitted || (mediumSize.invalid && (mediumSize.dirty))"
+                            class="is-invalid fv-plugins-message-container">
+                            <div *ngIf="mediumSize.errors?.required" class="fv-help-block">
+                                Please fill this field.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mt-3">
+                        <label>L</label>
+                        <input class="form-control form-control-lg form-control-solid ng-pristine  ng-touched"
+                            name="largeSize" type="text" [(ngModel)]="orderRatio.L" #largeSize="ngModel" required
+                            autocomplete="off" placeholder="Large" />
+                        <div *ngIf="ordersizeform.submitted || (largeSize.invalid && (largeSize.dirty))"
+                            class="is-invalid fv-plugins-message-container">
+                            <div *ngIf="largeSize.errors?.required" class="fv-help-block">
+                                Please fill this field.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light btn-elevate mr-2"
+                        (click)="modal.dismiss()">Cancel</button>
+                    <button type="submit" class="btn btn-primary btn-elevate">Save</button>
+                </div>
+            </form>
+        </div>
+
+    </ng-container>
+</div>

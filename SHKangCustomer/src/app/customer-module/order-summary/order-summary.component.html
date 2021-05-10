@@ -1,0 +1,417 @@
+<section class="shopping-cart-page">
+    <div class="inner-page-container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="shopping-cart-left">
+                    <!-- Tabs navs -->
+                    <div class="shopping-cart-nav">
+                        <div class="shopping-cart-content">
+                            <tabset>
+                                <tab heading="Order Summary" id="tab1" class="shopping-cart-content"
+                                [disabled]="userOrderSummary.totalItems == null"
+                                    [active]="currentTabId === 0" (selectTab)="onSelect($event)">
+                                    <div *ngIf="!toggleOn; " class="tab-pane fade active" id="summary" role="tabpanel"
+                                        aria-labelledby="summary">
+                                        <div>
+                                            <div class="orders-list"
+                                                *ngFor="let product of userOrderSummary.productDetail">
+                                                <div class="orders-list-left">
+                                                    <div class="order-img">
+                                                        <img style="height: 255px;width: 170px;"
+                                                            src="{{product.image}}" />
+                                                    </div>
+                                                </div>
+                                                <div class="orders-list-right">
+                                                    <div class="orders-info">
+                                                        <h2>{{product.name}}</h2>
+                                                        <div class="clear"></div>
+                                                        <div class="product-price">${{product.price}}</div>
+                                                    </div>
+                                                    <div class="orders-quantity">
+                                                        <div class="quantity">
+                                                            <input type="button" value="-" class="minus"
+                                                                (click)="updateCartQuantity(product,'minus')"
+                                                                [disabled]="product.quantity == 1">
+                                                            <input disabled type="text" name="quantity"
+                                                                value="{{convertToNumber(product.quantity)}}"
+                                                                title="Qty" class="qty cart-plus-minus-box" size="4">
+                                                            <input type="button" value="+" class="plus"
+                                                                (click)="updateCartQuantity(product,'plus')">
+                                                        </div>
+                                                        <div class="product-remove">
+                                                            <a class="router-link"
+                                                                (click)="removeUserProduct(product)">Remove</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="address-continue" *ngIf="isCart">
+                                                <a style="cursor: pointer;" (click)="currentTabId = 1">Continue</a><span
+                                                    class="icon-next"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tab>
+
+                                <tab heading="Billing Details" [disabled]="userOrderSummary.totalItems == null" (selectTab)="onSelect($event)"
+                                    [active]="currentTabId === 1">
+                                    <div class="tab-pane fade" id="billing" role="tabpanel" aria-labelledby="billing">
+                                        <div class="personal-info">
+                                            <div clss="row">
+                                                <div class="col-md-12">
+                                                    <h2 class="select-address-title">Select Address</h2>
+                                                </div>
+
+                                                <div class="col-md-4"
+                                                    *ngFor="let address of userAddressList; let i = index">
+                                                    <div (click)="selectAddress(address.userAddressId);"
+                                                        [ngClass]="{'select-first-address': address.userAddressId == selectedAddress, 'select-second-address' : address.userAddressId!=selectedAddress}">
+                                                        <h2>{{address.fullName}}</h2>
+                                                        <ul>
+                                                            <li>{{address.address1}}, {{address.address2}},
+                                                                {{address.city}}, {{address.state}},
+                                                                {{address.country}}, {{address.zipcode}}.</li>
+                                                            <li>{{address.phoneNumber}}</li>
+                                                            <li>{{address.emailId}}</li>
+                                                        </ul>
+                                                        <div class="select-first-address-btns">
+                                                            <ul *ngIf="address.isPrimary">
+                                                                <li><a style="cursor: pointer;"
+                                                                        (click)="editAddress(address)"
+                                                                        data-toggle="modal">EDIT</a></li>
+                                                            </ul>
+                                                            <ul *ngIf="!address.isPrimary">
+                                                                <li><a style="cursor: pointer;"
+                                                                        (click)="editAddress(address)"
+                                                                        data-toggle="modal">EDIT &nbsp;|</a><a
+                                                                        style="cursor:pointer"
+                                                                        (click)="deleteUserAddress(address.userAddressId)"
+                                                                        data-toggle="modal" class="pl-11">DELETE</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <!-- <ng-container *ngIf="address.userAddressId==selectedAddress">
+                                                        <div class="select-first-address">
+                                                            <h2>{{address.fullName}}</h2>
+                                                            <ul>
+                                                                <li>{{address.address1}}, {{address.address2}},
+                                                                    {{address.city}}, {{address.state}},
+                                                                    {{address.country}}, {{address.zipcode}}.</li>
+                                                                <li>{{address.phoneNumber}}</li>
+                                                                <li>{{address.emailId}}</li>
+                                                            </ul>
+                                                            <div class="select-first-address-btns">
+                                                                <ul>
+                                                                    <li><a data-toggle="modal">EDIT</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </ng-container>
+                                                    <ng-container *ngIf="address.userAddressId!=selectedAddress">
+                                                        <div class="select-second-address">
+                                                            <h2>{{address.fullName}}</h2>
+                                                            <ul>
+                                                                <li>{{address.address1}}, {{address.address2}},
+                                                                    {{address.city}}, {{address.state}},
+                                                                    {{address.country}}, {{address.zipcode}}.</li>
+                                                                <li>{{address.phoneNumber}}</li>
+                                                                <li>{{address.emailId}}</li>
+                                                            </ul>
+                                                            <div class="select-second-address-btns">
+                                                                <ul>
+                                                                    <li><a  data-toggle="modal">EDIT &nbsp;|</a><a style="cursor:pointer" (click)="deleteUserAddress(address.userAddressId)" data-toggle="modal" class="pl-11">DELETE</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </ng-container>   -->
+
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="address-checkbox">
+                                                        <input type="checkbox" id="address" name="address"
+                                                            value="address" (change)="checkAddress($event)">
+                                                        <label for="address">Ship to different address?</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <form *ngIf="isNewAddress" #addressInfo="ngForm"
+                                                (ngSubmit)="addressInfo.form.valid && submit()">
+                                                <ul class="form-address">
+                                                    <li>
+                                                        <div>
+                                                            <input type="text" name="fullName" #fullName="ngModel"
+                                                                [(ngModel)]="address.fullName" placeholder="Full Name"
+                                                                maxlength="200" required>
+                                                            <div *ngIf="addressInfo.submitted || (fullName.invalid && fullName.dirty)"
+                                                                class="is-invalid fv-plugins-message-container">
+                                                                <div *ngIf="fullName.errors?.required"
+                                                                    class="fv-help-block">
+                                                                    FullName is required.
+                                                                </div>
+                                                                <div *ngIf="fullName.errors?.maxlength"
+                                                                    class="fv-help-block">
+                                                                    Please do not enter more than 200 character
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <input type="text" name="companyName" #companyName="ngModel"
+                                                                [(ngModel)]="address.companyName"
+                                                                placeholder="Company Name" maxlength="200" required>
+                                                            <div *ngIf="addressInfo.submitted || (companyName.invalid && companyName.dirty)"
+                                                                class="is-invalid fv-plugins-message-container">
+                                                                <div *ngIf="companyName.errors?.required"
+                                                                    class="fv-help-block">
+                                                                    CompanyName is required.
+                                                                </div>
+                                                                <div *ngIf="companyName.errors?.maxlength"
+                                                                    class="fv-help-block">
+                                                                    Please do not enter more than 200 character
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div>
+                                                            <input type="text" name="emailId" #emailId="ngModel"
+                                                                [(ngModel)]="address.emailId" placeholder="Email"
+                                                                maxlength="200" required
+                                                                pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$">
+                                                            <div *ngIf="addressInfo.submitted || (emailId.invalid && emailId.dirty)"
+                                                                class="is-invalid fv-plugins-message-container">
+                                                                <div *ngIf="emailId.errors?.required"
+                                                                    class="fv-help-block">
+                                                                    Email is required.
+                                                                </div>
+                                                                <div *ngIf="emailId.errors?.maxlength"
+                                                                    class="fv-help-block">
+                                                                    Please do not enter more than 200 character
+                                                                </div>
+                                                                <div *ngIf="emailId.errors?.pattern"
+                                                                    class="fv-help-block">
+                                                                    Please enter valida email adress
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <input type="text" name="phoneNumber" #phoneNumber="ngModel"
+                                                                [(ngModel)]="address.phoneNumber" placeholder="Phone"
+                                                                maxlength="10" required>
+                                                            <div *ngIf="addressInfo.submitted || (phoneNumber.invalid && phoneNumber.dirty)"
+                                                                class="is-invalid fv-plugins-message-container">
+                                                                <div *ngIf="phoneNumber.errors?.required"
+                                                                    class="fv-help-block">
+                                                                    phoneNumber is required.
+                                                                </div>
+                                                                <div *ngIf="phoneNumber.errors?.maxlength"
+                                                                    class="fv-help-block">
+                                                                    Please do not enter more than 200 character
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div>
+                                                            <input type="text" name="address1" #address1="ngModel"
+                                                                [(ngModel)]="address.address1" placeholder="Address 1"
+                                                                maxlength="200" required>
+                                                            <div *ngIf="addressInfo.submitted || (address1.invalid && address1.dirty)"
+                                                                class="is-invalid fv-plugins-message-container">
+                                                                <div *ngIf="address1.errors?.required"
+                                                                    class="fv-help-block">
+                                                                    Address 1 is required.
+                                                                </div>
+                                                                <div *ngIf="address1.errors?.maxlength"
+                                                                    class="fv-help-block">
+                                                                    Please do not enter more than 200 character
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <input type="text" name="address2" #address2="ngModel"
+                                                                [(ngModel)]="address.address2" placeholder="Address 2"
+                                                                maxlength="200" required>
+                                                            <div *ngIf="addressInfo.submitted || (address2.invalid && address2.dirty)"
+                                                                class="is-invalid fv-plugins-message-container">
+                                                                <div *ngIf="address2.errors?.required"
+                                                                    class="fv-help-block">
+                                                                    Address 2 is required.
+                                                                </div>
+                                                                <div *ngIf="address2.errors?.maxlength"
+                                                                    class="fv-help-block">
+                                                                    Please do not enter more than 200 character
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="col-sm-6">
+                                                            <ng-multiselect-dropdown [placeholder]="'Select Country'"
+                                                                [settings]="dropdownSettings" [data]="countryList"
+                                                                [(ngModel)]="selectedCountry"
+                                                                (onSelect)="onCountrySelect($event)"
+                                                                (onDeSelect)="onCountryDeSelect($event)" name="country">
+                                                            </ng-multiselect-dropdown>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <ng-multiselect-dropdown [placeholder]="'Select State'"
+                                                                [settings]="dropdownSettings" [data]="stateList"
+                                                                [(ngModel)]="selectedState" name="state">
+                                                            </ng-multiselect-dropdown>
+                                                        </div>
+
+                                                    </li>
+                                                    <li>
+                                                        <div>
+                                                            <input type="text" name="city" #city="ngModel"
+                                                                [(ngModel)]="address.city" placeholder="Town/City"
+                                                                maxlength="200" required>
+                                                            <div *ngIf="addressInfo.submitted || (city.invalid && city.dirty)"
+                                                                class="is-invalid fv-plugins-message-container">
+                                                                <div *ngIf="city.errors?.required"
+                                                                    class="fv-help-block">
+                                                                    City is required.
+                                                                </div>
+                                                                <div *ngIf="city.errors?.maxlength"
+                                                                    class="fv-help-block">
+                                                                    Please do not enter more than 200 character
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <input type="text" name="zipcode" #zipcode="ngModel"
+                                                                [(ngModel)]="address.zipcode" placeholder="Zip Code"
+                                                                maxlength="200" required>
+                                                            <div *ngIf="addressInfo.submitted || (zipcode.invalid && zipcode.dirty)"
+                                                                class="is-invalid fv-plugins-message-container">
+                                                                <div *ngIf="zipcode.errors?.required"
+                                                                    class="fv-help-block">
+                                                                    Zipcode is required.
+                                                                </div>
+                                                                <div *ngIf="zipcode.errors?.maxlength"
+                                                                    class="fv-help-block">
+                                                                    Please do not enter more than 200 character
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </li>
+                                                    <!-- <button type="submit">Create</button> -->
+                                                </ul>
+                                            </form>
+
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="address-continue">
+                                                        <a style="cursor: pointer;"
+                                                            (click)="addUserAddress()">Continue</a><span
+                                                            class="icon-next"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tab>
+                                <!-- <tab heading="Payment">
+                                    
+                                </tab> -->
+                                <tab heading="Payment" (selectTab)="onSelect($event)" [disabled]="userOrderSummary.totalItems == null" [active]="currentTabId === 2">
+                                    <!-- <ng-template tabHeading>Payment</ng-template> -->
+                                    <div class="tab-pane fade" id="payment" role="tabpanel" aria-labelledby="payment">
+                                        <div class="payment-info">
+                                            <ul>
+                                                <li>
+                                                    <span class="icon-track-completed">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                        <span class="path3"></span>
+                                                    </span><input type="checkbox"
+                                                        (change)="onEmailNotificationOn($event)">Email
+                                                    notification will be send
+                                                    when invoice is ready in "My Orders", make payment after invoice
+                                                    created
+                                                    from order requested.
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </tab>
+
+                            </tabset>
+                        </div>
+                    </div>
+                    <!-- Tabs navs -->
+                    <!-- Tabs content -->
+                    <!-- Tabs content -->
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class=" cart-total">
+                    <div class="cart-total-content price-product">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td class="subtotal">Sub Total ({{userOrderSummary.totalItems}} Items)</td>
+                                <td style="text-align: right;">${{userOrderSummary.grandTotal}}</td>
+                            </tr>
+                            <tr *ngFor="let product of userOrderSummary.productDetail; let i = index">
+                                <td class="shipping-charge">{{i+1}}.{{product.name}}(${{product.price}})</td>
+                            </tr>
+                            <tr *ngIf="isCouponApplied">
+                                <td class="vat pt-40 router-link">Coupon Code <a (click)="removeCouponCode()" class="applycoupan">DELETE</a></td>
+                                <td class="pt-40 text-right">- ${{appliedCouponCodeData.amountModel.discountAmount}}</td>
+                            </tr>
+                            <tr *ngIf="isCouponApplied">
+                                <td class="codepromo">({{appliedCouponCodeData.promocodeModel.promocode}})</td>
+                            </tr>
+                            <tr *ngIf="isCouponApplied">
+                                <td class="total-amount">Total Amount</td>
+                                <td style="text-align: right;">${{appliedCouponCodeData.amountModel.payableAmount}}</td>
+                            </tr>
+                            <tr *ngIf="!isCouponApplied">
+                                <td class="total-amount">Total Amount</td>
+                                <td style="text-align: right;">${{userOrderSummary.grandTotal}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <a style="cursor:pointer">
+                        <div class="cart-item">
+                            {{userOrderSummary.totalItems}} items
+                            <strong>
+                                ${{userOrderSummary.grandTotal}}
+                            </strong>
+                        </div>
+                        <ng-container *ngIf="currentTabId != 2">
+                            <span class="place-order"  (click)="userOrderSummary.totalItems== null? '' :getActiveTab()">
+                                Checkout
+                                <span class="icon-next">
+                                </span>
+                            </span>
+                        </ng-container>
+                        <ng-container *ngIf="currentTabId == 2">
+                            <span class="place-order"  (click)="userOrderSummary.totalItems== null? '' :checkOut()">
+                                Checkout
+                                <span class="icon-next">
+                                </span>
+                            </span>
+                        </ng-container>
+                    </a>
+                    <!-- <a style="cursor: pointer;" class="shopping-button" *ngIf="coupanbutton"
+                        (click)="openCoupanButton()">Apply Coupon Code 12</a> -->
+                    <a *ngIf="!isCouponApplied" class="shopping-button" (click)="applyCoupan()">Apply Coupon Code<span
+                            class="icon-next"></span></a>
+                    <a class="shopping-button" routerLink="/customer/styles">Continue Shopping<span
+                            class="icon-next"></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

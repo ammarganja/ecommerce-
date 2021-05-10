@@ -1,0 +1,43 @@
+<section class="product-detail">
+    <div class="inner-page-container">
+        <div class="row">
+            <div class="col-sm-12">
+            <div class="product-detail-left">
+                <ul *ngIf="imageList && imageList.length > 0">
+                    <li *ngFor="let img of imageList"><img src="{{img.image}}"/></li>
+                </ul>
+            </div>
+            <div class="product-detail-right">
+                <h1>Dorothy Perkins</h1>
+                <div class="Product-detail-info">
+                    <ul>
+                        <li>Category : <span class="Dresses">{{getCategoryList()}}</span></li>
+                        <li>Order Qty Ratio : <span class="Dresses">{{item?.productSize}}</span></li>
+                        <li>Color : 
+                            <p>
+                                <span (click)="selectColor(color.productColorId)" class="Dresses" *ngFor="let color of colorList"
+                                    [ngClass]="{'Dresses':color?.selected, 'color-notselected': !color?.selected}">
+                                    {{color?.color}}
+                                </span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="product-quantity">
+                    <div class="quantity">
+                        <input type="button" value="-" class="minus" (click)="minus(item)" [disabled]="qty == 1">
+                        <input type="text" name="quantity" [(ngModel)]="qty" title="Qty" class="qty cart-plus-minus-box" size="4">
+                        <input type="button" value="+" class="plus" (click)="plus(item)">
+                    </div>
+                    <div class="product-price">$ {{item?.price | number : '1.2-2'}}</div>
+                </div>
+                <a style="cursor: pointer;" (click)="addToCart()" class="add-to-cart">Add to Cart <i class="fa fa-long-arrow-right add-to-cart-fa"></i></a>
+                <div class="product-description">
+                    <h4>Details/Note</h4>
+                    <p>{{item?.productDescription}}</p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>

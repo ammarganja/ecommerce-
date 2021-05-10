@@ -1,0 +1,74 @@
+<div class="model modal-dialog-centered login-modal">
+    <div class="modal-header">
+        <button type="button" (click)="close()" class="close" aria-label="Close"><span class="icon-close"></span></button>
+        <h4 class="modal-title">Personal Information</h4>
+    </div>
+    <div class="modal-body">
+        <form #personalInfo="ngForm" (ngSubmit)="personalInfo.form.valid && submit()">
+
+            <div class="container">
+                <div class="email-field">
+                    
+                    <input type="text" name="fullname" #fullname="ngModel" [(ngModel)]="userDetail.firstName" placeholder="Full Name"
+                        maxlength="200" required>
+                    <div *ngIf="personalInfo.submitted || (fullname.invalid && fullname.dirty)"
+                        class="is-invalid fv-plugins-message-container">
+                        <div *ngIf="fullname.errors?.required" class="fv-help-block">
+                            Full name is required.
+                        </div>
+                        <div *ngIf="fullname.errors?.maxlength" class="fv-help-block">
+                            Please do not enter more than 200 character
+                        </div>
+                    </div>
+                </div>
+                <div class="email-field">
+                    
+                    <input type="text" name="company" #company="ngModel" [(ngModel)]="userDetail.companyName" placeholder="Company Name"
+                        maxlength="200" required>
+                    <div *ngIf="personalInfo.submitted || (company.invalid && company.dirty)"
+                        class="is-invalid fv-plugins-message-container">
+                        <div *ngIf="company.errors?.required" class="fv-help-block">
+                            Company is required.
+                        </div>
+                        <div *ngIf="company.errors?.maxlength" class="fv-help-block">
+                            Please do not enter more than 200 character
+                        </div>
+                    </div>
+                </div>
+                <div class="email-field">
+                    
+                    <input type="text" name="email" #email="ngModel"  [(ngModel)]="userDetail.emailAddress" placeholder="Email Address"
+                        maxlength="200" required pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$">
+                    <div *ngIf="personalInfo.submitted || (email.invalid && email.dirty)"
+                        class="is-invalid fv-plugins-message-container">
+                        <div *ngIf="email.errors?.required" class="fv-help-block">
+                            Email is required.
+                        </div>
+                        <div *ngIf="email.errors?.maxlength" class="fv-help-block">
+                            Please do not enter more than 200 character
+                        </div>
+                        <div *ngIf="email.errors?.pattern" class="fv-help-block">
+                            Please enter valida email adress
+                        </div>
+                    </div>
+                </div>
+                <div class="email-field">
+                    
+                    <input type="text" name="phone" #phone="ngModel" [(ngModel)]="userDetail.phoneNumber" placeholder="Phone Number"
+                        maxlength="200" required>
+                    <div *ngIf="personalInfo.submitted || (phone.invalid && phone.dirty)"
+                        class="is-invalid fv-plugins-message-container">
+                        <div *ngIf="phone.errors?.required" class="fv-help-block">
+                            Phone is required.
+                        </div>
+                        <div *ngIf="phone.errors?.maxlength" class="fv-help-block">
+                            Please do not enter more than 200 character
+                        </div>
+                    </div>
+                </div>
+                <button type="submit"> Update</button>
+
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,152 @@
+<div class="modal-content">
+  <ng-container>
+    <div class="modal-header">
+      <div class="modal-title h4" id="example-modal-sizes-title-lg" *ngIf="!selectData">
+        New Campaign
+      </div>
+      <div class="modal-title h4" id="example-modal-sizes-title-lg" *ngIf="selectData">
+        Edit Campaign '{{ selectData.name }}'
+      </div>
+    </div>
+  </ng-container>
+  <form class="form" id="campaign_form" #campaignForm="ngForm" (ngSubmit)="campaignForm.form.valid && submit()">
+    <ng-container>
+      <div class="overlay overlay-block cursor-default modal-body">
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label>Name</label>
+            <label class="label_required">*</label>
+            <input class="form-control" name="name" type="text" [(ngModel)]="campaignFormObj.campaignName" #name="ngModel"
+              required autocomplete="off" placeholder="Name" />
+            <div *ngIf="campaignForm.submitted || (name.invalid && name.dirty)"
+              class="is-invalid fv-plugins-message-container">
+              <div *ngIf="name.errors?.required" class="fv-help-block">
+                Campaign name is required.
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <label>Description</label>
+            <label class="label_required">*</label>
+            <textarea rows="3" cols="10" name="description" class="form-control"
+              [(ngModel)]="campaignFormObj.description" #description="ngModel" required autocomplete="off"
+              placeholder="Description" style="resize: none;"></textarea>
+            <div *ngIf="campaignForm.submitted || (description.invalid && description.dirty)"
+              class="is-invalid fv-plugins-message-container">
+              <div *ngIf="description.errors?.required" class="fv-help-block">
+                Campaign Descriptiom is required.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label>Image</label>
+            <!-- <img src="{{campaign.image}}" *ngIf="campaign"/> -->
+            <div class="upload_block preview_image" *ngIf="!showDropzone && (campaignFormObj && campaignFormObj.image)">
+              <div class="img_parent">
+                <img class="preview_image uploaded_Image" src="{{campaignFormObj.image}}" *ngIf="campaign"/>
+              </div>
+              <a title="Delete image" class="btn btn-default delete_btn preview_image"
+                (click)="deleteImage()">
+                <span [inlineSVG]="'./assets/media/svg/icons/General/Trash.svg'" cacheSVG="true"
+                class="svg-icon svg-icon-md svg-icon-danger">
+                </span>
+              </a>
+              <a title="Edit image" class="btn btn-default edit_btn preview_image"
+                (click)="editImage()">
+                <span [inlineSVG]="'./assets/media/svg/icons/Communication/Write.svg'" cacheSVG="true"
+                  class="svg-icon svg-icon-md svg-icon-primary">
+                </span>
+              </a>
+            </div>
+            <div *ngIf="showDropzone || !campaignFormObj || (campaignFormObj && !campaignFormObj.image)" class="custom-dropzone" id="c-dropzone" ngx-dropzone [showPreviews]="true" [accept]="'image/*'"
+              (change)="onSelect($event)" [multiple]="false">
+              <ngx-dropzone-label>
+                <div>
+                  <h2>Drop Campaign Image Here</h2>
+                </div>
+              </ngx-dropzone-label>
+              <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let img of files" [file]="img"
+                [removable]="true" (removed)="onRemove(img)" style="background-image: url({{img}})">
+              </ngx-dropzone-image-preview>
+            </div>
+            <!-- <ngx-dropzone (change)="onSelect($event)">
+              <ngx-dropzone-label>Drop Here</ngx-dropzone-label>
+              <ngx-dropzone-preview *ngFor="let f of files" [showPreviews]="true" [multiple]="false" accept="image/*"  [maxFiles]="1" [removable]="true" (removed)="onRemove(f)">
+              </ngx-dropzone-preview>
+            </ngx-dropzone> -->
+          </div>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" name="IsShowinFrontend" id="exampleCheck1" [(ngModel)]="campaignFormObj.isShowinFrontend"
+          (change)="showInFront($event)">
+          <label class="form-check-label" 
+           for="exampleCheck1">Show campaign on the home page</label>
+        </div>
+        <div class="">
+          <div class="">
+            <div class="mt-10">
+              <h3 class="card-label">Add Product to Campaign</h3>
+            </div>
+          </div>
+          <div class="">
+            <!-- begin: Filtration form -->
+            <div class="form form-label-right">
+              <div class="form-group row">
+                <div class="col-lg-2" [formGroup]="searchGroup">
+                  <input type="text" (keyup)="search(searchString)" [(ngModel)]="searchString" class="form-control" name="searchText" placeholder="Search" value="" />
+                  <small class="form-text text-muted"><b>Search</b> in all fields</small>
+                </div>
+              </div>
+            </div>
+            <!-- begin:Table -->
+            <div class="table-responsive angular-bootstrap-table">
+              <table class="table table-head-custom table-vertical-center overflow-hidden">
+                <thead>
+                  <th *ngFor="let column of Columns">
+                    {{column.columnName}}
+                    <app-sort-icon *ngIf="column.canSort" column="{{column.sortProprty}}" [activeColumn]="sorting.column"
+                      [activeDirection]="sorting.direction" (sort)="sort($event)"></app-sort-icon>
+                  </th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let Product of campaignProductService.items$ | async">
+                    <td>
+                      <mat-checkbox name="prdCheckBox{{ Product.productId }}" [(ngModel)]="Product.isSelected" (change)="
+                          changeValueEvent(Product.productId, Product.isSelected)
+                        ">
+                      </mat-checkbox>
+                    </td>
+
+                    <!-- <td>
+                      <mat-checkbox name="prdCheckBox{{Product.id}}" [(ngModel)]="Product.selectedProduct"
+                        (change)="changeValueEvent(Product.id, Product.selectedProduct))">
+                      </mat-checkbox>
+                    </td> -->
+                    <td><img class="prd-img" src="{{ Product.image }}" /></td>
+                    <td>{{ Product.productName }}</td>
+                    <td>{{ Product.category }}</td>
+                    <td>{{ Product.color }}</td>
+                    <td>{{ Product.sizeGroup }}</td>
+                    <td>$ {{ Product.price }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- end: Table -->
+            <app-paginator class="d-flex justify-content-between align-items-center flex-wrap" [paginator]="paginator"
+              [isLoading]="isLoading" (paginate)="paginate($event)"></app-paginator>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <div class="modal-footer">
+      <button type="button" (click)="cancel()" class="btn btn-light btn-elevate mr-2">
+        Cancel
+      </button>
+      <button type="submit" class="btn btn-primary btn-elevate">Save</button>
+    </div>
+  </form>
+</div>

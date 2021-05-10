@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="55" height="55" viewBox="0 0 55 55">
+  <g id="Group_2167" data-name="Group 2167" transform="translate(-4578 -1495)">
+    <g id="Process_3" data-name="Process 3" transform="translate(4585.799 1502.849)">
+      <g id="Dot" transform="translate(0.201 0.152)" fill="#fff" stroke="#ec008c" stroke-width="1">
+        <circle cx="19.5" cy="19.5" r="19.5" stroke="none"/>
+        <circle cx="19.5" cy="19.5" r="19" fill="none"/>
+      </g>
+    </g>
+    <g id="Destination" transform="translate(4577.899 1494.948)">
+      <circle id="Dot_3" data-name="Dot 3" cx="27.5" cy="27.5" r="27.5" transform="translate(0.101 0.052)" fill="#ec008c" opacity="0.2"/>
+      <circle id="Dot_2" data-name="Dot 2" cx="18.5" cy="18.5" r="18.5" transform="translate(9.101 9.052)" fill="#ec008c" opacity="0.302"/>
+      <circle id="Dot_1" data-name="Dot 1" cx="7.5" cy="7.5" r="7.5" transform="translate(20.101 20.052)" fill="#ec008c"/>
+    </g>
+  </g>
+</svg>

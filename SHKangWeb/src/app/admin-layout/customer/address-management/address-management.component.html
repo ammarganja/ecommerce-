@@ -1,0 +1,86 @@
+<div class="card card-custom gutter-b">
+  <div class="card-header">
+    <div class="card-title">
+      <h3 class="card-label">Address List</h3>
+    </div>
+    <div class="card-toolbar">
+      <button type="button" class="btn btn-primary" (click)="create()">New Address</button>
+    </div>
+  </div>
+  <div class="card-body">
+    <!-- begin: Filtration form -->
+
+    <!-- end: Filtration form -->
+
+    <!-- begin: Grouping -->
+
+    <!-- begin:Table -->
+    <div class="table-responsive angular-bootstrap-table">
+      <table
+        class="table table-head-custom table-vertical-center overflow-hidden"
+      >
+        <thead>
+          <th *ngFor="let column of Columns">
+            {{column.columnName}}
+            <app-sort-icon *ngIf="column.canSort" column="{{column.sortProprty}}" [activeColumn]="sorting.column" [activeDirection]="sorting.direction"
+                (sort)="sort($event)"></app-sort-icon>
+        </th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let add of addressService.items$ | async">
+            <td>{{ add.userAddressId }}</td>
+            <td>{{ add.fullName }}</td>
+            <td>{{ add.phoneNumber }}</td>
+            <td>{{ add.address1 }}</td>
+            <td>{{ add.address2 }}</td>
+            <td>{{ add.country }}</td>
+            <td>{{ add.state }}</td>
+            <td>{{ add.city }}</td>
+            <td>{{ add.zipcode }}</td>
+            <td class="action-item-centeralign">
+              <a
+                title="Edit address"
+                class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3"
+                (click)="edit(add)"
+              >
+                <span
+                  [inlineSVG]="'./assets/media/svg/icons/Communication/Write.svg'"
+                    cacheSVG="true"
+                  class="svg-icon svg-icon-md svg-icon-primary"
+                >
+                </span>
+              </a>
+
+              <a
+                title="Delete Address"
+                class="btn btn-icon btn-light btn-hover-danger btn-sm"
+                (click)="delete(add.userAddressId)"
+              >
+                <span
+                  [inlineSVG]="'./assets/media/svg/icons/General/Trash.svg'"
+                  cacheSVG="true"
+                  class="svg-icon svg-icon-md svg-icon-danger"
+                >
+                </span>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- end: Table -->
+    <app-paginator
+      class="d-flex justify-content-between align-items-center flex-wrap"
+      [paginator]="paginator"
+      (paginate)="paginate($event)"
+    ></app-paginator>
+  </div>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-light btn-elevate mr-2" (click)="cancel()">
+    Cancel
+  </button>
+  <button type="submit" (click)="cancel()" id="customer_form" class="btn btn-primary btn-elevate">
+    Save
+  </button>
+</div>

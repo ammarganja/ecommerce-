@@ -1,0 +1,63 @@
+<div class="row m-0" *ngIf="!isLoading">
+  <div class="col-lg-2 col-xxl-3 bg-warning px-6 py-8 rounded-xl mr-7 mb-7">
+    <a routerLink="/dashboard" class="text-light font-weight-bold font-size-h6">Total Number Of Orders</a>
+    <br />
+    <span class="text-light font-weight-bold font-size-h2">{{dashboardData.totalOrder}}</span>
+  </div>
+
+  <div class="col-lg-2 col-xxl-3 bg-info px-6 py-8 rounded-xl mr-7 mb-7">
+    <a routerLink="/dashboard" class="text-light font-weight-bold font-size-h6 mt-2">Total Number Of Products</a>
+    <br />
+    <span class="text-light font-weight-bold font-size-h2">{{dashboardData.totalProduct}}</span>
+  </div>
+
+  <div class="col-lg-2 col-xxl-3 bg-dark px-6 py-8 rounded-xl mr-7 mb-7">
+    <a routerLink="/dashboard" class="text-light font-weight-bold font-size-h6">Total Number Of Customers</a>
+    <br />
+    <span class="text-light font-weight-bold font-size-h2">{{dashboardData.totalUser}}</span>
+  </div>
+
+  <div class="col-lg-2 col-xxl-3 bg-danger px-6 py-8 rounded-xl mr-7 mb-7">
+    <a routerLink="/dashboard" class="text-light font-weight-bold font-size-h6 mt-2">Pending Orders</a>
+    <br />
+    <span class="text-light font-weight-bold font-size-h2">{{dashboardData.totalPendingOrder}}</span>
+  </div>
+
+  <div class="col-lg-2 col-xxl-3 bg-success px-6 py-8 rounded-xl mr-7 mb-7">
+    <a routerLink="/dashboard" class="text-light font-weight-bold font-size-h6 mt-2">Completed Orders</a>
+    <br />
+    <span class="text-light font-weight-bold font-size-h2">{{dashboardData.totalCompletedOrder}}</span>
+  </div>
+</div>
+
+<div>
+  <div class="card">
+    <div class="row">
+      <div class="col-md-12 card-item">
+        <h3 class="text-dark font-weight-bold font-size-h2 mg-top-2 mg-left-1">
+          Orders
+        </h3>
+        <apx-chart [series]="chartOptionsOrders.series" [chart]="chartOptionsOrders.chart"
+          [xaxis]="chartOptionsOrders.xaxis" [dataLabels]="chartOptionsOrders.dataLabels"
+          [grid]="chartOptionsOrders.grid" [stroke]="chartOptionsOrders.stroke" [title]="chartOptionsOrders.title"
+          [markers]="chartOptionsOrders.markers" [yaxis]="chartOptionsOrders.yaxis" [fill]="chartOptionsOrders.fill">
+        </apx-chart>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="card">
+    <div class="row">
+      <div class="col-md-12 card-item">
+        <h3 class="text-dark font-weight-bold font-size-h2 mg-top-2 mg-left-1">
+          Customers
+        </h3>
+        <apx-chart [series]="chartOptionsCustomers.series" [chart]="chartOptionsCustomers.chart"
+          [xaxis]="chartOptionsCustomers.xaxis" [dataLabels]="chartOptionsCustomers.dataLabels"
+          [grid]="chartOptionsCustomers.grid" [stroke]="chartOptionsCustomers.stroke"
+          [title]="chartOptionsCustomers.title" [markers]="chartOptionsCustomers.markers"
+          [yaxis]="chartOptionsCustomers.yaxis" [fill]="chartOptionsCustomers.fill"></apx-chart>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<section class="my_account">
+    <div class="inner-page-container">
+        <div class="row">
+            <!-- Tabs navs -->
+            <div class="col-md-3 col-1 my_account-left-parent">
+                <div class="my_account-left">
+                    <ul class="left-nav mb-3">
+                        <li>
+                            <div class="nav-title"><span class="icon-person"></span> Hello, {{helperService.userName}}!</div>
+                        </li>
+                        <li routerLinkActive="active">
+                            <a routerLink="/customer/profile/myorders"><span class="icon-orders"></span>My Orders</a>
+                        </li>
+                        <li>
+                            <div class="account-title" ><span class="icon-setting"></span >Account Settings</div>
+                                <ul> 
+                                    <li routerLinkActive="active">
+                                        <a routerLink="/customer/profile/myprofile"><span class="icon-file"></span>My Profile</a>
+                                    </li>
+                                    <li routerLinkActive="active">
+                                        <a routerLink="/customer/profile/change-password"><span class="icon-lock"></span>Change Password</a>
+                                    </li>
+                                </ul>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</section>
+
+

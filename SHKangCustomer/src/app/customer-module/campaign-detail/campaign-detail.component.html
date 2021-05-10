@@ -1,0 +1,44 @@
+<section>
+    <div class="inner-page-container" >
+        <div class="row">
+            <div class="inner-banner" *ngIf="campaignModel" style="background-image:url('{{campaignModel.campaignImage}}')" width="1916" height="489">
+                <h1>{{campaignModel.campaignName}}</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="product-listing">
+    <div class="inner-page-container">
+        <div class="row">
+            <app-product-search (productSearchText)="getProductSearchText($event)" 
+            (productFilterText)="getProductFilterText($event)"
+            (productCategortSearch)="getCategorySearch($event)"></app-product-search>
+            <!-- Tabs content -->
+            <ng-container>
+                <div class="col-xs-12" infinite-scroll (scrolled)="loadProductItems(true)"
+                    [infiniteScrollDistance]="scrollDistance" [infiniteScrollUpDistance]="scrollUpDistance"
+                    [infiniteScrollThrottle]="throttle">
+                    <div class="tab-content" id="ex1-content">
+                        <div class="tab-pane fade active" id="ex1-tabs-1" role="tabpanel" aria-labelledby="ex1-tab-1">
+                            <ul class="row">
+                                <ng-container *ngFor="let item of productItems">
+                                   <li class="col-sm-3">
+                                        <app-product [isHome]="false" [product]="item"></app-product>
+                                    </li>
+                                </ng-container>
+                            </ul>
+                        </div>
+                    </div>
+                </div>   
+            </ng-container>
+            <div *ngIf="productItems.length === 0" class="">
+                <div id="main">
+                    <div class="fof">
+                            <h2 style="color: #ec008c;">Oops No Data Found !!!</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

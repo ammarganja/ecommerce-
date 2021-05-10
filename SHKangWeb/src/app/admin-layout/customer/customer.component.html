@@ -1,0 +1,106 @@
+<div class="card card-custom gutter-b">
+  <div class="card-header">
+    <div class="card-title">
+      <h3 class="card-label">Customers List</h3>
+    </div>
+    <div class="card-toolbar">
+      <button type="button" class="btn btn-primary" (click)="create()">New Customer</button>
+    </div>
+  </div>
+  <div class="card-body">
+    <!-- begin: Filtration form -->
+    <div class="form form-label-right">
+      <div class="form-group row">
+        <div class="col-lg-6">
+          <div class="row">
+            <div class="col-lg-4" [formGroup]="searchGroup">
+              <input type="text" class="form-control" (keyup)="search(searchString)" [(ngModel)]="searchString" name="searchText" placeholder="Search" value="" /><small
+                class="form-text text-muted"><b>Search</b> in all fields</small>
+            </div>
+            <div class="col-lg-4">
+              <angular2-multiselect 
+                name="color" 
+                [data]="customerStatus" 
+                [(ngModel)]="customerModel"
+                (onSelect)="onItemSelect($event)" 
+                (onDeSelect)="OnItemDeSelect($event)" 
+                [settings]="singleSelectsettings"
+                class="all-section-select clear-filter">
+              </angular2-multiselect>
+              <small class="form-text text-muted"><b>Filter</b> by Status</small>
+            </div>
+            <div class="col-lg-4"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- end: Filtration form -->
+
+    <!-- begin:Table -->
+    <div class="table-responsive angular-bootstrap-table usermanagemt-table-title-width">
+      <table class="table table-head-custom table-vertical-center overflow-hidden custom-table-two">
+        <thead>
+          <th *ngFor="let column of Columns">
+            {{column.columnName}}
+            <app-sort-icon *ngIf="column.canSort" column="{{column.sortProprty}}" [activeColumn]="sorting.column"
+              [activeDirection]="sorting.direction" (sort)="sort($event)"></app-sort-icon>
+          </th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let customer of customerService.items$ | async">
+            <td>{{ customer.userId }}</td>
+            <td>{{ customer.firstName }} {{ customer.lastName }}</td>
+            <td>{{ customer.companyName }}</td>
+            <td>{{ customer.emailAddress }}</td>
+            <td>{{ customer.phoneNumber }}</td>
+            <td ngbDropdown>
+              <button class="btn status-hover-effect btn-icon btn-icon-mobile w-auto btn-clean d-flex align-items-center btn-lg px-2"
+                id="dropupMenuButton" ngbDropdownToggle>
+                <span class="label label-lg label-inline" [class.label-light-danger]="customer.status == 3"
+                  [class.label-light-success]="customer.status === 1"
+                  [class.label-light-primary]="customer.status === 2">
+                  <ng-container *ngIf="customer.status == 3">Suspended</ng-container>
+                  <ng-container *ngIf="customer.status == 1">Active</ng-container>
+                  <ng-container *ngIf="customer.status == 2">Pending</ng-container>
+                </span>
+              </button>
+              <div class="dropdown-menu tx-13" ngbDropdownMenu aria-labelledby="dropupMenuButton">
+                <a class="dropdown-item" (click)="customerstatus(customer.userId,1,customer.status)">Active</a>
+                <a class="dropdown-item" (click)="customerstatus(customer.userId,3,customer.status)">Suspended</a>
+                <a class="dropdown-item" (click)="customerstatus(customer.userId,2,customer.status)">Pending</a>
+              </div>
+
+            </td>
+            <td><a style="cursor: pointer; "class="text-primary" (click)="address(customer)">{{customer.userAddressCount}} Addresses</a></td>
+
+            <td class="action-item-centeralign">
+              <a title="Edit customer" class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3"
+                (click)="edit(customer)">
+                <span [inlineSVG]="'./assets/media/svg/icons/Communication/Write.svg'" cacheSVG="true"
+                  class="svg-icon svg-icon-md svg-icon-primary">
+                </span>
+              </a>
+              <a title="Delete customer" class="btn btn-icon btn-light btn-hover-danger btn-sm"
+                (click)="delete(customer.userId)" [disabled]="{'isDisabled':customer.userId === isLoginUserId}">
+                <span [inlineSVG]="'./assets/media/svg/icons/General/Trash.svg'" cacheSVG="true"
+                  class="svg-icon svg-icon-md svg-icon-danger">{{customer.userId}}
+                </span>
+              </a>
+
+              <!-- <a title="Delete customer" class="btn btn-icon btn-light btn-hover-danger btn-sm"
+                (click)="delete(customer.userId)" [disabled]="isLoginUser">
+                <span [inlineSVG]="'./assets/media/svg/icons/General/Trash.svg'" cacheSVG="true"
+                  class="svg-icon svg-icon-md svg-icon-danger">{{customer.userId}}
+                </span>
+              </a> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- end: Table -->
+    <app-paginator class="d-flex justify-content-between align-items-center flex-wrap" [paginator]="paginator"
+      [isLoading]="isLoading" (paginate)="paginate($event)"></app-paginator>
+  </div>
+</div>

@@ -1,0 +1,86 @@
+<div class="card card-custom gutter-b">
+  <div class="card-header">
+    <div class="card-title">
+      <h3 class="card-label">Promo Code List</h3>
+    </div>
+    <div class="card-toolbar">
+      <button type="button" class="btn btn-primary" (click)="create()">New Promo Code</button>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="form form-label-right">
+      <div class="form-group row">
+        <div class="col-lg-6">
+          <div class="row">
+            <div class="col-lg-4">
+              <input type="text" class="form-control" (keyup)="search(searchString)" [(ngModel)]="searchString" name="searchText" placeholder="Search" value="" /><small
+                class="form-text text-muted"><b>Search</b> in text fields</small>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- begin:Table -->
+    <div class="table-responsive angular-bootstrap-table">
+      <table class="table table-head-custom table-vertical-center overflow-hidden custom-table-two">
+        <thead>
+          <th *ngFor="let column of Columns">
+            {{column.columnName}}
+            <app-sort-icon *ngIf="column.canSort" column="{{column.sortProprty}}" [activeColumn]="sorting.column"
+              [activeDirection]="sorting.direction" (sort)="sort($event)"></app-sort-icon>
+          </th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let coupon of couponService.items$ | async">
+            <td>{{ coupon.promoCodeId }}</td>
+            <td>{{ coupon.name }}</td>
+            <td>{{ coupon.code }}</td>
+            <td>{{ coupon.startDate}}</td>
+            <td>{{ coupon.expiryDate }}</td>
+            <td *ngIf="coupon.percentage != '0.00'">{{ coupon.percentage }}%</td>
+            <td *ngIf="coupon.amount != '0'">${{ coupon.amount }}</td>
+            <td>
+              <div class="dropup mt-3 mr-5" ngbDropdown>
+                <button
+                  class="btn btn-icon status-hover-effect btn-icon-mobile w-auto btn-clean d-flex align-items-center btn-lg px-2"
+                  id="dropupMenuButton" ngbDropdownToggle>
+                  <span class="label label-lg label-inline" [class.label-light-success]="coupon.status == 1"
+                    [class.label-light-warning]="coupon.status == 2">
+                    <ng-container *ngIf="coupon.status == 1">Active</ng-container>
+                    <ng-container *ngIf="coupon.status == 2">inActive</ng-container>
+                  </span>
+                </button>
+                <div class="dropdown-menu tx-13" ngbDropdownMenu aria-labelledby="dropupMenuButton">
+                  <a class="dropdown-item" (click)="changecoupon(coupon.promoCodeId,1,coupon.status)">Active</a>
+                  <a class="dropdown-item" (click)="changecoupon(coupon.promoCodeId,2,coupon.status)">inActive</a>
+                </div>
+              </div>
+            </td>
+            <td class="action-item-centeralign">
+              <a title="Edit promocode" class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3"
+                (click)="edit(coupon)">
+                <span [inlineSVG]="'./assets/media/svg/icons/Communication/Write.svg'" cacheSVG="true"
+                  class="svg-icon svg-icon-md svg-icon-primary">
+                </span>
+              </a>
+
+              <a title="Delete promocode" class="btn btn-icon btn-light btn-hover-danger btn-sm"
+                (click)="delete(coupon.promoCodeId)">
+                <span [inlineSVG]="'./assets/media/svg/icons/General/Trash.svg'" cacheSVG="true"
+                  class="svg-icon svg-icon-md svg-icon-danger">
+                </span>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- end: Table -->
+    
+    <app-paginator class="d-flex justify-content-between align-items-center flex-wrap" [paginator]="paginator"
+      [isLoading]="isLoading" (paginate)="paginate($event)"></app-paginator>
+  </div>
+</div>

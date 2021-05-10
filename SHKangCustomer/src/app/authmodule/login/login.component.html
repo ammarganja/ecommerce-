@@ -1,0 +1,32 @@
+<div class="modal fade login-modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="icon-close"></span></button>
+          <h4 class="modal-title">Login</h4>
+        </div>
+        <div class="modal-body">
+            <form action="" method="post">
+              
+                <div class="container">
+                    <div class="email-field">
+                        <span class="icon-login-email"></span>
+                        <input type="text" placeholder="Email ID" name="uname" required>
+                    </div>
+                    <div class="password-field">
+                        <span class="icon-lock"></span>
+                        <input type="password" placeholder="Password" name="psw" required>
+                        <span class="psw"><a data-toggle="modal" href="#forgot" data-dismiss="modal" aria-label="Close">Forgot?</a></span>
+                        
+                    </div>
+                    <button type="submit"> Login</button>
+                    <p>Not a Member? <a data-toggle="modal" href="#signup" data-dismiss="modal" aria-label="Close" class="login-close">Signup</a></p>
+                </div>
+            </form>
+        </div>
+      </div>
+      
+    </div>
+</div>

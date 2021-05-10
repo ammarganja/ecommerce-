@@ -1,0 +1,64 @@
+<div class="modal-content">
+    
+    <ng-container>
+        <div class="modal-header">
+            <div class="modal-title h4" id="example-modal-sizes-title-lg">Edit Content</div>
+        </div>
+    </ng-container>
+
+    <ng-container>
+        <div class="overlay overlay-block cursor-default modal-body" style="min-height: 404px;">
+
+            <form class="form" id="content_form" #contentForm="ngForm"
+                (ngSubmit)="contentForm.form.valid && submit()"> 
+                <!-- submit to submited+ -->
+
+                <div class="row">
+                    <div class="form-group col-md-6 ">
+                        <label>Name</label>
+                        <label class="label_required">*</label>
+                        <input class="form-control" name="name"
+                            type="text" [(ngModel)]="contentFormObj.name" #name="ngModel" required
+                            autocomplete="off" placeholder="Name" />
+                        <div *ngIf="contentForm.submitted || (name.invalid && (name.dirty))"
+                            class="is-invalid fv-plugins-message-container">
+                            <div *ngIf="name.errors?.required" class="fv-help-block">
+                                Name is required.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6 ">
+                        <label>Page Title</label>
+                        <label class="label_required">*</label>
+                        <input class="form-control" name="shortName"
+                            type="text" [(ngModel)]="contentFormObj.shortName" #shortName="ngModel" required
+                            autocomplete="off" placeholder="Short Name" />
+                        <div *ngIf="contentForm.submitted || (shortName.invalid && (shortName.dirty))"
+                            class="is-invalid fv-plugins-message-container">
+                            <div *ngIf="shortName.errors?.required" class="fv-help-block">
+                                Short name is required.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group col-md-12 paddingzero">
+                    <label>Description</label>
+                    <ckeditor [(ngModel)]="contentFormObj.description"  [config]="{toolbar : 'Basic',height:400, resize_enabled  : false}" name="description">
+                    </ckeditor>    
+                </div>
+
+
+                
+                <div class="modal-footer">
+                    <button  type="button" class="btn btn-light btn-elevate mr-2"
+                        (click)="modal.dismiss()">Cancel</button>
+                    <button type="submit" id="customer_form" class="btn btn-primary btn-elevate">Save</button>
+                </div>
+
+            </form>
+        </div>
+
+    </ng-container>
+</div>

@@ -1,0 +1,61 @@
+<div class="col-md-9">
+  <div class="my_account-right">
+    <div class="title">
+      <h4>Personal Information<span class="edit"><a (click)="editUserDetail()" style="cursor:pointer;">Edit</a></span>
+      </h4>
+    </div>
+    <div class="personal-info">
+      <form>
+        <ul *ngIf="userDetail">
+          <li>
+            <input type="text" placeholder="Full Name" id="fname" name="fname" [(ngModel)]="userDetail.firstName"
+              disabled>
+            <input type="text" placeholder="Company Name" id="lname" name="cname" [(ngModel)]="userDetail.companyName"
+              disabled>
+          </li>
+          <li>
+            <input type="text" placeholder="Email ID" id="email" name="email" [(ngModel)]="userDetail.emailAddress"
+              disabled>
+            <input type="text" placeholder="Phone Number" id="phone" name="phone" [(ngModel)]="userDetail.phoneNumber"
+              disabled>
+          </li>
+        </ul>
+      </form>
+    </div>
+
+    <div class="personal-info">
+      <div clss="row">
+        <div class="title">
+          <h4>Address</h4>
+        </div>
+        <ng-container *ngIf="userAddressList && userAddressList.length > 0">
+          <div class="col-md-4" *ngFor="let address of userAddressList">
+            <div [ngClass]="{'select-first-address': address.isPrimary, 'select-second-address' : !address.isPrimary}">
+              <h2>{{address.fullName}}</h2>
+              <ul>
+                <li>{{address.address1}} {{address.address2}} {{address.country}} {{address.state}} {{address.city}}
+                  {{address.zipcode}}.</li>
+                <li>{{address.phoneNumber}}</li>
+                <li>{{address.emailId}}</li>
+              </ul>
+              <div class="select-first-address-btns">
+                <ul>
+                  <li><a style="cursor: pointer;" (click)="editAddress(address)">EDIT</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+        <div class="col-md-4" (click)="editAddress();" style="cursor: pointer;">
+          <div class="select-first-address">
+            <ul>
+              <li class="select-first-address-btns">Add New Address</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

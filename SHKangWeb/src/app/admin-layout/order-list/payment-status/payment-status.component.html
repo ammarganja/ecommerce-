@@ -1,0 +1,222 @@
+<div class="modal-content" id="contentToConvert">
+  <div>
+    <div class="modal-header">
+      <div class="modal-title h4" id="example-modal-sizes-title-lg">
+        Invoice
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="overlay overlay-block cursor-default modal-body">
+      <form class="form" id="customer_form" #ordersizeform="ngForm" (ngSubmit)="ordersizeform.form.valid && cancel()">
+        <div class="pl-0 row justify-content-center py-8 px-8 py-md-10 px-md-0">
+            <div class="d-flex justify-content-between pb-10 pb-md-20 flex-column flex-md-row">
+              <h1 class="justify-content-center py-8 px-8 py-md-10 px-md-0" style="width: 500px;">ORDER DETAILS</h1>
+              <div class="d-flex flex-column align-items-md-end px-0">
+                <!--begin::Logo-->
+                <a class="mb-5">
+                  <img src="./assets/media/logos/Logo.svg" width="150" />
+                </a>
+
+                <!--end::Logo-->
+                <span class="d-flex flex-column align-items-md-end opacity-70">
+                  <span>{{orderDetail.adminUserDetails.firstName}}</span>
+                  <span>{{orderDetail.adminUserDetails.address1}},{{orderDetail.adminUserDetails.address1}}</span>
+                  <span>{{orderDetail.adminUserDetails.city}},{{orderDetail.adminUserDetails.zipcode}}</span>
+                </span>
+              </div>
+            </div>
+            <div class="border-bottom w-100"></div>
+            <div class="d-flex justify-content-between pt-6" style="width: 700p;">
+              <div class="d-flex flex-column flex-root" style="width: 200px;">
+                <span class="font-weight-bolder mb-2">ORDER DATE</span>
+                <span class="opacity-70" *ngIf="orderDetail">{{
+                  orderDetail.invoiceDate
+                }}</span>
+              </div>
+              <div class="d-flex flex-column flex-root" style="width: 250px;">
+                <span class="font-weight-bolder mb-2">ORDER NO.</span>
+                <span class="opacity-70" *ngIf="orderDetail">{{
+                  orderDetail.poNumber
+                }}</span>
+              </div>
+              <div class="d-flex flex-column flex-root" style="width: 300px;">
+                <span class="font-weight-bolder mb-2">DELIVERED TO.</span>
+                <span class="opacity-70" *ngIf="orderDetail"
+                  >{{ orderDetail.firstName }},<br />
+                  {{ orderDetail.address1 }}. <br />{{ orderDetail.city }},
+                  {{ orderDetail.state }} {{ orderDetail.zipcode }}</span
+                >
+              </div>
+            </div>
+        </div>
+        <div class="row justify-content-center py-8 px-8 py-md-10 px-md-0">
+          <div class="col-md-12">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th class="pl-0 font-weight-bold text-muted text-uppercase">
+                      Ordered Items
+                    </th>
+                    <th
+                      class="text-right font-weight-bold text-muted text-uppercase"
+                    >
+                      Group
+                    </th>
+                    <th
+                      class="text-right font-weight-bold text-muted text-uppercase"
+                    >
+                      Qty
+                    </th>
+                    <th
+                      class="text-right font-weight-bold text-muted text-uppercase"
+                    >
+                      Unit Price
+                    </th>
+                    <th
+                      class="text-right pr-0 font-weight-bold text-muted text-uppercase"
+                    >
+                      Amount
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    class="font-weight-boldest"
+                    *ngFor="let product of orderDetail.productDetails"
+                  >
+                    <td class="border-0 pl-0 pt-7 d-flex align-items-center">
+                      <!--begin::Symbol-->
+                      <div class="symbol symbol-40 flex-shrink-0 mr-4 bg-light">
+                        <div
+                          class="symbol-label"
+                          style="background-image: url({{product.image}})"
+                        ></div>
+                      </div>
+                      <!--end::Symbol-->
+                      {{ product.name }}
+                    </td>
+                    <td class="text-right pt-7 align-middle">
+                      {{ product.ratio }}
+                    </td>
+                    <td class="text-right pt-7 align-middle">
+                      {{ product.quantity }}
+                    </td>
+                    <td class="text-right pt-7 align-middle">
+                      ${{ product.price }}
+                    </td>
+                    <td class="text-primary pr-0 pt-7 text-right align-middle">
+                      $ {{ product.quantity * product.price }}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="row justify-content-center bg-gray-100">
+          <div class="col-md-12">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th class="font-weight-bold text-muted text-uppercase">
+                      Extras
+                    </th>
+                    <th class="font-weight-bold text-muted text-uppercase">
+                      <!-- PAYMENT STATUS -->
+                    </th>
+                    <th
+                      class="font-weight-bold text-muted text-uppercase text-right"
+                    >
+                      Amount
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="font-weight-bolder">
+                    <td>Product Vat</td>
+                    <td></td>
+                    <td
+                      *ngIf="orderDetail"
+                      class="text-primary font-size-h5 font-weight-boldest text-right"
+                    >
+                      ${{ orderDetail.totalGSTAmount }}
+                    </td>
+                  </tr>
+                  <tr class="font-weight-bolder">
+                    <td>Shipping Charge</td>
+                    <td *ngIf="orderDetail"></td>
+                    <td
+                      *ngIf="orderDetail"
+                      class="text-primary font-size-h5 font-weight-boldest text-right"
+                    >
+                      ${{ orderDetail.shippingCharges }}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="row justify-content-center bg-gray-100">
+          <div class="col-md-12">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th class="font-weight-bold text-muted text-uppercase">
+                      PAYMENT TYPE
+                    </th>
+                    <th class="font-weight-bold text-muted text-uppercase">
+                      PAYMENT STATUS
+                    </th>
+                    <th
+                      class="font-weight-bold text-muted text-uppercase text-right"
+                    >
+                      TOTAL
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="font-weight-bolder">
+                    <td>Invoice</td>
+                    <td *ngIf="orderDetail">
+                      {{ orderDetail.orderStatus }}
+                    </td>
+                    <td
+                      *ngIf="orderDetail"
+                      class="text-primary font-size-h3 font-weight-boldest text-right"
+                    >
+                      ${{ orderDetail.payableAmount }}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button
+    type="button"
+    class="btn btn-light btn-elevate mr-2 invoice-btn-size"
+    (click)="modal.dismiss()"
+  >
+    Cancel
+  </button>
+  <!-- <button type="submit" class="btn btn-primary btn-elevate" (click)="cancel()">Download Invoice</button> -->
+  <button type="button" class="btn btn-danger" (click)="print()">
+    Print Invoice
+  </button>
+  <button type="button" class="btn btn-warning" (click)="emailInvoice()">
+    Email Statement
+  </button>
+</div>

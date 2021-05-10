@@ -1,0 +1,229 @@
+<div class="modal-content">
+
+  <div class="modal-header">
+    <div class="modal-title h4" id="example-modal-sizes-title-lg" *ngIf="!product">
+      Add Product
+    </div>
+    <div class="modal-title h4" id="example-modal-sizes-title-lg" *ngIf="product">
+      Edit Product '{{ product.productName }}'
+    </div>
+  </div>
+
+
+  <form class="form" id="kt_login_signin_form" #productForm="ngForm" (ngSubmit)="submit(productForm)">
+    <div class="overlay overlay-block cursor-default modal-body">
+
+
+      <div class="row">
+        <!-- product name -->
+        <div class="form-group col-md-4">
+          <label>Product Name</label>
+          <label class="label_required">*</label>
+          <input class="form-control form-control-lg form-control-solid ng-pristine ng-touched" name="productnbame"
+            placeholder="Product Name" type="text" [(ngModel)]="addProductObj.Name" #name="ngModel" required
+            autocomplete="off" />
+          <div *ngIf="productForm.submitted || (name.invalid && name.dirty)"
+            class="is-invalid fv-plugins-message-container">
+            <div *ngIf="name.errors?.required" class="fv-help-block">
+              Product name is required.
+            </div>
+          </div>
+        </div>
+        <!-- price -->
+        <div class="form-group col-md-4">
+          <label>Price</label>
+          <label class="label_required">*</label>
+          <div class="input-group">
+            <div class="input-group add-product-border">
+              <div class="input-group-prepend">
+                <span class="input-group-text">$</span>
+              </div>
+              <input class="form-control form-control-lg form-control-solid ng-pristine ng-touched" name="price"
+                placeholder="Price" type="text" [(ngModel)]="addProductObj.Price" #price="ngModel" required
+                autocomplete="off" pattern="^[1-9]\d*(\.\d+)?$" />
+            </div>
+            <div *ngIf="productForm.submitted || (price.invalid && price.dirty)"
+              class="is-invalid fv-plugins-message-container">
+              <div *ngIf="price.errors?.required" class="fv-help-block">
+                Price is required.
+              </div>
+              <div *ngIf="!price.errors?.required && price.errors?.pattern" class="fv-help-block">
+                Please enter valid input.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8"></div>
+        </div>
+        <!-- style -->
+        <!-- <div class="form-group col-md-4">
+            <label>Style</label>
+            <label class="label_required">*</label>
+            <input class="form-control form-control-lg form-control-solid ng-pristine ng-touched" name="style"
+              placeholder="style" type="text" [(ngModel)]="addProductObj.style" #style="ngModel" required
+              autocomplete="off" />
+            <div *ngIf="productForm.submitted || (style.invalid && style.dirty)"
+              class="is-invalid fv-plugins-message-container">
+              <div *ngIf="style.errors?.required" class="fv-help-block">
+                Style is required.
+              </div>
+            </div>
+          </div> -->
+        <!-- vimeo numner -->
+        <!-- <div class="form-group col-md-4">
+        <label>Vimeo Number</label>
+        <label class="label_required">*</label>
+        <input class="form-control form-control-lg form-control-solid ng-pristine ng-touched" name="vimeonumber"
+          placeholder="Vimeo Number" type="text" [(ngModel)]="addProductObj.vimeonumber" #vimeonumber="ngModel"
+          required autocomplete="off" />
+        <div *ngIf="
+              productForm.submitted ||
+              (vimeonumber.invalid && vimeonumber.dirty)
+            " class="is-invalid fv-plugins-message-container">
+          <div *ngIf="vimeonumber.errors?.required" class="fv-help-block">
+            Vimeo number is required.
+          </div>
+        </div>-->
+        <!-- Quantity -->
+        <!-- <div class="form-group col-md-4">
+          <label>Quantity</label>
+          <label class="label_required">*</label>
+          <input class="form-control form-control-lg form-control-solid ng-pristine ng-touched" name="qty"
+            placeholder="Quantity" type="text" [(ngModel)]="addProductObj.qty" pattern="/^\d*$/" #qty="ngModel" required
+            autocomplete="off" />
+          <div *ngIf="productForm.submitted || (qty.invalid && qty.dirty)"
+            class="is-invalid fv-plugins-message-container">
+            <div *ngIf="qty.errors?.required" class="fv-help-block">
+              Product Quantity is required.
+            </div>
+            <div *ngIf="!qty.errors?.required && qty.errors?.pattern" class="fv-help-block">
+              Please enter valid input.
+            </div>
+          </div>
+        </div> -->
+        <!-- Catergory -->
+        <div class="form-group col-md-4">
+          <label>Category</label>
+          <label class="label_required">*</label>
+          <angular2-multiselect name="category" #category="ngModel" [data]="categoryList" [(ngModel)]="categorySelectItem"
+            [settings]="multiSelectSettings" (onSelect)="onCategoryItemSelect($event)"
+            (onSelectAll)="onCategoryAll($event)" required>
+          </angular2-multiselect>
+          <span (click)="addcategory()" class="add-size-group-plus">
+            <i class="fa fa-plus" aria-hidden="true"></i></span>
+          <div *ngIf="
+                productForm.submitted || (category.invalid && category.dirty)
+              " class="is-invalid fv-plugins-message-container">
+            <div *ngIf="category.errors?.required" class="fv-help-block">
+              Please Select Category.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-4">
+          <label>Size Group</label>
+          <angular2-multiselect name="sizes" required [data]="sizeGroupList" [(ngModel)]="sizeModel"
+            [settings]="singleSelectsettings" (onSelect)="onSizeItemSelect($event)"
+            (onDeSelect)="onSizeItemSelect($event)">
+          </angular2-multiselect>
+          <span (click)="addsize()" class="add-size-group-plus">
+            <i class="fa fa-plus" aria-hidden="true"></i></span>
+        </div>
+
+        <ng-container *ngIf="sizeModel && sizeModel[0] && sizeModel[0].id">
+          <ng-container *ngFor="let size of sizeUnitObj;let i = index">
+            <div class="form-group col-md-2">
+              <label>{{ size.name }}</label>
+              <input class="form-control form-control-lg form-control-solid ng-pristine ng-touched"
+                name="sizename_{{i}}" type="text" required [(ngModel)]="size.value" autocomplete="off" pattern="^\d*$"
+                placeholder="{{ size.name }}" #sizename="ngModel" />
+              <div *ngIf="
+                    productForm.submitted || (sizename.invalid && sizename.dirty)"
+                class="is-invalid fv-plugins-message-container">
+                <div *ngIf="sizename.errors?.required" class="fv-help-block">
+                  Size Name is required.
+                </div>
+                <div *ngIf="!sizename.errors?.required && sizename.errors?.pattern" class="fv-help-block">Please enter
+                  valid input.
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+
+
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label>Note</label>
+          <textarea class="form-control form-control-lg form-control-solid ng-pristine ng-touched" name="note"
+            placeholder="Notes" type="text" [(ngModel)]="addProductObj.ProductDescription" style="resize: none" autocomplete="off"
+            cols="10" rows="5"></textarea>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-4">
+          <label>Color</label>
+          <label class="label_required">*</label>
+          <angular2-multiselect name="color" [data]="colorsList" [(ngModel)]="colorsSelecteditem" #color="ngModel" required
+            [settings]="multiSelectSettings" (onSelect)="onColorItemSelect($event)"
+            (onDeSelectAll)="onColorRemoveAll($event)" (onDeSelect)="OnColorDeselect($event)">
+          </angular2-multiselect>
+          <span (click)="addcolor(color)" class="add-size-group-plus">
+            <i class="fa fa-plus" aria-hidden="true"></i></span>
+          <div *ngIf="productForm.submitted || (color.invalid && color.dirty)"
+            class="is-invalid fv-plugins-message-container">
+            <div *ngIf="color.errors?.required" class="fv-help-block">
+              Please Select Colors.
+            </div>
+          </div>
+        </div>
+        <div class="colorImageDropzone col-md-12" *ngIf="colorImageContainer.length != 0">
+          <div class="form-group inherit-display" *ngFor="let colors of colorImageContainer">
+            <div class="">
+              <label class="label label-primary font-weight-lighter mr-2 label-color">{{ colors.itemName }}</label>
+              <div class="custom-dropzone form-group" id="c-dropzone-{{ colors.id }}" ngx-dropzone [showPreviews]="true"
+                [customContent]="customDropzone"  (change)="onSelectColorFiles($event, colors)">
+                <ngx-dropzone-label>
+                  <div>
+                    <h2>Drop Product Image Here</h2>
+                  </div>
+                </ngx-dropzone-label>
+
+                <ng-container *ngFor="let img of colors.image; let i= index">
+                  <ngx-dropzone-image-preview 
+                  *ngIf="isImageFile(img)" ngProjectAs="ngx-dropzone-preview" class="drop_preview" [file]="img" [src]="img"
+                    id="{{ colors.id }}" [removable]="true" (removed)="onRemoveColorFiles(img, colors,i)">
+                    <ngx-dropzone-label *ngIf="product">
+                      <img *ngIf="!img.name" src="{{img}}">
+                    </ngx-dropzone-label>
+                  </ngx-dropzone-image-preview>
+                  <ngx-dropzone-video-preview ngProjectAs="ngx-dropzone-preview"  class="drop_preview" id="{{ colors.id }}" [removable]="true" (removed)="onRemoveColorFiles(img, colors,i)"
+                  *ngIf="!isImageFile(img)" 
+                   [file]="img">
+                    <ngx-dropzone-label *ngIf="product">
+                      <video width="150" loop muted autoplay oncanplay="this.play()" onloadedmetadata="this.muted = true">
+                        <source *ngIf="!img.name" src="{{img}}" type="video/mp4">
+                    </video>
+                    </ngx-dropzone-label>
+                  </ngx-dropzone-video-preview>
+                </ng-container>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light btn-elevate mr-2" (click)="modal.dismiss()">
+        Cancel
+      </button>
+      <ng-container>
+        <button type="submit" class="btn btn-primary btn-elevate">Save</button>
+      </ng-container>
+    </div>
+  </form>
+</div>

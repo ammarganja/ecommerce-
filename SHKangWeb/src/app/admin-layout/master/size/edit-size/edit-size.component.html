@@ -1,0 +1,72 @@
+<div class="modal-content">
+  <ng-container>
+    <div class="modal-header">
+      <div class="modal-title h4" id="example-modal-sizes-title-lg" *ngIf="!sizeFormObj.sizeName">
+        Add size group
+      </div>
+      <div class="modal-title h4" id="example-modal-sizes-title-lg" *ngIf="sizeFormObj.sizeName">
+        Edit size group '{{ sizeFormObj.sizeName }}'
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container>
+    <div class="overlay overlay-block cursor-default modal-body" style="min-height: 404px">
+      <form class="form" id="size_form" #sizeForm="ngForm" (ngSubmit)="sizeForm.form.valid && submit()">
+        <div class="row">
+          <div class="form-group col-md-6 mt-3">
+            <label>Size group name</label>
+            <label class="label_required">*</label>
+            <input class="form-control form-control-lg form-control-solid ng-pristine ng-touched" name="sizeName"
+              type="text" [(ngModel)]="sizeFormObj.sizeName" #sizeName="ngModel" required autocomplete="off"
+              placeholder="Size group name" />
+            <div *ngIf="sizeForm.submitted || (sizeName.invalid && sizeName.dirty)"
+              class="is-invalid fv-plugins-message-container">
+              <div *ngIf="sizeName.errors?.required" class="fv-help-block">
+                Size group name is required.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group col-md-12 mt-3">
+            <button [disabled]="this.sizeFormObj.sizeList.length == 15" type="button"
+              class="btn btn-primary btn-elevate" (click)="add()">
+              +</button>&nbsp;
+            <button [disabled]="this.sizeFormObj.sizeList.length == 1" type="button" class="btn btn-primary btn-elevate"
+              (click)="minus()">
+              -
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-3 mt-3" *ngFor="let size of sizeFormObj.sizeList">
+            <label>Size name {{ size.id }}</label>
+            <div class="add-size-group-close">
+              <span><i (click)="remove(size.id)" class="fa fa-times"></i></span>
+
+              <input class="form-control form-control-lg form-control-solid ng-pristine ng-touched fa fa-times"
+                name="size_{{size.id}}" type="text" [(ngModel)]="size.size_name" #sizeName="ngModel" required
+                autocomplete="off" placeholder="Size name" />
+
+              <div *ngIf="sizeForm.submitted || (sizeName.invalid && sizeName.dirty)"
+                class="is-invalid fv-plugins-message-container">
+                <div *ngIf="sizeName.errors?.required" class="fv-help-block">
+                  Size name is required.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light btn-elevate mr-2" (click)="modal.close()">
+            Cancel
+          </button>
+          <button type="submit" id="size_form" class="btn btn-primary btn-elevate">
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </ng-container>
+</div>

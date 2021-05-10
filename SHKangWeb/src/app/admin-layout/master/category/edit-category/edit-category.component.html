@@ -1,0 +1,38 @@
+<div class="modal-content">
+
+
+        <div class="modal-header">
+            <div class="modal-title h4" id="example-modal-sizes-title-lg" *ngIf="!category"> Add Category</div>
+            <div class="modal-title h4" id="example-modal-sizes-title-lg" *ngIf="category"> Edit Category
+                '{{categoryFormObj.name}}'</div>
+        </div>
+        <div class="overlay overlay-block cursor-default modal-body">
+
+            <form class="form" id="categoryFormObj_form" #categoryFormObjForm="ngForm"
+                (ngSubmit)="categoryFormObjForm.form.valid && submit()">
+
+                <div class="row">
+
+                        <div class="form-group col-md-12">
+                            <label>Category</label>
+                            <label class="label_required">*</label>
+                            <input class="form-control form-control-lg form-control-solid" name="name" type="text" [(ngModel)]="categoryFormObj.CategoryType"
+                                #name="ngModel" required autocomplete="off" placeholder="Category Name" />
+                            <div *ngIf="categoryFormObjForm.submitted || (name.invalid && name.dirty)"
+                                class="is-invalid fv-plugins-message-container">
+                                <div *ngIf="name.errors?.required" class="fv-help-block">
+                                    Category name is required.
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light btn-elevate mr-2" (click)="modal.dismiss()">Cancel</button>
+                    <button type="submit" id="categoryFormObj_form" class="btn btn-primary btn-elevate">Save</button>
+                </div>
+
+            </form>
+        </div>
+
+</div>

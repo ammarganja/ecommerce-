@@ -1,0 +1,127 @@
+<div class="card card-custom gutter-b">
+  <div class="card-header">
+    <div class="card-title">
+      <h3 class="card-label">Product list</h3>
+    </div>
+    <div class="card-toolbar">
+      <button type="button" class="btn btn-primary" (click)="create()">New Product</button>
+    </div>
+  </div>
+  <div class="card-body">
+    <!-- begin: Filtration form -->
+    <div class="form form-label-right">
+      <div class="form-group row">
+        <div class="col-lg-6">
+          <div class="row">
+
+            <div class="col-lg-4" [formGroup]="searchGroup">
+              <input type="text" (keyup)="search(searchString)" [(ngModel)]="searchString" class="form-control" name="searchText" placeholder="Search" value=""/>
+              <small class="form-text text-muted"><b>Search</b> in all fields</small>
+            </div>
+
+            <ng-container *ngIf="!hasQueryFilter">
+              <div class="col-lg-4">
+                <angular2-multiselect name="category" [data]="categoryList" [(ngModel)]="categoryModel"
+                  [settings]="singleSelectsettings" (onSelect)="onCategorySelect($event)" (onDeSelectAll)="onCategoryDeselectAll()">
+                </angular2-multiselect><small class="form-text text-muted"><b>Filter</b> by Category</small>
+              </div>
+            
+              <div class="col-lg-4">
+                <angular2-multiselect name="colors" [data]="colorList" [(ngModel)]="colorModel" [settings]="singleSelectsettings"
+                  (onSelect)="onColorSelect($event)" (onDeSelectAll)="onColorDeselectAll()">
+                </angular2-multiselect><small class="form-text text-muted"><b>Filter</b> by Color</small>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="hasQueryFilter">
+              <div class="col-lg-4">
+                <button type="button" class="btn btn-primary" (click)="backToProduct()">Back to Product</button>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- end: Grouping -->
+
+    <!-- begin:Table -->
+
+    <div class="table-responsive angular-bootstrap-table productmanagemt-table-title-width">
+      <table class="table table-head-custom table-vertical-center overflow-hidden custom-table-two">
+        <thead>
+          <th *ngFor="let column of Columns">
+            {{column.columnName}}
+            <app-sort-icon *ngIf="column.canSort" column="{{column.sortProprty}}" [activeColumn]="sorting.column"
+              [activeDirection]="sorting.direction" (sort)="sort($event)"></app-sort-icon>
+          </th>
+        </thead>
+        <tbody class="modal-body">
+          
+          <tr *ngFor="let product of productService.items$ | async">
+            <td>{{ product.productId }}</td>
+            <td><img src="{{ product.image }}" height="50" /></td>
+            <td>{{ product.productName }}</td>
+            <td>{{ product.categoryType }}</td>
+            <td>${{ product.price }}</td>
+            <!-- <td>{{ product.style ?product.style:'-' }}</td> -->
+            <td>{{ product.color }}</td>
+            <td>{{ product.size }}</td>
+            <td>
+              <div class="dropup mt-3 mr-5" ngbDropdown>
+                <button class="btn btn-icon status-hover-effect btn-icon-mobile w-auto btn-clean d-flex align-items-center btn-lg px-2"
+                  id="dropupMenuButton" ngbDropdownToggle>
+                  <span class="label label-lg label-inline" [class.label-light-success]="product.status === 1"
+                    [class.label-light-danger]="product.status === 2">
+                    <ng-container *ngIf="product.status === 1">Active</ng-container>
+                    <ng-container *ngIf="product.status === 2">Inactive</ng-container>
+                  </span>
+                </button>
+                <div class="dropdown-menu tx-13" ngbDropdownMenu aria-labelledby="dropupMenuButton">
+                  <a class="dropdown-item" (click)="productstatus(product.productId,1,product.status)">Active</a>
+                  <a class="dropdown-item" (click)="productstatus(product.productId,2,product.status)">Inactive</a>
+                </div>
+              </div>
+            </td>
+            <!-- <td>
+              <span class="label label-lg label-inline" [class.label-light-danger]="product.status === 1"
+                [class.label-light-success]="product.status === 2" [class.label-light-primary]="product.status === 3">
+                <ng-container *ngIf="product.status === 1">Suspended</ng-container>
+                <ng-container *ngIf="product.status === 2">Active</ng-container>
+                <ng-container *ngIf="product.status === 3">Pending</ng-container>
+              </span>
+            </td> -->
+            <td class="action-item-centeralign">
+
+
+              <a title="View product" class="btn btn-icon btn-light btn-hover-success btn-sm mx-3"
+              (click)="view(product)">
+                <span cacheSVG="true"
+                  class="svg-icon svg-icon-md svg-icon-primary">
+                  <i class="fa fa-eye" aria-hidden="true"></i>
+                </span>
+              </a>
+
+              <a title="Edit product" class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3"
+                (click)="edit(product)">
+                <span [inlineSVG]="'./assets/media/svg/icons/Communication/Write.svg'" cacheSVG="true"
+                  class="svg-icon svg-icon-md svg-icon-primary">
+                </span>
+              </a>
+
+              <a title="Delete product" class="btn btn-icon btn-light btn-hover-danger btn-sm"
+                (click)="delete(product.productId)">
+                <span [inlineSVG]="'./assets/media/svg/icons/General/Trash.svg'" cacheSVG="true"
+                  class="svg-icon svg-icon-md svg-icon-danger">
+                </span>
+              </a>
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- end: Table -->
+    <app-paginator class="d-flex justify-content-between align-items-center flex-wrap" [paginator]="paginator"
+      [isLoading]="isLoading" (paginate)="paginate($event)"></app-paginator>
+  </div>
+</div>

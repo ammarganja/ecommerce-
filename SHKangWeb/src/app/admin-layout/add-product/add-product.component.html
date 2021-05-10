@@ -1,0 +1,98 @@
+<div class="modal-content">
+    <div class="card card-custom gutter-b">
+        <div class="card-header">
+            <div class="card-title">
+                <h3 class="card-label">Add Products</h3>
+            </div>
+        </div>
+        <div class="card-body modal-body">
+            <!-- begin: Filtration form -->
+            <div class="form form-label-right">
+                <div class="form-group row">
+                    <div class="col-lg-2" [formGroup]="searchGroup">
+                        <input type="text" class="form-control" name="searchText" placeholder="Search" value="" /><small
+                            class="form-text text-muted"><b>Search</b> in all fields</small>
+                    </div>
+                </div>
+            </div>
+            <!-- begin:Table -->
+            <div class="table-responsive angular-bootstrap-table">
+                <table class="table table-head-custom table-vertical-center overflow-hidden">
+                    <thead>
+                        <th>
+
+                        </th>
+                        <th>
+                            Image
+                        </th>
+                        <th>
+                            Date
+                            <app-sort-icon column="createdDate" [activeColumn]="sorting.column"
+                                [activeDirection]="sorting.direction" (sort)="sort($event)"></app-sort-icon>
+                        </th>
+                        <th>
+                            Category
+                            <app-sort-icon column="category" [activeColumn]="sorting.column"
+                                [activeDirection]="sorting.direction" (sort)="sort($event)"></app-sort-icon>
+                        </th>
+                        <th>
+                            Color
+                            <app-sort-icon column="color" [activeColumn]="sorting.column"
+                                [activeDirection]="sorting.direction" (sort)="sort($event)"></app-sort-icon>
+                        </th>
+                        <th>
+                            Size Group Name
+                            <app-sort-icon column="size_ratio" [activeColumn]="sorting.column"
+                                [activeDirection]="sorting.direction" (sort)="sort($event)"></app-sort-icon>
+                        </th>
+                        <th>
+                            Style
+                            <app-sort-icon column="style" [activeColumn]="sorting.column"
+                                [activeDirection]="sorting.direction" (sort)="sort($event)"></app-sort-icon>
+                        </th>
+                        <th>
+                            Quantity
+                        </th>
+                        <th>
+                            Price
+                            <app-sort-icon column="price" [activeColumn]="sorting.column"
+                                [activeDirection]="sorting.direction" (sort)="sort($event)"></app-sort-icon>
+                        </th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let Product of productList">
+                            <td>
+                                <mat-checkbox name="prdCheckBox{{i}}" [(ngModel)]="Product.selectedProduct"
+                                    (change)="changeValueEvent()">
+                                </mat-checkbox>
+                            </td>
+
+                            <td> <img class="prd-img" src="{{Product.img}}" /></td>
+                            <td>{{ Product.createdDate }}</td>
+                            <td>{{ Product.category }}</td>
+                            <td>{{ Product.color }}</td>
+                            <td>{{ Product.size_ratio }}</td>
+                            <td>{{ Product.style }}</td>
+                            <td>
+                                <input [disabled]="!Product.selectedProduct" type="text" class="form-control"
+                                    name="qty{{i}}" placeholder="Quantity" [(ngModel)]="Product.qty" required />
+                                <div *ngIf="Product.hasError">
+                                    <span style="color: red;">This is required</span>
+                                </div>
+                            </td>
+                            <td>$ {{ Product.price }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- end: Table -->
+            <app-paginator class="d-flex justify-content-between align-items-center flex-wrap" [paginator]="paginator"
+                [isLoading]="isLoading" (paginate)="paginate($event)"></app-paginator>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light btn-elevate mr-2" (click)="modal.dismiss()">Cancel</button>
+        <button type="submit" class="btn btn-primary btn-elevate" (click)="submit()">Save</button>
+    </div>
+</div>

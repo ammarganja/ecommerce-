@@ -1,0 +1,113 @@
+<div class="card card-custom gutter-b">
+    <div class="card-header">
+        <div class="card-title">
+            <h3 class="card-label">Order list</h3>
+        </div>
+        <div class="card-toolbar">
+            <button type="button" class="btn btn-primary" (click)="create()">New Order</button>
+        </div>
+    </div>
+    <div class="card-body">
+        <!-- begin: Filtration form -->
+        <div class="form form-label-right">
+            <div class="form-group row">
+              <div class="col-lg-6">
+                <div class="row" >
+                  <div class="col-lg-4" [formGroup]="searchGroup">
+                    <input type="text" (keyup)="search(searchString)" [(ngModel)]="searchString" class="form-control" name="searchText" placeholder="Search" value=""
+                    /><small class="form-text text-muted"><b>Search</b> in all fields</small>
+                  </div>
+
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        <!-- end: Filtration form -->
+
+        <!-- begin:Table -->
+        <div class="table-responsive angular-bootstrap-table ordermanagemt-table-title-width">
+            <table class="table table-head-custom table-vertical-center overflow-hidden custom-table-one">
+                <thead>
+                    <th *ngFor="let column of Columns">
+                        {{column.columnName}}
+                        <app-sort-icon *ngIf="column.canSort" column="{{column.sortProprty}}" [activeColumn]="sorting.column" [activeDirection]="sorting.direction"
+                        (sort)="sort($event)"></app-sort-icon>
+                    </th>
+                </thead>
+                <tbody>
+
+                    <tr *ngFor="let order of orderService.items$ | async">
+                        <td>{{ order.orderId }}</td>
+                        <td width="20%" *ngIf="order">{{ order.orderDate}}</td>
+                        <td>{{ order.poNumber }}</td>
+                        <td>
+                            <p *ngIf="order.payableAmount == null">No Invoice</p>
+                            <tr *ngFor="let invoice of order.invoiceList">
+                                <td style="border: none;">
+                                    <a title="See Invoice" class="text-primary" style="cursor: pointer !important;"
+                                (click)="openInvoice(invoice.invoiceId)">
+                                {{ invoice.invoiceId }}
+                            </a>
+                                </td>
+                                <td style="border: none;"><div class="dropup mt-3 mr-5" ngbDropdown>
+                                    <button class="btn btn-icon btn-icon-mobile status-hover-effect w-auto btn-clean d-flex align-items-center btn-lg px-2" id="dropupMenuButton" ngbDropdownToggle>
+                                      <span class="label label-lg label-inline"
+                                      [class.label-light-success]="invoice.status == 1"
+                                      [class.label-light-warning]="invoice.status == 2"
+                                      [class.label-light-prinary]="invoice.status == 3"
+                                      [class.label-light-info]="invoice.status == 4"
+                                      [class.label-light-danger]="invoice.status == 5">
+                                      <ng-container *ngIf="invoice.status == 1">Paid</ng-container>
+                                      <ng-container *ngIf="invoice.status == 2">Rady For Payment</ng-container>
+                                      <ng-container *ngIf="invoice.status == 3">In Progress</ng-container>
+                                      <ng-container *ngIf="invoice.status == 4">Delivered and Completed</ng-container>
+                                      <ng-container *ngIf="invoice.status == 5">Cancelled</ng-container>
+                                    </span>
+                                    </button>
+                                    <div class="dropdown-menu tx-13" ngbDropdownMenu aria-labelledby="dropupMenuButton">
+                                      <a class="dropdown-item" (click)="changeOrder(invoice.invoiceId,1,invoice.status)">Paid</a>
+                                      <a class="dropdown-item" (click)="changeOrder(invoice.invoiceId,2,invoice.status)">Ready For Payment</a>
+                                      <a class="dropdown-item" (click)="changeOrder(invoice.invoiceId,3,invoice.status)">In Progress</a>
+                                      <a class="dropdown-item" (click)="changeOrder(invoice.invoiceId,4,invoice.status)">Delivered and Completed</a>
+                                      <a class="dropdown-item" (click)="changeOrder(invoice.invoiceId,5,invoice.status)">Cancelled</a>
+                                    </div>
+                                </div></td>
+                            </tr>
+                            </td>
+                        <td>{{ order.emailAddress }}</td>
+                        <td>{{ order.mobileNumber }}</td>
+                        <td>$ {{ order.payableAmount }}</td>
+                        <td>
+                            
+                        </td>
+                        <td class="action-item-centeralign">
+                            <a title="Edit order" class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3"
+                                (click)="edit(order)">
+                                <span title="Edit order" [inlineSVG]="'./assets/media/svg/icons/Communication/Write.svg'" cacheSVG="true"
+                                    class="svg-icon svg-icon-md svg-icon-primary">
+                                </span>
+                            </a>
+
+                            <a title="Delete order" class="btn btn-icon btn-light btn-hover-danger btn-sm"
+                                (click)="delete(order.orderId)">
+                                <span title="Delete order" [inlineSVG]="'./assets/media/svg/icons/General/Trash.svg'" cacheSVG="true"
+                                    class="svg-icon svg-icon-md svg-icon-danger">
+                                </span>
+                            </a>
+                            <a title="Create Invoice" class="btn btn-icon btn-light btn-hover-danger btn-sm"
+                                (click)="createInvoice(order.orderId)">
+                                <span title="Create Invoice" [inlineSVG]="'./assets/media/svg/icons/Files/File.svg'" cacheSVG="true"
+                                    class="svg-icon svg-icon-md svg-icon-danger">
+                                </span>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- end: Table -->
+        <app-paginator class="d-flex justify-content-between align-items-center flex-wrap" [paginator]="paginator"
+        [isLoading]="isLoading" (paginate)="paginate($event)"></app-paginator>
+    </div>
+</div>delete

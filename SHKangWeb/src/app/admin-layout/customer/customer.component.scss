@@ -1,0 +1,18 @@
+.status {cursor: pointer;}
+.left-46{
+    margin-left: 46px;
+}
+.top-10{
+    margin-top: 10px;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.isDisabled {
+    color: currentColor;
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.5;
+    text-decoration: none;
+  }

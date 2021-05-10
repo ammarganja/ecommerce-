@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1340
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SHKang.API", "SHKang.API\SHKang.API.csproj", "{52CD466B-7B0C-443F-86A1-034E5E4152C7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SHKang.Model", "SHKang.Model\SHKang.Model.csproj", "{082219BF-0594-4350-97F2-4FBD61387B97}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SHKang.Repository", "SHKang.Repository\SHKang.Repository.csproj", "{C2735EFD-10B1-477A-9232-44A59C74CB09}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SHKang.Core", "SHKang.Core\SHKang.Core.csproj", "{CB97AFE1-F99C-4507-9D47-9A556D84B6BC}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SHKangWeb", "SHKangWeb\", "{2726504E-1BD4-4395-A114-68BDBD354157}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_57950"
+		Debug.AspNetCompiler.PhysicalPath = "SHKangWeb\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_57950\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_57950"
+		Release.AspNetCompiler.PhysicalPath = "SHKangWeb\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_57950\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "57950"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52CD466B-7B0C-443F-86A1-034E5E4152C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52CD466B-7B0C-443F-86A1-034E5E4152C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52CD466B-7B0C-443F-86A1-034E5E4152C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52CD466B-7B0C-443F-86A1-034E5E4152C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{082219BF-0594-4350-97F2-4FBD61387B97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{082219BF-0594-4350-97F2-4FBD61387B97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{082219BF-0594-4350-97F2-4FBD61387B97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{082219BF-0594-4350-97F2-4FBD61387B97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2735EFD-10B1-477A-9232-44A59C74CB09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2735EFD-10B1-477A-9232-44A59C74CB09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2735EFD-10B1-477A-9232-44A59C74CB09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2735EFD-10B1-477A-9232-44A59C74CB09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB97AFE1-F99C-4507-9D47-9A556D84B6BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB97AFE1-F99C-4507-9D47-9A556D84B6BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB97AFE1-F99C-4507-9D47-9A556D84B6BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB97AFE1-F99C-4507-9D47-9A556D84B6BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2726504E-1BD4-4395-A114-68BDBD354157}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2726504E-1BD4-4395-A114-68BDBD354157}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2726504E-1BD4-4395-A114-68BDBD354157}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{2726504E-1BD4-4395-A114-68BDBD354157}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4B30EA02-F216-4BDF-AA72-47F6EFAB9893}
+	EndGlobalSection
+EndGlobal

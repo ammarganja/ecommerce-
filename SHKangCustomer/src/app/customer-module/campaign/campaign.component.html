@@ -1,0 +1,40 @@
+<section class="campaigns">
+    <div class="inner-page-container" infinite-scroll (scrolled)="getCampainList(true)" 
+    [infiniteScrollDistance]="scrollDistance"
+    [infiniteScrollUpDistance]="scrollUpDistance"
+    [infiniteScrollThrottle]="throttle">
+        <div class="row">
+            <div class="col-sm-12">
+                <ul>
+                    <ng-container *ngFor="let item of items; let i=index">
+                        <li *ngIf="0 === i % 2">
+                            <div class="campaign-content-left">
+                                <div class="campaign-left">
+                                    <img src="{{item.image}}" />
+                                </div>
+                                <div class="campaign-right">
+                                    <h2>{{item.campaignName}}</h2>
+                                    <p>{{item.description}}</p>
+                                    <div class="common-button"><a routerLink="{{item.campaignId}}">Explore More</a></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li *ngIf="0 !== i % 2">
+                            <div class="campaign-content-right">
+                                <div class="campaign-right">
+                                    <h2>{{item.campaignName}}</h2>
+                                    <p>{{item.description}}</p>
+                                    <div class="common-button"><a routerLink="{{item.campaignId}}">Explore More</a></div>
+                                </div>
+                                <div class="campaign-left">
+                                    <img src="{{item.image}}" />
+                                </div>
+                            </div>
+                        </li>
+                    </ng-container>
+                </ul>
+                <div class="common-button" *ngIf="items.length != total"><a>Explore More</a></div>
+            </div>            
+        </div>
+    </div>
+</section>

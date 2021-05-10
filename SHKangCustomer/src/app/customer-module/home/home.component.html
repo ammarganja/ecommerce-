@@ -1,0 +1,80 @@
+<app-banner></app-banner>
+<ng-container *ngIf="HomeCampaign && HomeCampaign.length > 0">
+  <owl-carousel [options]="SlideOptions" [carouselClasses]="['owl-theme', 'sliding']">
+    <section class="about-background" *ngFor="let campaing of HomeCampaign">
+      <div class="inner-page-container">
+        <div class="row display-flex">
+          <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
+            <div class="about-inner-page">
+              <div class="about-center">
+                <h2>{{ campaing.campaignName }}</h2>
+                <p>{{ campaing.description }}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-7 col-md-6 col-sm-6 col-xs-12 about-image-wrap"
+            style="background-image: url('{{ campaing.image }}');">
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </owl-carousel>
+</ng-container>
+
+<section class="home-product-wrap">
+  <div class="inner-page-container">
+    <div class="product-listing">
+      <ul class="row">
+        <li class="col-sm-12" *ngFor="let products of helperService.productList">
+          <div class="product-card">
+            <ng-container *ngIf="helperService.isLogIn">
+
+              <a class="product-disable" *ngIf="!helperService.isLogIn" (click)="LoginModelOpen(products)">
+                <div class="product-card-image">
+                  <img src="{{ products.image }}" />
+                </div>
+                <div class="product-card-info">
+                  <span class="category">Please Login</span>
+                  <h5>Buyer's Now</h5>
+                </div>
+              </a>
+            </ng-container>
+            
+
+            <ng-container *ngIf="helperService.isLogIn">
+              <div class="product-card-image">
+                <a  routerLink="/customer/product/{{products.productId}}">
+                  <img src="{{ products.image }}" />
+                </a>
+                <div class="product-cart-overlay">
+                  <a href="order_summary.html"><span class="icon-cart"></span></a>
+                  <a href="#"><span class="icon-zoom"></span></a>
+                </div>
+              </div>
+              <div class="product-card-info">
+                <span class="category">
+                  <a *ngIf="helperService.isLogIn" routerLink="/customer/product/{{products.productId}}">
+                    {{products.category}}
+                  </a>
+                </span>
+                <h5>
+                  <a *ngIf="helperService.isLogIn" routerLink="/customer/product/{{products.productId}}">
+                    {{products.productName}}
+                  </a>
+                </h5>
+              </div>
+            </ng-container>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Tabs content -->
+    <div class="load-more" *ngIf="productList && productList.length != total">
+      <a *ngIf="helperService.isLogIn" routerLink="/customer/styles">Load More</a>
+    </div>
+
+  </div>
+</section>

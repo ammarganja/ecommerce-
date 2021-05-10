@@ -1,0 +1,45 @@
+<div>
+    <div class="modal-header">
+        <button type="button" class="close" (click)="close()" aria-label="Close"><span
+                class="icon-close"></span></button>
+        <div >
+            <h4 class="modal-title">Color :
+                <span  (click)="selectColor(color.productColorId)" class="Dresses router-link" *ngFor="let color of colorsList"
+                [ngClass]="{'Dresses':color?.selected, 'color-notselected': !color?.selected}">
+                {{color?.color}}
+            </span>
+            </h4>
+        </div>
+    </div>
+    <div class="modal-body">
+        <!-- <owl-carousel [options]="SlideOptions" [carouselClasses]="['owl-theme', 'sliding']">
+            <div class="testimonial-item" *ngFor="let image of imagesList">
+                <div class="testimonials-name">
+                    <img src="{{image.image}}" class="testimonial-img" alt="">
+                </div>
+            </div>
+        </owl-carousel> -->
+        <section id="testimonials" class="">
+            <div class="container inner-page-container" data-aos="zoom-in">
+              <ng-container *ngIf="imagesList && imagesList.length > 0">
+                <owl-carousel [options]="SlideOptions" [carouselClasses]="['owl-theme', 'sliding']">
+                  <div class="testimonial-item" *ngFor="let image of imagesList">
+                    <p>
+                      <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    </p>
+                    <div class="testimonials-name">
+                      <img src="{{image.image}}"
+                       *ngIf="image.image.split('.').pop() !== 'mp4'"
+                        class="testimonial-img" alt="">
+                      <video *ngIf="image.image.split('.').pop() == 'mp4'" loop muted autoplay oncanplay="this.play()" onloadedmetadata="this.muted = true">
+                        <source src="{{image.image}}" type="video/mp4">
+                    </video>
+                    </div>
+                  </div>
+                </owl-carousel>
+              </ng-container>
+              
+            </div>
+          </section>
+    </div>
+</div>

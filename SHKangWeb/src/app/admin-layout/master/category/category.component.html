@@ -1,0 +1,72 @@
+<div class="card card-custom gutter-b">
+  <div class="card-header">
+    <div class="card-title">
+      <h3 class="card-label">Category List</h3>
+    </div>
+    <div class="card-toolbar">
+      <button type="button" class="btn btn-primary" (click)="create()">New Category</button>
+    </div>
+  </div>
+  <div class="card-body">
+    <!-- begin: Filtration form -->
+    <div class="form form-label-right">
+      <div class="form-group row">
+        <div class="col-lg-6">
+          <div class="row" >
+
+            <div class="col-lg-4">
+              <input type="text" (keyup)="search(searchString)" [(ngModel)]="searchString" class="form-control" name="searchText" placeholder="Search" value=""
+                 /><small class="form-text text-muted"><b>Search</b> by name</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end: Filtration form -->
+
+    <!-- begin:Table -->
+    <div class="table-responsive angular-bootstrap-table">
+      <table class="table table-head-custom table-vertical-center overflow-hidden">
+        <thead>
+          <th *ngFor="let column of Columns">
+              {{column.columnName}}
+              <app-sort-icon *ngIf="column.canSort" column="{{column.sortProprty}}" [activeColumn]="sorting.column" [activeDirection]="sorting.direction"
+                  (sort)="sort($event)"></app-sort-icon>
+          </th>
+      </thead>
+        <tbody>
+          <tr *ngFor="let category of CategorysService.items$ | async">
+            <!-- <td class="selection-cell">
+              <label class="checkbox checkbox-single"><input type="checkbox" (click)="grouping.selectRow(customer.id)"
+                  [checked]="grouping.isRowSelected(customer.id)" />
+                <span></span>
+              </label>
+            </td> -->
+            <td>{{ category.productCategoryTypeId }}</td>
+            <td>{{ category.name }}</td>
+            <td><a (click)="redirectProduct(category);" routerLink="">{{ category.totalProduct }}</a></td>
+           
+            <td class="action-item-centeralign">
+              <a title="Edit Category" class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3"
+                (click)="edit(category)">
+                <span [inlineSVG]="'./assets/media/svg/icons/Communication/Write.svg'" cacheSVG="true"
+                  class="svg-icon svg-icon-md svg-icon-primary">
+                </span>
+              </a>
+
+              <a title="Delete Category" class="btn btn-icon btn-light btn-hover-danger btn-sm"
+                (click)="delete(category.productCategoryTypeId)">
+                <span [inlineSVG]="'./assets/media/svg/icons/General/Trash.svg'" cacheSVG="true"
+                  class="svg-icon svg-icon-md svg-icon-danger">
+                </span>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- end: Table -->
+    <app-paginator class="d-flex justify-content-between align-items-center flex-wrap" [paginator]="paginator"
+      [isLoading]="isLoading" (paginate)="paginate($event)"></app-paginator>
+  </div>
+</div>

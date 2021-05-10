@@ -1,0 +1,70 @@
+<header class="header navbar-fixed-top">
+  <div class="inner-page-container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="header-content">
+          <div class="logo">
+            <a routerLinkActive="active" routerLink="customer/home/"><img src="assets/images/Logo.png" alt="" /></a>
+          </div>
+
+          <div class="navbar-header navbar-right">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+              aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li><a class="router-link" routerLinkActive="active" (click)="routerNavigation('customer/home')" routerLink="customer/home" >Home</a></li>
+                <li><a class="router-link" routerLinkActive="active" (click)="routerNavigation('customer/styles')" routerLink="customer/styles" >Styles</a></li>
+                <li><a class="router-link" routerLinkActive="active" (click)="routerNavigation('customer/campaign')" routerLink="customer/campaign" >Campaign</a></li>
+              </ul>
+            </div>
+            <!--/.nav-collapse -->
+            <div class="search" *ngIf="isSearchIcon">
+              <a style="cursor: pointer" (click)="searchTrue()"><span class="icon-search"></span></a>
+              <div *ngIf="searchCollpase">
+                <input type="text" class="form-control" [(ngModel)]="SearchString" (keyup)="searchProducts(SearchString)">
+              </div>
+            </div>
+            <!-- <div class="cart">
+              <a href="#"><span class="icon-basket"></span></a>
+            </div> -->
+            <div class="cart">
+              <a routerLink="/customer/ordersummary">
+                <span class="icon-basket"></span>
+                <span class="basket-iconbar" *ngIf="helperService.isLogIn">{{helperService.cartCount}}</span></a>
+            </div>
+            <div class="login" *ngIf="!helperService.isLogIn">
+              <button type="button" (click)="LoginModelOpen()" class="btn btn-primary">
+                Login
+              </button>
+            </div>
+            <div *ngIf="helperService.isLogIn">
+              <div class="my-account" ngbDropdown>
+                <a class="btn dropdown-toggle" ngbDropdownToggle>
+                  <span class="icon-user">
+
+                  </span>
+                  My Account
+                  <img src="assets/images/color.svg" /></a>
+                <ul class="dropdown-menu" ngbDropdownMenu>
+                  <li><a routerLink="/customer/profile/myorders" style="cursor: pointer;"><span
+                        class="icon-persones-group"></span>Orders</a></li>
+                  <li><a routerLink="/customer/profile/myprofile" style="cursor: pointer;"><span
+                        class="icon-file"></span>My Info</a></li>
+                  <li><a routerLink="/" style="cursor: pointer;" (click)="logout()"><span
+                        class="icon-log-out"></span>Logout</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!----Login Model-->

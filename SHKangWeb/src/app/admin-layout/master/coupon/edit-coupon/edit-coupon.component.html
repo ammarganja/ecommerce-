@@ -1,0 +1,134 @@
+<div class="modal-content">
+  <ng-container>
+    <div class="modal-header">
+      <div class="modal-title h4" id="example-modal-sizes-title-lg" *ngIf="!coupon">
+        Add Promo Code
+      </div>
+      <div class="modal-title h4" id="example-modal-sizes-title-lg" *ngIf="coupon">
+        Edit Promo Code '{{ coupon.Name }}'
+      </div>
+    </div>
+  </ng-container>
+  <form class="form" id="coupon_form" #couponForm="ngForm" (ngSubmit)="couponForm.form.valid && submit()">
+    <ng-container>
+      <div class="overlay overlay-block cursor-default modal-body">
+        <div class="row">
+          <div class="col-md-6 mt-3">
+            <label>Promo Code Name</label>
+            <label class="label_required">*</label>
+            <input type="text" name="name"
+              class="form-control form-control-lg form-control-solid ng-pristine ng-touched form-control form-control-lg form-control-solid ng-pristine ng-touched-lg form-control form-control-lg form-control-solid ng-pristine ng-touched-solid ng-pristine ng-touched"
+              [(ngModel)]="couponFormObj.Name" #name="ngModel" [ngModelOptions]="{ standalone: true }"
+              placeholder="Promo Code Name" required />
+            <div *ngIf="couponForm.submitted || (name.invalid && name.dirty)"
+              class="is-invalid fv-plugins-message-container">
+              <div *ngIf="name.errors?.required" class="fv-help-block">
+                Promo Code Name is required.
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 mt-3">
+            <label>Promo Code </label>
+            <label class="label_required">*</label>
+            <input type="text" name="code"
+              class="form-control form-control-lg form-control-solid ng-pristine ng-touched"
+              [(ngModel)]="couponFormObj.Code" #code="ngModel" [ngModelOptions]="{ standalone: true }"
+              placeholder="Coupon Code" required />
+            <div *ngIf="couponForm.submitted || (code.invalid && code.dirty)"
+              class="is-invalid fv-plugins-message-container">
+              <div *ngIf="code.errors?.required" class="fv-help-block">
+                Promo Code is required.
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 mt-3">
+            <label>Start Date</label>
+            <div class="input-group">
+              <input name="start_date" class="form-control form-control-lg form-control-solid ng-pristine ng-touched"
+                readonly placeholder="yyyy-mm-dd" [(ngModel)]="couponFormObj.StartDate" #start_date="ngModel"
+                ngbDatepicker #d="ngbDatepicker" />
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+                  <img src="./assets/media/svg/icons/General/calander.svg" height="20px" />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 mt-3">
+            <label>Expiry Date</label>
+            <div class="input-group">
+              <input class="form-control form-control-lg form-control-solid ng-pristine ng-touched" readonly
+                name="expiry_date" placeholder="yyyy-mm-dd" [(ngModel)]="couponFormObj.ExpiryDate"
+                #expiry_date="ngModel" ngbDatepicker #d1="ngbDatepicker" />
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar" (click)="d1.toggle()" type="button">
+                  <img src="./assets/media/svg/icons/General/calander.svg" height="20px" />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group col-md-6 mt-3">
+            <label>Discount</label>
+            <label class="label_required">*</label>
+            <angular2-multiselect name="coupons" [data]="coupontype" [(ngModel)]="coupontypeModel"
+              [settings]="singleSelectsettings" (onSelect)="oncouponsItemSelect($event)" required
+              #discountTypes="ngModel" (onDeSelect)="oncouponsItemSelect($event)">
+            </angular2-multiselect>
+            <div *ngIf="couponForm.submitted || (discountTypes.invalid && code.dirty)"
+              class="is-invalid fv-plugins-message-container">
+              <div *ngIf="discountTypes.errors?.required" class="fv-help-block">
+                Discount Type is required.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group col-md-6 mt-3" *ngIf="coupontypeModel && coupontypeModel.length > 0">
+            <label *ngIf="isAmount">Amount</label>
+            <label *ngIf="isPercentage">Percentage</label>
+            <label class="label_required">*</label>
+            <ng-container *ngIf="isAmount || isPercentage">
+              <div class="input-group add-product-border">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" *ngIf="isPercentage">%</span>
+                  <span class="input-group-text" *ngIf="isAmount">$</span>
+                </div>
+                <input class="form-control form-control-lg form-control-solid ng-pristine ng-touched" name="discount"
+                  placeholder="Value" type="text" [(ngModel)]="couponFormObj.discount" #discount="ngModel" required
+                  autocomplete="off" pattern="^[1-9]\d*(\.\d+)?$" range="\b([0-9]|[1-9][0-9]|100)\b" />
+              </div>
+              <div *ngIf="couponForm.submitted || (discount.invalid && discount.dirty)"
+                class="is-invalid fv-plugins-message-container">
+                <div *ngIf="discount.errors?.required" class="fv-help-block">
+                  Discount value is required.
+                </div>
+                <div *ngIf="!discount.errors?.required && discount.errors?.pattern" class="fv-help-block">
+                  Please enter valid input.
+                </div>
+                <div *ngIf="!discount.errors?.required && discount.errors?.range" class="fv-help-block">
+                  Please enter valid range.
+                </div>
+              </div>
+            </ng-container>
+          </div>
+          <div class="form-group col-md-6 mt-3">
+            <label>Description</label>
+            <textarea cols="10" rows="5" placeholder="Description" style="resize: none"
+              class="form-control form-control-lg form-control-solid ng-pristine"
+              [(ngModel)]="couponFormObj.Description" #description="ngModel" name="description"></textarea>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light btn-elevate mr-2" (click)="cancel()">
+        Cancel
+      </button>
+      <button type="submit" class="btn btn-primary btn-elevate">Save</button>
+    </div>
+  </form>
+</div>

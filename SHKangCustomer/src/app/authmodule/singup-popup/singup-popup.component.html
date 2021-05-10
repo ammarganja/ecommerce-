@@ -1,0 +1,95 @@
+<div class="modal-dialog-centered">
+  <!-- Modal content-->
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" (click)="close()" data-dismiss="modal" aria-label="Close">
+        <span class="icon-close"></span>
+      </button>
+      <h4 class="modal-title">Sign Up</h4>
+    </div>
+    <div class="modal-body">
+      <form #signupform="ngForm" (ngSubmit)="signupform.form.valid && submit()">
+        <div class="container signup">
+          <ul>
+            <li class="email-field">
+              <span class="icon-person"></span>
+              <input type="text" placeholder="Full Name" [(ngModel)]="signupformobj.fullname" name="fullname" required
+                #fullname="ngModel" />
+              <div *ngIf="signupform.submitted || (fullname.invalid && fullname.dirty)"
+                class="is-invalid fv-plugins-message-container">
+                <div *ngIf="fullname.errors?.required" class="fv-help-block error-block">
+                  Please Enter FullName
+                </div>
+              </div>
+            </li>
+
+            <li class="email-field">
+              <span class="icon-person"></span>
+              <input type="text" placeholder="Company Name" name="company_name" [(ngModel)]="signupformobj.company_name"
+                #companyName="ngModel" required />
+              <div *ngIf="signupform.submitted || (companyName.invalid && companyName.dirty)"
+                class="is-invalid fv-plugins-message-container">
+                <div *ngIf="companyName.errors?.required" class="fv-help-block error-block">
+                  Please Enter Company Name
+                </div>
+              </div>
+            </li>
+
+            <li class="email-field">
+              <span class="icon-login-email"></span>
+              <input type="text" #email="ngModel" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$"
+                placeholder="Email ID" [(ngModel)]="signupformobj.email" name="email" required />
+              <div *ngIf="signupform.submitted || (email.invalid && email.dirty)"
+                class="is-invalid fv-plugins-message-container">
+                <div *ngIf="email.errors?.required" class="fv-help-block error-block">
+                  Please Enter Eemail
+                </div>
+                <div *ngIf="!(email.errors?.required) && email.errors?.pattern" class="fv-help-block error-block">
+                  Please enter valid email address.
+                </div>
+              </div>
+            </li>
+            <li class="email-field">
+              <span class="icon-login-call"></span>
+              <input type="text" placeholder="TXT Phone Number" name="contact" [(ngModel)]="signupformobj.contact"
+                required #contact="ngModel" />
+              <div *ngIf="signupform.submitted || (contact.invalid && contact.dirty)"
+                class="is-invalid fv-plugins-message-container">
+                <div *ngIf="contact.errors?.required" class="fv-help-block error-block">
+                  Please Enter Contact
+                </div>
+
+              </div>
+            </li>
+            <li class="email-field">
+              <span class="icon-lock"></span>
+              <input type="password" placeholder="Password" #password="ngModel" [(ngModel)]="signupformobj.password"
+                name="password" required />
+              <div *ngIf="signupform.submitted || (password.invalid && password.dirty)"
+                class="is-invalid fv-plugins-message-container">
+                <div *ngIf="password.errors?.required" class="fv-help-block error-block">
+                  Please Enter password
+                </div>
+              </div>
+            </li>
+            <li class="email-field">
+              <span class="icon-lock"></span>
+              <input type="password" placeholder="Confirm Password" name="confirm_password"
+                [(ngModel)]="signupformobj.confirm_password" (keyup)="cofirmPassword()" name="cpassword" required />
+              <div *ngIf="passError" style="color: red;">{{passError}}</div>
+            </li>
+          </ul>
+          <div class="terms-checkbox">
+            <input type="checkbox" id="conditions" name="conditions" value="conditions"
+              [(ngModel)]="signupformobj.terms" />
+            <label for="conditions">
+              I Accept all the <a href="#">Terms & Conditions </a> and
+              <a href="#"> Privacy Policy </a> of the Web Platform.</label>
+          </div>
+          <button type="submit">Create an Account</button>
+          <p>Already have an account? <a style="cursor: pointer;" (click)="backtologin()">Login</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

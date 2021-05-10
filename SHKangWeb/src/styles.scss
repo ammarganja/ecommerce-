@@ -1,0 +1,347 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Roboto:300,400,500,600,700");
+// Global vendors
+@import "~bootstrap/dist/css/bootstrap.css";
+// => Material
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+@import "~highlight.js/styles/googlecode.css";
+@import "~perfect-scrollbar/css/perfect-scrollbar.css";
+
+// Global fonts
+@import "~socicon/css/socicon.css";
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+@import "./assets/plugins/flaticon/flaticon.css";
+@import "./assets/plugins/flaticon2/flaticon.css";
+@import "./assets/plugins/keenthemes-icons/font/ki.css";
+
+// Metronic styles (replace these path when using RTL css below)
+@import "./assets/sass/style.angular.scss";
+
+// For RTL, check this documentation https://keenthemes.com/metronic/?page=docs&section=angular-rtl
+// @import "./assets/sass/style.angular.rtl.css";
+
+// Default Layout themes
+@import "./assets/sass/themes/layout/header/base/light.scss";
+@import "./assets/sass/themes/layout/header/menu/light.scss";
+@import "./assets/sass/themes/layout/brand/dark.scss";
+@import "./assets/sass/themes/layout/aside/dark.scss";
+
+// Header themes
+// .header-base-light {
+//     @import "./assets/sass/themes/layout/header/base/light.scss";
+// }
+
+// .header-base-dark {
+//     @import "./assets/sass/themes/layout/header/base/dark.scss";
+// }
+
+// Header Menu themes
+// .header-menu-light {
+//     @import "./assets/sass/themes/layout/header/menu/light.scss";
+// }
+// .header-menu-dark {
+//     @import "./assets/sass/themes/layout/header/menu/dark.scss";
+// }
+
+// Brand themes
+.brand-dark {
+  @import "./assets/sass/themes/layout/brand/dark.scss";
+}
+
+.brand-light {
+  @import "./assets/sass/themes/layout/brand/light.scss";
+}
+
+// Aside themes
+// .aside-dark {
+//   @import "./assets/sass/themes/layout/aside/dark.scss";
+// }
+
+// .aside-light {
+//   @import "./assets/sass/themes/layout/aside/light.scss";
+// }
+
+// hide bootstrap dropdown arrow globally
+.dropdown-toggle::after {
+  display: none !important;
+}
+
+.angular-bootstrap-table {
+  overflow-x: auto;
+}
+.angular-bootstrap-table {
+  th {
+    outline: none;
+
+    &.sortable {
+      .svg-icon-sort {
+        opacity: 0;
+      }
+
+      &:hover {
+        cursor: pointer;
+
+        .svg-icon-sort {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .table.table-head-custom thead th.sortable-active {
+    color: $primary !important;
+  }
+}
+
+.cursor-default {
+  cursor: default !important;
+}
+
+.progress-modal {
+  height: 3px;
+  width: 100%;
+}
+
+@media screen and (min-width: 992px) {
+  .aside-enabled.footer-fixed .footer {
+    left: 0px;
+  }
+  .aside-enabled.aside-minimize.footer-fixed .footer {
+    left: 0px;
+  }
+}
+.footer .footer-text-direction {
+  flex-direction: row-reverse !important;
+}
+.table-head-custom th:first-child {
+  display: flex;
+  border-bottom: 0px !important;
+}
+.selected-list .c-btn {
+  background-color: #f3f6f9;
+  border-color: #f3f6f9;
+  color: #3f4254;
+  transition: color 0.15s ease, background-color 0.15s ease,
+    border-color 0.15s ease, box-shadow 0.15s ease;
+  height: calc(1.5em + 1.65rem + 2px);
+  padding: 0.825rem 1.42rem;
+  font-size: 1.08rem;
+  line-height: 1.5;
+  border-radius: 0.42rem;
+}
+.label.label-lg {
+  height: 35px;
+}
+.action-item-centeralign .btn.btn-light {
+  margin: 10px 0px 0px 5px !important;
+}
+.action-item-centeralign {
+  text-align: center;
+  display: flex;
+}
+.product-size {
+  width: 100%;
+}
+.product-size input {
+  width: 100%;
+  height: 30px;
+  padding: 10px 5px;
+  font-size: 10px;
+}
+.login-height {
+  height: 100vh !important;
+}
+.create-invoice-contact-detail div {
+  padding-left: 0px;
+}
+.product-size-deatil {
+  box-shadow: 0 0.46875rem 2.1875rem rgb(59 62 102 / 3%),
+    0 0.9375rem 1.40625rem rgb(59 62 102 / 3%),
+    0 0.25rem 0.53125rem rgb(59 62 102 / 5%),
+    0 0.125rem 0.1875rem rgb(59 62 102 / 3%);
+  border-width: 1px;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 0 solid rgba(122, 123, 151, 0.3);
+  border-radius: 0.65rem;
+  padding: 20px;
+  margin-bottom: 15px;
+}
+.product-size-deatil:hover {
+  background-color: #fffbf2;
+}
+.c-btn:focus {
+  outline: none;
+}
+.create-invoice-table-td {
+  text-align: center !important;
+  border-top: none !important;
+}
+
+.usermanagemt-table-title-width th,
+.productmanagemt-table-title-width th,
+.ordermanagemt-table-title-width th {
+  white-space: nowrap;
+}
+.create-invoice-table-required {
+  border-top: none !important;
+  vertical-align: middle !important;
+  padding-top: 1.925rem !important;
+}
+
+.create-invoice-pdf-total span {
+  padding-left: 10px;
+}
+
+.add-size-group-close {
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.add-size-group-close span i {
+  position: absolute;
+  top: 15px;
+  left: 85%;
+  font-size: 15px;
+  color: #d6d0d0;
+  cursor: pointer;
+}
+.error-block {
+  color: #f64e60;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+.add-product-width .selected-list .c-btn {
+  width: 91% !important;
+  padding: 5px 10px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: flex;
+  position: relative;
+  height: auto;
+  min-height: 45px;
+}
+
+.modal-footer .display-4 {
+  font-size: 20px !important;
+}
+
+.all-section-select .c-btn {
+  line-height: 15px;
+  height: 20px;
+}
+.status-hover-effect:hover,
+.status-hover-effect:focus {
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+.mt-20 {
+  margin-top: 20px;
+}
+.custom-dropzone::-webkit-scrollbar,
+.colorImageDropzone::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+/* Track */
+.custom-dropzone::-webkit-scrollbar-track,
+.colorImageDropzone::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 20px;
+}
+
+/* Handle */
+.custom-dropzone::-webkit-scrollbar-thumb,
+.colorImageDropzone::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+.custom-dropzone::-webkit-scrollbar-thumb:hover,
+.colorImageDropzone::-webkit-scrollbar-thumb:hover {
+  background: #1bc5bd;
+}
+.clear-all {
+  top: 58% !important;
+}
+.label-color {
+  margin-bottom: 5px;
+  padding: 14px 35px;
+  border-radius: 0.42rem;
+}
+.colorImageDropzone {
+  overflow-y: scroll;
+  height: 240px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+}
+.add-product-border .input-group-text {
+  border: none;
+}
+.label_required {
+  padding-left: 3px;
+  color: red;
+}
+.clear-filter .clear-all {
+  top: 50% !important;
+}
+.invoice-btn-size {
+  left: 20px;
+  position: absolute;
+}
+@media only screen and (max-width: 566px) {
+  .invoice-btn-size {
+    left: 0px;
+    position: relative;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .add-size-group-plus {
+    right: 1px !important;
+  }
+}
+@media only screen and (max-width: 991px) and (min-width: 768px) {
+  .add-product-width .selected-list .c-btn {
+    width: 85% !important;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .add-product-width .selected-list .c-btn {
+    width: 95% !important;
+  }
+}
+
+angular2-multiselect.hide_x_button .c-remove.clear-all {
+  display: none !important;
+}
+
+ngx-dropzone-remove-badge {
+  right: -10px !important;
+  top: -13px !important;
+}
+
+.drop_preview img{
+  height: 135px;
+  width: 135px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.custom-table-one tbody > tr:last-child .dropdown-menu {
+  top: inherit !important;
+  bottom: 92px !important;
+}
+.custom-table-one tbody > tr:first-child .dropdown-menu {
+  top: 262px !important;
+
+}
+
+.custom-table-two tbody > tr:last-child .dropdown-menu {
+  top: inherit !important;
+  bottom: 90px !important;
+}

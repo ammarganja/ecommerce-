@@ -1,0 +1,17 @@
+    <div class="product-card">
+        <div class="product-card-image">
+            <a routerLink="/customer/product/{{product.productId}}"><img src="{{product.image}}"/></a>
+            <div class="product-cart-overlay">
+                <!-- <a routerLink="/customer/product/{{product.productId}}"><span class="icon-cart"></span></a> -->
+                <a style="cursor: pointer;" (click)="addToCart()"><span class="icon-cart"></span></a>
+                <a  (click)="viewProductImage(product.productId)"><span class="icon-zoom router-link"></span></a>
+                
+                <!-- <a routerLink="/customer/product/{{product.productId}}"><span class="icon-zoom"></span></a> -->
+            </div>
+        </div>
+        <div class="product-card-info">
+            <span class="category"><a routerLink="/customer/product/{{product.productId}}">{{product.category}}</a></span>
+            <h5><a routerLink="/customer/product/{{product.productId}}">{{product.productName}}</a></h5>
+            <p class="price">${{product.price}}</p>
+        </div>
+    </div>

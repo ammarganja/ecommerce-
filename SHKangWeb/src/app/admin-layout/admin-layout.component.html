@@ -1,0 +1,226 @@
+<!--begin::Main-->
+<ng-container *ngIf="selfLayout !== 'blank'; else blankLayout">
+  <!-- begin:: Header Mobile -->
+
+  <app-header-mobile #ktHeaderMobile id="kt_header_mobile" class="header-mobile align-items-center"
+    [ngClass]="headerMobileClasses"></app-header-mobile>
+  <!-- end:: Header Mobile -->
+  <div class="d-flex flex-column flex-root">
+    <!--begin::Page-->
+    <div class="d-flex flex-row flex-column-fluid page">
+      <!-- begin:: Aside Left -->
+      <ng-container *ngIf="asideSelfDisplay">
+        <ng-container *ngIf="asideMenuStatic">
+          <!--begin::STATIC Aside-->
+          <app-aside #ktAside id="kt_aside" class="aside aside-left d-flex flex-column flex-row-auto"
+            [ngClass]="asideCSSClasses"></app-aside>
+          <!--end::STATIC Aside-->
+        </ng-container>
+      </ng-container>
+      <!-- end:: Aside Left -->
+
+      <!--begin::Wrapper-->
+      <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
+        <!-- begin:: Header -->
+        <app-header #ktHeader id="kt_header" class="header" [ngClass]="headerCSSClasses"></app-header>
+        <!-- end:: Header -->
+
+        <!-- begin:: Content -->
+        <div class="content d-flex flex-column flex-column-fluid" id="kt_content" [ngClass]="contentClasses">
+          <!-- begin:: Content Head -->
+          <ng-container>
+            <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
+              <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+                <!--begin::Info-->
+                <div class="d-flex align-items-center flex-wrap mr-2">
+                  <!--begin::Page Title-->
+                  <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">
+                    {{ breadcrumb }}
+                  </h5>
+                  <!--end::Page Title-->
+                  <!--begin::Actions-->
+                  <div class="subheader-separator subheader-separator-ver mt-2 mb-2 mr-4 bg-gray-200"></div>
+
+                  <!--end::Actions-->
+                </div>
+                <!--end::Info-->
+                <!--begin::Toolbar-->
+                <div class="d-flex align-items-center" *ngIf="breadcrumb == 'Dashboard'">
+                  <!--begin::Actions-->
+                  <!-- <a
+                    href="#"
+                    class="btn btn-clean btn-sm font-weight-bold font-size-base mr-1"
+                    >Today</a
+                  >
+                  <a
+                    href="#"
+                    class="btn btn-clean btn-sm font-weight-bold font-size-base mr-1"
+                    >Month</a
+                  >
+                  <a
+                    href="#"
+                    class="btn btn-clean btn-sm font-weight-bold font-size-base mr-1"
+                    >Year</a
+                  > -->
+                  <!--end::Actions-->
+                  <!--begin::Daterange-->
+                  <a class="btn btn-sm btn-light font-weight-bold mr-2" style="cursor:text;">
+                    <span class="text-muted font-size-base font-weight-bold mr-2"
+                      id="kt_dashboard_daterangepicker_title">Today:</span>
+                    <span class="text-primary font-size-base font-weight-bolder"
+                      id="kt_dashboard_daterangepicker_date">{{todayDate | date:'MMMM-dd'}}</span>
+                  </a>
+                  <!--end::Daterange-->
+                  <!--begin::Dropdowns-->
+                  <div class="dropdown dropdown-inline" data-toggle="tooltip" title="" data-placement="left"
+                    data-original-title="Quick actions">
+                    <div class="dropdown-menu p-0 m-0 dropdown-menu-md dropdown-menu-right py-3">
+                      <!--begin::Navigation-->
+                      <ul class="navi navi-hover py-5">
+                        <li class="navi-item">
+                          <a href="#" class="navi-link">
+                            <span class="navi-icon">
+                              <i class="flaticon2-drop"></i>
+                            </span>
+                            <span class="navi-text">New Group</span>
+                          </a>
+                        </li>
+                        <li class="navi-item">
+                          <a href="#" class="navi-link">
+                            <span class="navi-icon">
+                              <i class="flaticon2-list-3"></i>
+                            </span>
+                            <span class="navi-text">Contacts</span>
+                          </a>
+                        </li>
+                        <li class="navi-item">
+                          <a href="#" class="navi-link">
+                            <span class="navi-icon">
+                              <i class="flaticon2-rocket-1"></i>
+                            </span>
+                            <span class="navi-text">Groups</span>
+                            <span class="navi-link-badge">
+                              <span class="label label-light-primary label-inline font-weight-bold">new</span>
+                            </span>
+                          </a>
+                        </li>
+                        <li class="navi-item">
+                          <a href="#" class="navi-link">
+                            <span class="navi-icon">
+                              <i class="flaticon2-bell-2"></i>
+                            </span>
+                            <span class="navi-text">Calls</span>
+                          </a>
+                        </li>
+                        <li class="navi-item">
+                          <a href="#" class="navi-link">
+                            <span class="navi-icon">
+                              <i class="flaticon2-gear"></i>
+                            </span>
+                            <span class="navi-text">Settings</span>
+                          </a>
+                        </li>
+                        <li class="navi-separator my-3"></li>
+                        <li class="navi-item">
+                          <a href="#" class="navi-link">
+                            <span class="navi-icon">
+                              <i class="flaticon2-magnifier-tool"></i>
+                            </span>
+                            <span class="navi-text">Help</span>
+                          </a>
+                        </li>
+                        <li class="navi-item">
+                          <a href="#" class="navi-link">
+                            <span class="navi-icon">
+                              <i class="flaticon2-bell-2"></i>
+                            </span>
+                            <span class="navi-text">Privacy</span>
+                            <span class="navi-link-badge">
+                              <span class="label label-light-danger label-rounded font-weight-bold">5</span>
+                            </span>
+                          </a>
+                        </li>
+                      </ul>
+                      <!--end::Navigation-->
+                    </div>
+                  </div>
+                  <!--end::Dropdowns-->
+                </div>
+                <!--end::Toolbar-->
+              </div>
+            </div>
+          </ng-container>
+          <!-- end:: Content Head -->
+
+          <!-- begin:: Content Body -->
+          <ng-container *ngIf="contentExtended">
+            <router-outlet></router-outlet>
+          </ng-container>
+
+          <ng-container *ngIf="!contentExtended">
+            <!--begin::Entry-->
+            <div class="d-flex flex-column-fluid">
+              <!--begin::Container-->
+              <div [ngClass]="contentContainerClasses">
+                <router-outlet></router-outlet>
+                <!--end::Container-->
+              </div>
+            </div>
+            <!--end::Entry-->
+          </ng-container>
+          <!-- end:: Content Body -->
+        </div>
+        <!-- end:: Content -->
+        <ng-container>
+          <!--begin::Footer-->
+          <app-footer class="footer bg-white py-4 d-flex flex-lg-column w-100" id="kt_footer"
+            [ngClass]="footerCSSClasses"></app-footer>
+          <!--end::Footer-->
+        </ng-container>
+      </div>
+      <!--end::Wrapper-->
+    </div>
+    <!-- end:: Body -->
+    <!--end::Page-->
+
+    <!--begin::Offcanvases-->
+    <ng-container *ngIf="extrasSearchOffcanvasDisplay">
+      <app-search-offcanvas></app-search-offcanvas>
+    </ng-container>
+
+    <ng-container *ngIf="extrasNotificationsOffcanvasDisplay">
+      <app-notifications-offcanvas></app-notifications-offcanvas>
+    </ng-container>
+
+    <ng-container *ngIf="extrasQuickActionsOffcanvasDisplay">
+      <app-quick-actions-offcanvas></app-quick-actions-offcanvas>
+    </ng-container>
+
+    <ng-container *ngIf="extrasCartOffcanvasDisplay">
+      <app-cart-offcanvas></app-cart-offcanvas>
+    </ng-container>
+
+    <ng-container *ngIf="extrasQuickPanelDisplay">
+      <app-quick-panel-offcanvas></app-quick-panel-offcanvas>
+    </ng-container>
+
+    <ng-container *ngIf="extrasUserOffcanvasDisplay">
+      <app-user-offcanvas></app-user-offcanvas>
+    </ng-container>
+
+    <app-toolbar></app-toolbar>
+
+    <ng-container *ngIf="extrasScrollTopDisplay">
+      <app-scroll-top></app-scroll-top>
+    </ng-container>
+    <!--end::Offcanvases-->
+  </div>
+</ng-container>
+
+<ng-template #blankLayout>
+  <div class="d-flex flex-column flex-root">
+    <router-outlet></router-outlet>
+  </div>
+</ng-template>
+<app-scripts-init></app-scripts-init>
+<!--end::Main-->

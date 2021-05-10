@@ -1,0 +1,151 @@
+<div class="model modal-dialog-centered login-modal">
+    <div class="modal-header">
+        <button type="button" class="close" (click)="close()" aria-label="Close"><span class="icon-close"></span></button>
+        <h4 class="modal-title">Address Information</h4>
+    </div>
+    <div class="modal-body">
+        <form #addressInfo="ngForm" (ngSubmit)="addressInfo.form.valid && submit()">
+
+            <div class="container">
+                <div class="email-field" *ngIf="address && !address.userAddressId">
+                    <input type="text" name="fullName" #fullName="ngModel" [(ngModel)]="address.fullName"
+                        placeholder="Full Name" maxlength="200" required>
+                    <div *ngIf="addressInfo.submitted || (fullName.invalid && fullName.dirty)"
+                        class="is-invalid fv-plugins-message-container">
+                        <div *ngIf="fullName.errors?.required" class="fv-help-block">
+                            FullName is required.
+                        </div>
+                        <div *ngIf="fullName.errors?.maxlength" class="fv-help-block">
+                            Please do not enter more than 200 character
+                        </div>
+                    </div>
+                </div>
+                <div class="email-field" *ngIf="address && !address.userAddressId">
+                    <input type="text" name="companyName" #companyName="ngModel" [(ngModel)]="address.companyName"
+                        placeholder="Company Name" maxlength="200" required>
+                    <div *ngIf="addressInfo.submitted || (companyName.invalid && companyName.dirty)"
+                        class="is-invalid fv-plugins-message-container">
+                        <div *ngIf="companyName.errors?.required" class="fv-help-block">
+                            CompanyName is required.
+                        </div>
+                        <div *ngIf="companyName.errors?.maxlength" class="fv-help-block">
+                            Please do not enter more than 200 character
+                        </div>
+                    </div>
+                </div>
+                <div class="email-field" *ngIf="address && !address.userAddressId">
+                    <input type="text" name="emailId" #emailId="ngModel" [(ngModel)]="address.emailId"
+                        placeholder="Email" maxlength="200" required pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$">
+                    <div *ngIf="addressInfo.submitted || (emailId.invalid && emailId.dirty)"
+                        class="is-invalid fv-plugins-message-container">
+                        <div *ngIf="emailId.errors?.required" class="fv-help-block">
+                            Email is required.
+                        </div>
+                        <div *ngIf="emailId.errors?.maxlength" class="fv-help-block">
+                            Please do not enter more than 200 character
+                        </div>
+                        <div *ngIf="emailId.errors?.pattern" class="fv-help-block">
+                            Please enter valida email adress
+                        </div>
+                    </div>
+                </div>
+                <div class="email-field" *ngIf="address && !address.userAddressId">
+                    <input type="text" name="phoneNumber" #phoneNumber="ngModel" [(ngModel)]="address.phoneNumber"
+                        placeholder="Phone" maxlength="200" required>
+                    <div *ngIf="addressInfo.submitted || (phoneNumber.invalid && phoneNumber.dirty)"
+                        class="is-invalid fv-plugins-message-container">
+                        <div *ngIf="phoneNumber.errors?.required" class="fv-help-block">
+                            phoneNumber is required.
+                        </div>
+                        <div *ngIf="phoneNumber.errors?.maxlength" class="fv-help-block">
+                            Please do not enter more than 200 character
+                        </div>
+                    </div>
+                </div>
+
+                <div class="email-field">
+                    <input type="text" name="address1" #address1="ngModel" [(ngModel)]="address.address1"
+                        placeholder="Address1" maxlength="200" required>
+                    <div *ngIf="addressInfo.submitted || (address1.invalid && address1.dirty)"
+                        class="is-invalid fv-plugins-message-container">
+                        <div *ngIf="address1.errors?.required" class="fv-help-block">
+                            Address1 is required.
+                        </div>
+                        <div *ngIf="address1.errors?.maxlength" class="fv-help-block">
+                            Please do not enter more than 200 character
+                        </div>
+                    </div>
+                </div>
+                <div class="email-field">
+                    <input type="text" name="address2" #address2="ngModel" [(ngModel)]="address.address2"
+                        placeholder="Address2" maxlength="200" required>
+                    <div *ngIf="addressInfo.submitted || (address2.invalid && address2.dirty)"
+                        class="is-invalid fv-plugins-message-container">
+                        <div *ngIf="address2.errors?.required" class="fv-help-block">
+                            Address2 is required.
+                        </div>
+                        <div *ngIf="address2.errors?.maxlength" class="fv-help-block">
+                            Please do not enter more than 200 character
+                        </div>
+                    </div>
+                </div>
+                <div >
+                    <ng-multiselect-dropdown
+                    [placeholder]="'Select Country'"
+                    [settings]="dropdownSettings"
+                    [data]="countryList"
+                    [(ngModel)]="selectedCountry"
+                    (onSelect)="onCountrySelect($event)"
+                    (onDeSelect)="onCountryDeSelect($event)"
+                    name="country"
+                  >
+                  </ng-multiselect-dropdown>
+                </div>
+                <div >
+                    <ng-multiselect-dropdown
+                    [placeholder]="'Select State'"
+                    [settings]="dropdownSettings"
+                    [data]="stateList"
+                    [(ngModel)]="selectedState"
+                    name="state">
+                  </ng-multiselect-dropdown>
+                </div>
+                <div class="email-field">
+                    <input type="text" name="city" #city="ngModel" [(ngModel)]="address.city"
+                        placeholder="City" maxlength="200" required>
+                    <div *ngIf="addressInfo.submitted || (city.invalid && city.dirty)"
+                        class="is-invalid fv-plugins-message-container">
+                        <div *ngIf="city.errors?.required" class="fv-help-block">
+                            City is required.
+                        </div>
+                        <div *ngIf="city.errors?.maxlength" class="fv-help-block">
+                            Please do not enter more than 200 character
+                        </div>
+                    </div>
+                </div>
+                <div class="email-field">
+                    <input type="text" name="zipcode" #zipcode="ngModel" [(ngModel)]="address.zipcode"
+                        placeholder="Zip Code" maxlength="200" required>
+                    <div *ngIf="addressInfo.submitted || (zipcode.invalid && zipcode.dirty)"
+                        class="is-invalid fv-plugins-message-container">
+                        <div *ngIf="zipcode.errors?.required" class="fv-help-block">
+                            Zipcode is required.
+                        </div>
+                        <div *ngIf="zipcode.errors?.maxlength" class="fv-help-block">
+                            Please do not enter more than 200 character
+                        </div>
+                    </div>
+                </div>
+                <div class="email-field">
+                    <div class="terms-checkbox">
+                        <input type="checkbox" id="conditions" name="conditions" 
+                        value="conditions" (change)="isPrimary($event)" [(ngModel)]="address.isPrimary" />
+                        <label for="conditions"> Make a primary adress</label>
+                    </div>
+                </div>
+                <button type="submit"> Update</button>
+
+            </div>
+        </form>
+    </div>
+</div>

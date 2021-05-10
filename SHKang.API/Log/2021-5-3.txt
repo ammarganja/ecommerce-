@@ -1,0 +1,7 @@
+
+
+Exception Date : 5/3/2021 12:03:42 PM
+Object reference not set to an instance of an object.  :::::     at SHKang.Repository.Repository.OrderInvoiceRepository.GetOrderUserEmail(Int32 orderInvoiceId) in E:\Saumil\Projects\Shkang.biz\shkang\SHKang.Repository\Repository\OrderInvoiceRepository.cs:line 350
+   at SHKang.API.Areas.Admin.Controllers.OrderInvoiceController.SendPaymentRelatedEmail(Int32 orderInvoiceId) in E:\Saumil\Projects\Shkang.biz\shkang\SHKang.API\Areas\Admin\Controllers\OrderInvoiceController.cs:line 342
+   at SHKang.API.Areas.Admin.Controllers.OrderInvoiceController.UpdateOrderInvoiceStatus(UpdateOrderInvoiceStatus model) in E:\Saumil\Projects\Shkang.biz\shkang\SHKang.API\Areas\Admin\Controllers\OrderInvoiceController.cs:line 109
+----------------------------------------------------------------------------------------------

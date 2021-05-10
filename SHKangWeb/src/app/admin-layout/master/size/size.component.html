@@ -1,0 +1,80 @@
+<div class="card card-custom gutter-b">
+  <div class="card-header">
+    <div class="card-title">
+      <h3 class="card-label">Size Group List</h3>
+    </div>
+    <div class="card-toolbar">
+      <button type="button" class="btn btn-primary" (click)="create()">New Size Group</button>
+    </div>
+  </div>
+  <div class="card-body">
+    <!-- begin: Filtration form -->
+    <div class="form form-label-right">
+      <div class="form-group row">
+        <div class="col-lg-4">
+          <div class="row">
+            <div class="col-lg-6" [formGroup]="searchGroup">
+              <input type="text" class="form-control" (keyup)="search(searchString)" [(ngModel)]="searchString"
+                name="searchText" placeholder="Search" value="" /><small class="form-text text-muted"><b>Search</b> by
+                name</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end: Filtration form -->
+
+    <!-- begin: Grouping -->
+
+    <!-- end: Grouping -->
+
+    <!-- begin:Table -->
+    <div class="table-responsive angular-bootstrap-table">
+      <table class="table table-head-custom table-vertical-center overflow-hidden">
+        <thead>
+          <th *ngFor="let column of Columns">
+            {{column.columnName}}
+            <app-sort-icon *ngIf="column.canSort" column="{{column.sortProprty}}" [activeColumn]="sorting.column"
+              [activeDirection]="sorting.direction" (sort)="sort($event)"></app-sort-icon>
+          </th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let size of sizeService.items$ | async">
+            <!-- <td class="selection-cell">
+              <label class="checkbox checkbox-single"><input type="checkbox" (click)="grouping.selectRow(size.id)"
+                  [checked]="grouping.isRowSelected(size.id)" />
+                <span></span>
+              </label>
+            </td> -->
+            <td>{{ size.sizeId }}</td>
+            <td>{{ size.sizeName }}</td>
+            <td>{{ size.units }}</td>
+            <!-- <td><a href="" style="cursor: pointer;"></a></td> -->
+            <td>
+              <a (click)="redirectProduct(size);" routerLink="">
+                {{ size.totalProducts }}
+              </a>
+            </td>
+            <td class="action-item-centeralign">
+              <a title="Edit size" class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3" (click)="edit(size)">
+                <span [inlineSVG]="'./assets/media/svg/icons/Communication/Write.svg'" cacheSVG="true"
+                  class="svg-icon svg-icon-md svg-icon-primary">
+                </span>
+              </a>
+
+              <a title="Delete size" class="btn btn-icon btn-light btn-hover-danger btn-sm"
+                (click)="delete(size.sizeId)">
+                <span [inlineSVG]="'./assets/media/svg/icons/General/Trash.svg'" cacheSVG="true"
+                  class="svg-icon svg-icon-md svg-icon-danger">
+                </span>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- end: Table -->
+    <app-paginator class="d-flex justify-content-between align-items-center flex-wrap" [paginator]="paginator"
+      [isLoading]="isLoading" (paginate)="paginate($event)"></app-paginator>
+  </div>
+</div>

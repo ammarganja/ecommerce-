@@ -1,0 +1,40 @@
+
+
+Exception Date : 4/30/2021 10:35:32 AM
+IDX12709: CanReadToken() returned false. JWT is not well formed: '[PII is hidden]'.
+The token needs to be in JWS or JWE Compact Serialization Format. (JWS): 'EncodedHeader.EndcodedPayload.EncodedSignature'. (JWE): 'EncodedProtectedHeader.EncodedEncryptedKey.EncodedInitializationVector.EncodedCiphertext.EncodedAuthenticationTag'.  :::::     at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ReadJwtToken(String token)
+   at SHKang.API.Areas.Admin.Controllers.OrderInvoiceController.EmailOrderInvoice(GetOrderInvoiceDetailModel model) in E:\Saumil\Projects\Shkang.biz\shkang\SHKang.API\Areas\Admin\Controllers\OrderInvoiceController.cs:line 271
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 4/30/2021 10:36:25 AM
+IDX10000: The parameter 'token' cannot be a 'null' or an empty object.
+Parameter name: token  :::::     at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ReadJwtToken(String token)
+   at SHKang.API.Areas.Admin.Controllers.OrderInvoiceController.EmailOrderInvoice(GetOrderInvoiceDetailModel model)
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 4/30/2021 10:36:46 AM
+IDX12709: CanReadToken() returned false. JWT is not well formed: '[PII is hidden]'.
+The token needs to be in JWS or JWE Compact Serialization Format. (JWS): 'EncodedHeader.EndcodedPayload.EncodedSignature'. (JWE): 'EncodedProtectedHeader.EncodedEncryptedKey.EncodedInitializationVector.EncodedCiphertext.EncodedAuthenticationTag'.  :::::     at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ReadJwtToken(String token)
+   at SHKang.API.Areas.Admin.Controllers.OrderInvoiceController.EmailOrderInvoice(GetOrderInvoiceDetailModel model)
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 4/30/2021 10:41:43 AM
+IDX12709: CanReadToken() returned false. JWT is not well formed: '[PII is hidden]'.
+The token needs to be in JWS or JWE Compact Serialization Format. (JWS): 'EncodedHeader.EndcodedPayload.EncodedSignature'. (JWE): 'EncodedProtectedHeader.EncodedEncryptedKey.EncodedInitializationVector.EncodedCiphertext.EncodedAuthenticationTag'.  :::::     at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ReadJwtToken(String token)
+   at SHKang.API.Areas.Admin.Controllers.OrderInvoiceController.EmailOrderInvoice(GetOrderInvoiceDetailModel model) in E:\Saumil\Projects\Shkang.biz\shkang\SHKang.API\Areas\Admin\Controllers\OrderInvoiceController.cs:line 271
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 4/30/2021 11:21:44 AM
+Index was outside the bounds of the array.  :::::     at SHKang.Repository.Repository.OrderInvoiceRepository.GetAdminUserAddressDetails(Int32 userId) in E:\Saumil\Projects\Shkang.biz\shkang\SHKang.Repository\Repository\OrderInvoiceRepository.cs:line 311
+   at SHKang.API.Areas.Admin.Controllers.OrderInvoiceController.EmailOrderInvoice(GetOrderInvoiceDetailModel model) in E:\Saumil\Projects\Shkang.biz\shkang\SHKang.API\Areas\Admin\Controllers\OrderInvoiceController.cs:line 297
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 4/30/2021 11:22:03 AM
+Index was outside the bounds of the array.  :::::     at SHKang.Repository.Repository.OrderInvoiceRepository.GetAdminUserAddressDetails(Int32 userId) in E:\Saumil\Projects\Shkang.biz\shkang\SHKang.Repository\Repository\OrderInvoiceRepository.cs:line 311
+   at SHKang.API.Areas.Admin.Controllers.OrderInvoiceController.EmailOrderInvoice(GetOrderInvoiceDetailModel model) in E:\Saumil\Projects\Shkang.biz\shkang\SHKang.API\Areas\Admin\Controllers\OrderInvoiceController.cs:line 297
+----------------------------------------------------------------------------------------------

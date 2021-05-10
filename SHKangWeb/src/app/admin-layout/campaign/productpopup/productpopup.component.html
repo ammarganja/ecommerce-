@@ -1,0 +1,77 @@
+<div class="modal-content">
+
+    <ng-container>
+        <div class="modal-header">
+            <div class="modal-title h4" id="example-modal-sizes-title-lg">
+                product
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-container>
+        <div class="overlay overlay-block cursor-default modal-body">
+            <form>
+                <div class="Filter mb-3 mt-3 ">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <input type="text" class="form-control" placeholder="search">
+                    </div>
+                    <div class="col-md-3">
+                      <select class="form-control">
+                        <option>Dresses</option>
+                        <option>Romprers</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            <form>
+                
+               
+
+              <div class="row prd-table">
+                
+                
+
+
+                <table class="example-full-width">
+                  <tr>
+                    <th>Id</th>
+                    <th>Image</th>
+                    <th>Date</th>
+                    <th>Category</th>
+                    <th>style</th>
+                    <th>color</th>
+                    <th>price</th>
+                  </tr>
+                  <tr *ngFor="let product of productList;let i = index">
+                    <td>
+                      <mat-checkbox name="prdCheckBox{{i}}"
+                                    [(ngModel)]="product.selectedProduct"
+                                    (change)="changeValueEvent()">
+                      </mat-checkbox>
+                    </td>
+                    <td>
+                      <img class="prd-img" src="{{product.img}}"  />
+                    </td>
+                    <td>{{product.createdDate}}</td>
+                    <td>{{product.category}}</td>
+                    <td>{{product.style}}</td>
+                    <td>{{product.color}}</td>
+                    <td>{{product.price}}</td>
+
+                  </tr>
+
+                </table>
+              </div>
+            </form>
+        </div>
+
+    </ng-container>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light btn-elevate mr-2" (click)="cancel()">Cancel</button>
+        <button type="submit" class="btn btn-primary btn-elevate">Save</button>
+    </div>
+
+</div>

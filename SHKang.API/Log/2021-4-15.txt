@@ -1,0 +1,112 @@
+
+
+Exception Date : 15/04/2021 09:59:34
+Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index  :::::     at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at SHKang.Core.ModelHelper.OrderInvoiceHelper.BindGetorderInvoiceDetailModel(List`1 orderDetailModel, List`1 orderInvoiceSizeDetailModel, List`1 productSizeDetailsModel, String hostingURL, List`1 productImagesModel, List`1 sizeDetailsModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\ModelHelper\OrderInvoiceHelper.cs:line 283
+   at SHKang.API.Areas.Admin.Controllers.OrderInvoiceController.GetOrderInvoice(DeleteOrderModel model) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\OrderInvoiceController.cs:line 210
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 15/04/2021 09:59:48
+Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index  :::::     at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at SHKang.Core.ModelHelper.OrderInvoiceHelper.BindGetorderInvoiceDetailModel(List`1 orderDetailModel, List`1 orderInvoiceSizeDetailModel, List`1 productSizeDetailsModel, String hostingURL, List`1 productImagesModel, List`1 sizeDetailsModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\ModelHelper\OrderInvoiceHelper.cs:line 283
+   at SHKang.API.Areas.Admin.Controllers.OrderInvoiceController.GetOrderInvoice(DeleteOrderModel model) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\OrderInvoiceController.cs:line 210
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 15/04/2021 10:02:00
+Unable to cast object of type 'System.Int64' to type 'System.Decimal'.  :::::     at System.Data.SqlClient.SqlBuffer.get_Decimal()
+   at lambda_method(Closure , DbDataReader )
+   at Microsoft.EntityFrameworkCore.Storage.Internal.TypedRelationalValueBufferFactory.Create(DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SelectEnumerableIterator`2.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider._TrackEntities[TOut,TIn](IEnumerable`1 results, QueryContext queryContext, IList`1 entityTrackingInfos, IList`1 entityAccessors)+MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at System.Collections.Generic.List`1.AddEnumerable(IEnumerable`1 enumerable)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at SHKang.Repository.Repository.OrderInvoiceRepository.GetOrderInvoiceDetail(Int64 orderInvoiceId, Int64 orderId) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\OrderInvoiceRepository.cs:line 170
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 15/04/2021 10:02:00
+Unable to cast object of type 'System.Int64' to type 'System.Decimal'.  :::::     at SHKang.Repository.Repository.OrderInvoiceRepository.GetOrderInvoiceDetail(Int64 orderInvoiceId, Int64 orderId) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\OrderInvoiceRepository.cs:line 189
+   at SHKang.API.Areas.Admin.Controllers.OrderInvoiceController.OrderInvoiceDetail(GetOrderInvoiceDetailModel model) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\OrderInvoiceController.cs:line 161
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 15/04/2021 10:05:01
+Unable to cast object of type 'System.Int64' to type 'System.Decimal'.  :::::     at System.Data.SqlClient.SqlBuffer.get_Decimal()
+   at lambda_method(Closure , DbDataReader )
+   at Microsoft.EntityFrameworkCore.Storage.Internal.TypedRelationalValueBufferFactory.Create(DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SelectEnumerableIterator`2.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider._TrackEntities[TOut,TIn](IEnumerable`1 results, QueryContext queryContext, IList`1 entityTrackingInfos, IList`1 entityAccessors)+MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at System.Collections.Generic.List`1.AddEnumerable(IEnumerable`1 enumerable)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at SHKang.Repository.Repository.OrderInvoiceRepository.GetOrderInvoiceDetail(Int64 orderInvoiceId, Int64 orderId) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\OrderInvoiceRepository.cs:line 183
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 15/04/2021 10:05:01
+Unable to cast object of type 'System.Int64' to type 'System.Decimal'.  :::::     at SHKang.Repository.Repository.OrderInvoiceRepository.GetOrderInvoiceDetail(Int64 orderInvoiceId, Int64 orderId) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\OrderInvoiceRepository.cs:line 199
+   at SHKang.API.Areas.Admin.Controllers.OrderInvoiceController.OrderInvoiceDetail(GetOrderInvoiceDetailModel model) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\OrderInvoiceController.cs:line 161
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 15/04/2021 10:05:11
+Unable to cast object of type 'System.Int64' to type 'System.Decimal'.  :::::     at System.Data.SqlClient.SqlBuffer.get_Decimal()
+   at lambda_method(Closure , DbDataReader )
+   at Microsoft.EntityFrameworkCore.Storage.Internal.TypedRelationalValueBufferFactory.Create(DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SelectEnumerableIterator`2.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider._TrackEntities[TOut,TIn](IEnumerable`1 results, QueryContext queryContext, IList`1 entityTrackingInfos, IList`1 entityAccessors)+MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at System.Collections.Generic.List`1.AddEnumerable(IEnumerable`1 enumerable)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at SHKang.Repository.Repository.OrderInvoiceRepository.GetOrderInvoiceDetail(Int64 orderInvoiceId, Int64 orderId) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\OrderInvoiceRepository.cs:line 183
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 15/04/2021 10:05:11
+Unable to cast object of type 'System.Int64' to type 'System.Decimal'.  :::::     at SHKang.Repository.Repository.OrderInvoiceRepository.GetOrderInvoiceDetail(Int64 orderInvoiceId, Int64 orderId) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\OrderInvoiceRepository.cs:line 199
+   at SHKang.API.Areas.Admin.Controllers.OrderInvoiceController.OrderInvoiceDetail(GetOrderInvoiceDetailModel model) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\OrderInvoiceController.cs:line 161
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 15/04/2021 10:07:14
+Unable to cast object of type 'System.Int64' to type 'System.Decimal'.  :::::     at System.Data.SqlClient.SqlBuffer.get_Decimal()
+   at lambda_method(Closure , DbDataReader )
+   at Microsoft.EntityFrameworkCore.Storage.Internal.TypedRelationalValueBufferFactory.Create(DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SelectEnumerableIterator`2.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider._TrackEntities[TOut,TIn](IEnumerable`1 results, QueryContext queryContext, IList`1 entityTrackingInfos, IList`1 entityAccessors)+MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at System.Collections.Generic.List`1.AddEnumerable(IEnumerable`1 enumerable)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at SHKang.Repository.Repository.OrderInvoiceRepository.GetOrderInvoiceDetail(Int64 orderInvoiceId, Int64 orderId) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\OrderInvoiceRepository.cs:line 183
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 15/04/2021 10:07:14
+Unable to cast object of type 'System.Int64' to type 'System.Decimal'.  :::::     at SHKang.Repository.Repository.OrderInvoiceRepository.GetOrderInvoiceDetail(Int64 orderInvoiceId, Int64 orderId) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\OrderInvoiceRepository.cs:line 193
+   at SHKang.API.Areas.Admin.Controllers.OrderInvoiceController.OrderInvoiceDetail(GetOrderInvoiceDetailModel model) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\OrderInvoiceController.cs:line 161
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 15/04/2021 12:12:58
+Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index  :::::     at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at SHKang.Core.ModelHelper.OrderInvoiceHelper.BindGetorderInvoiceDetailModel(List`1 orderDetailModel, List`1 orderInvoiceSizeDetailModel, List`1 productSizeDetailsModel, String hostingURL, List`1 productImagesModel, List`1 sizeDetailsModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\ModelHelper\OrderInvoiceHelper.cs:line 360
+   at SHKang.API.Areas.Admin.Controllers.OrderInvoiceController.GetOrderInvoice(DeleteOrderModel model) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\OrderInvoiceController.cs:line 210
+----------------------------------------------------------------------------------------------

@@ -1,0 +1,157 @@
+<div class="modal-content">
+  <ng-container>
+    <div class="modal-header">
+      <div class="modal-title h4" id="example-modal-sizes-title-lg" *ngIf="!address">
+        Add Address
+      </div>
+      <div class="modal-title h4" id="example-modal-sizes-title-lg" *ngIf="address">
+        Edit Address '{{ address.address1 }}'
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container>
+    <div class="overlay overlay-block cursor-default modal-body">
+      <form class="form" id="address_form" #addressForm="ngForm" (ngSubmit)="addressForm.form.valid && submit()">
+        <div class="row">
+          <div class="form-group col-md-4">
+            <label>Full Name</label>
+            <label class="label_required">*</label>
+            <input class="form-control form-control-lg form-control-solid" name="fullname" type="text"
+              [(ngModel)]="addressFormObj.fullName" #fullname="ngModel" required autocomplete="off"
+              placeholder="Full Name" />
+            <div *ngIf="
+                  addressForm.submitted || (fullname.invalid && fullname.dirty)
+                  " class="is-invalid fv-plugins-message-container">
+              <div *ngIf="fullname.errors?.required" class="fv-help-block">
+                Full Name is required.
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-4">
+            <label>Company Name</label>
+            <label class="label_required">*</label>
+            <input class="form-control form-control-lg form-control-solid" name="companyName" type="text"
+              [(ngModel)]="addressFormObj.companyName" #companyName="ngModel" required autocomplete="off"
+              placeholder="Company Name" />
+            <div *ngIf="
+                    addressForm.submitted || (companyName.invalid && companyName.dirty)
+                  " class="is-invalid fv-plugins-message-container">
+              <div *ngIf="companyName.errors?.required" class="fv-help-block">
+                Company name is required.
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-4">
+            <label>Email</label>
+            <label class="label_required">*</label>
+            <input class="form-control form-control-lg form-control-solid" name="email" type="email" 
+            pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$"
+              [(ngModel)]="addressFormObj.emailId" #email="ngModel" required autocomplete="off" placeholder="Email" />
+            <div *ngIf="
+                    addressForm.submitted || (email.invalid && email.dirty)
+                  " class="is-invalid fv-plugins-message-container">
+              <div *ngIf="email.errors?.required" class="fv-help-block">
+                Email is required.
+              </div>
+              <div *ngIf="!(email.errors?.required) && email.errors?.pattern" class="fv-help-block">
+                Please enter valid email address.
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-4">
+            <label>Phone Number</label>
+            <label class="label_required">*</label>
+            <input class="form-control form-control-lg form-control-solid" name="phoneNumber" type="text"
+              [(ngModel)]="addressFormObj.phoneNumber" #phoneNumber="ngModel" required autocomplete="off"
+              placeholder="Phone Number" />
+            <div *ngIf="
+                  addressForm.submitted || (phoneNumber.invalid && phoneNumber.dirty)
+                  " class="is-invalid fv-plugins-message-container">
+              <div *ngIf="phoneNumber.errors?.required" class="fv-help-block">
+                Phone Number is required.
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-4">
+            <label>Address 1</label>
+            <label class="label_required">*</label>
+            <input class="form-control form-control-lg form-control-solid" name="address1" type="text"
+              [(ngModel)]="addressFormObj.address1" #address1="ngModel" required autocomplete="off"
+              placeholder="Address 1" />
+            <div *ngIf="
+                addressForm.submitted || (address1.invalid && address1.dirty)
+              " class="is-invalid fv-plugins-message-container">
+              <div *ngIf="address1.errors?.required" class="fv-help-block">
+                Address 1 is required.
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-4">
+            <label>Address 2</label>
+            <label class="label_required">*</label>
+            <input class="form-control form-control-lg form-control-solid" name="address2" type="text"
+              [(ngModel)]="addressFormObj.address2" #address2="ngModel" required autocomplete="off"
+              placeholder="Address 2" />
+            <div *ngIf="
+                addressForm.submitted || (address2.invalid && address2.dirty)
+              " class="is-invalid fv-plugins-message-container">
+              <div *ngIf="address2.errors?.required" class="fv-help-block">
+                Address 2 is required.
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-4">
+            <label>Country</label>
+            <label class="label_required">*</label>
+            <angular2-multiselect name="country" [data]="country" [(ngModel)]="countryselected"
+              [settings]="singleSelectsettings" (onSelect)="onCountrySelect($event)"
+              (onDeSelect)="onCountryDeSelect($event)">
+            </angular2-multiselect>
+          </div>
+          <div class="form-group col-md-4">
+            <label>State</label>
+            <angular2-multiselect name="state" [data]="state" [(ngModel)]="stateselected"
+              [settings]="singleSelectsettings" (onSelect)="onStateSelect($event)">
+            </angular2-multiselect>
+          </div>
+          <div class="form-group col-md-4">
+            <label>City</label>
+            <input class="form-control form-control-lg form-control-solid" name="city" type="text"
+              [(ngModel)]="addressFormObj.city" #city="ngModel" autocomplete="off" placeholder="city" />
+          </div>
+          <!-- <div class="form-group col-md-4">
+            <label>Zipcode</label>
+            <input class="form-control form-control-lg form-control-solid" name="zipcode" type="text"
+              [(ngModel)]="addressFormObj.zipcode" #zipcode="ngModel" autocomplete="off" placeholder="State" />
+          </div> -->
+
+          <div class="form-group col-md-4">
+            <label>Zipcode</label>
+            <label class="label_required">*</label>
+            <input class="form-control form-control-lg form-control-solid" name="zipcode" type="text"
+              [(ngModel)]="addressFormObj.zipcode" #zipcode="ngModel" required autocomplete="off"
+              placeholder="zipcode" />
+            <div *ngIf="
+                  addressForm.submitted || (zipcode.invalid && zipcode.dirty)
+                  " class="is-invalid fv-plugins-message-container">
+              <div *ngIf="zipcode.errors?.required" class="fv-help-block">
+                Zipcode is required.
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-light btn-elevate mr-2" (click)="cancel()">
+            Cancel
+          </button>
+          <button type="submit" id="address_form" class="btn btn-primary btn-elevate">
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </ng-container>
+</div>

@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="row mt-10">
+    <div class="col-md-3">
+      <h3>Invoice</h3>
+      <h3>#{{ invoiceId }}</h3>
+    </div>
+    <div class="col-md-3">
+      <h3>Vat (%)</h3>
+      <p class="price" *ngIf="orderDetails">
+        ${{ orderDetails.shippingCharges }}
+      </p>
+    </div>
+    <div class="col-md-3">
+      <h3>Shipping Charge</h3>
+      <p class="price" *ngIf="orderDetails">
+        ${{ orderDetails.totalGSTAmount }}
+      </p>
+    </div>
+    <div class="col-md-3">
+      <h3>Invoice Total</h3>
+      <p class="price" *ngIf="orderDetails">
+        ${{ orderDetails.payableAmount }}
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="invoice-products" *ngFor="let product of invoiceProducts">
+        <div class="col-md-3">
+          <img src="{{ product.image }}" height="350" width="300" />
+        </div>
+        <div class="col-md-8">
+          <h2>{{ product.name }}</h2>
+          <hr />
+          <div class="subclass col-md-3">
+            <label>Category</label><br />
+            <label>{{ product.category }}</label>
+          </div>
+          <div class="subclass col-md-3">
+            <label>Order Qty Ratio</label><br />
+            <label>{{ product.sizeRatio }}</label>
+          </div>
+          <div class="subclass col-md-3">
+            <label>Color:</label><br />
+            <label>{{ product.color }}</label>
+          </div>
+          <p class="price">${{ product.total }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h3>Pay Now</h3>
+      <br>
+      <form>
+        <!-- <div class="form-group">
+          <input class="form-control" placeholder="Card Number" type="text" />
+        </div>
+        <div class="form-group">
+          <input
+            class="form-control"
+            placeholder="card Driver Name"
+            type="text"
+          />
+        </div>
+        <div class="form-group">
+          <input class="form-control" placeholder="Expiry Date" type="text" />
+        </div>
+        <div class="form-group">
+          <input class="form-control" type="text" placeholder="Cvv" />
+        </div> -->
+        <div>
+          <button class="btnbackground width-100" (click)="checkout(orderDetails.payableAmount)">
+            <span style="display: inline-flex"
+              ><p>Items |</p>
+              <p>Pay Now</p>
+            </span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

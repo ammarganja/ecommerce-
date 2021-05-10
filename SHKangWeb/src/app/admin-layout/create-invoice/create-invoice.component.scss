@@ -1,0 +1,32 @@
+.datatable-row-detail {
+    height: 100px;
+    overflow-y: auto;
+  }
+  .prd-table {
+    margin: 15px 15px 15px 0;
+  }
+  .prd-img {
+    height: 60px;
+  }
+  .mg-top {
+    margin-left: -12px;
+    margin-top: 23px;
+  }
+  
+  .modal-body {
+    overflow-x: hidden;
+    height: 80vh;
+  }
+  .mg-top-27{
+    margin-top: 27%;
+  }
+  .width-38{
+    width: 38%;
+  }
+
+.table th, .table td{
+  border-top: unset;
+}
+.error{
+  color: red;font-family: 'Poppins';font-weight: 400;
+}

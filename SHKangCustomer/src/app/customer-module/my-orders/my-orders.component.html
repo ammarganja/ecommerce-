@@ -1,0 +1,158 @@
+<div class="col-md-9 my_account-right-parent">
+  <div class="my_account-right">
+    <div class="title">
+      <h4>Orders</h4>
+    </div>
+    <!-- <div class="order-total">
+      Order Total <br /><b>$ {{ order.subtotalAmount }}</b>
+    </div>
+    <div class="order-id">
+      OrderId <br /><b>#{{ order.uniqueOrderId }}</b>
+    </div> -->
+    <div class="orders-list" *ngFor="let order of myOrder">
+      <div class="orders-list-left">
+        <div class="order-img">
+          <span>
+            <h3>Order Id</h3>
+          </span>
+          <span>
+            <h3>#{{ order.uniqueOrderId }}</h3>
+          </span>
+        </div>
+      </div>
+      <div class="orders-list-right">
+        <div class="orders-info">
+          <div class="order-date"></div>
+          <div class="order-id"></div>
+          <div class="clear"></div>
+          <h2><span class="order-price">${{ order.subtotalAmount }}</span></h2>
+          <div class="clear"></div>
+          <div class="order-detail" *ngFor="let invoice_list of order.invoiceList">
+            <ul>
+              <li *ngIf="invoice_list.status == 'Ready for payment'">
+                <span>
+                  <a style="cursor: pointer;color: blue;"  (click)="orderInvoice(invoice_list.orderInvoiceId)">
+                    #{{invoice_list.orderInvoiceId }} 
+                  </a>| Order Status
+                </span>
+                <a>
+                  <span class="ready-payment-button-pink">
+                    {{ invoice_list.status }}
+                  </span>
+                </a>
+                <a style="cursor: pointer" routerLink="/customer/payment/{{invoice_list.orderInvoiceId}}"
+                  class="btnbackground">
+                  Pay Now
+                </a>
+              </li>
+              <li *ngIf="invoice_list.status == 'Pending'">
+                <span>
+                  <a style="cursor: pointer;color: blue;"  (click)="orderInvoice(invoice_list.orderInvoiceId)">
+                    #{{invoice_list.orderInvoiceId }} 
+                  </a>
+                  | Order Status
+                </span>
+                <a>
+                  <span class="ready-payment-button-inprogress">
+                    In Progress
+                  </span>
+                </a>
+              </li>
+              <li *ngIf="invoice_list.status == 'Shipped'">
+                <span>
+                  <a style="cursor: pointer;color: blue;"  (click)="orderInvoice(invoice_list.orderInvoiceId)">
+                    #{{invoice_list.orderInvoiceId }} 
+                  </a>| Order Status
+                </span>
+                <a>
+                  <span class="ready-payment-button-paid">
+                    Paid
+                  </span>
+                </a>
+                <span [ngClass]="{'btnbackgroundTrackOrderChange': isCollapsed, 'btnbackgroundTrackOrder' : !isCollapsed}">
+                  <a type="button" [ngClass]="{'btnbackgroundTrackOrderChange': isCollapsed}" (click)="trackInvoice(invoice_list.orderInvoiceId);isCollapsed = !isCollapsed"
+                    [attr.aria-expanded]="!isCollapsed"
+                    attr.aria-controls="collapseExample_{{invoice_list.orderInvoiceId}}">
+                    Track Order
+                  </a>
+                </span>
+                <b>
+                  <a style="cursor: pointer;"  (click)="orderInvoice(invoice_list.orderInvoiceId)">&nbsp;&nbsp;&nbsp;
+                    Download Invoice </a>
+                </b>
+                <div class="orders mt-10 mt-10" *ngIf="invoice_list.status == 'Shipped'">
+                  <div class="bs-vertical-wizard" id="collapseExample_{{ invoice_list.orderInvoiceId }}"
+                    *ngIf="isCollapsed">
+                      <!-- <ul *ngFor="let orderstatus of orderinvoiceTRackStatus;let i=index">
+                        <li >
+                          <a> {{ orderstatus.itemName}} </a>
+                        </li>
+                      </ul> -->
+                    <ul>
+                      <ng-container>
+                        <li class="complete" >
+                          <span class="desc"></span>
+                          <a href="#">Order Accepted<span class="icon-track-completed"><span class="path1"></span><span
+                                class="path2"></span><span class="path3"></span></span>
+                          </a>
+                        </li>
+                        <li class="complete prev-step">
+                          <span class="desc"></span>
+                          <a href="#">Under Preparation<span class="icon-track-completed"><span class="path1"></span><span
+                                class="path2"></span><span class="path3"></span></span>
+                          </a>
+                        </li>
+                        <li class="current">
+                          <span class="desc"></span>
+                          <a href="#">Shipped <span class="icon-track-active"><span class="path1"></span><span
+                                class="path2"></span><span class="path3"></span><span class="path4"></span><span
+                                class="path5"></span></span>
+                            <span class="desc">San Fancisco CA, US</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">Arriving <span class="icon-track-disable"></span>
+                            <span class="desc">25 Jan to 27 Jan</span>
+                          </a>
+                        </li>
+                      </ng-container>
+                      
+                    </ul>
+
+                  </div>
+                </div>
+              </li>
+              <li *ngIf="invoice_list.status == 'Cancelled'">
+                <span>
+                  <a style="cursor: pointer;color: blue;"  (click)="orderInvoice(invoice_list.orderInvoiceId)">
+                    #{{invoice_list.orderInvoiceId }}
+                  </a>
+                  | Order Status
+                </span>
+                <a>
+                  <span class="ready-payment-button-red">{{ invoice_list.status }}</span>
+                </a>
+              </li>
+              <li *ngIf="invoice_list.status == 'Delivered'">
+                <span>
+                  <a style="cursor: pointer;color: blue;"  (click)="orderInvoice(invoice_list.orderInvoiceId)">
+                    #{{invoice_list.orderInvoiceId }} 
+                  </a>| Order Status
+                </span>
+                <a>
+                  <span class="ready-payment-button-delivered">
+                    {{ invoice_list.status }}
+                  </span>
+                </a>
+                <b>
+                  <a style="cursor: pointer;"  (click)="orderInvoice(invoice_list.orderInvoiceId)">&nbsp;&nbsp;&nbsp;
+                    Download Invoice </a>
+                </b>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

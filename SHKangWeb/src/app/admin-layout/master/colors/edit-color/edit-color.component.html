@@ -1,0 +1,44 @@
+<div class="modal-content">
+
+    <ng-container>
+        <div class="modal-header">
+            <div class="modal-title h4" id="example-modal-sizes-title-lg" *ngIf="!color"> Add color</div>
+            <div class="modal-title h4" id="example-modal-sizes-title-lg" *ngIf="color"> Edit color
+                '{{color.Name}}'</div>
+        </div>
+    </ng-container>
+
+    <ng-container>
+        <div class="overlay overlay-block cursor-default modal-body">
+
+            <form class="form" id="color_form" #colorForm="ngForm"
+                (ngSubmit)="colorForm.form.valid && submit()">
+                <ngb-alert _ngcontent-erc-c212="" role="alert" class="alert show alert-danger fade alert-dismissible mb-3 mt-3" *ngIf="errorMessage">
+                    {{errorMessage}}
+                    <button type="button" aria-label="Close" class="close"><span aria-hidden="true" (click)="closeAlert()">×</span></button>
+                    <!---->
+                </ngb-alert>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label>Name</label>
+                        <label class="label_required">*</label>
+                        <input class="form-control form-control-lg form-control-solid" name="name" type="text" [(ngModel)]="colorFormObj.Name"
+                            #name="ngModel" required autocomplete="off" placeholder="Color Name" />
+                        <div *ngIf="colorForm.submitted || (name.invalid && name.dirty)"
+                            class="is-invalid fv-plugins-message-container">
+                            <div *ngIf="name.errors?.required" class="fv-help-block">
+                                Color name is required.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light btn-elevate mr-2" (click)="modal.dismiss()">Cancel</button>
+                    <button type="submit" id="color_form" class="btn btn-primary btn-elevate">Save</button>
+                </div>
+            </form>
+        </div>
+
+    </ng-container>
+</div>

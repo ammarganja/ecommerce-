@@ -1,0 +1,122 @@
+<div class="modal-content">
+
+    <ng-container>
+        <div class="modal-header">
+            <div class="modal-title h4" id="example-modal-sizes-title-lg" *ngIf="!customer"> Add Customer</div>
+            <div class="modal-title h4" id="example-modal-sizes-title-lg" *ngIf="customer"> Edit Customer
+                '{{customer.fullname}} {{customer.lastName}}'</div>
+        </div>
+    </ng-container>
+
+    <ng-container>
+        <div class="overlay overlay-block cursor-default modal-body">
+
+            <form class="form" id="customer_form" #customerForm="ngForm"
+                (ngSubmit)="customerForm.form.valid && submit()">
+
+                <div class="row">
+                    <div class="form-group col-md-4 ">
+                        <label>Full Name</label>
+                        <label class="label_required">*</label>
+                        <input class="form-control form-control-lg form-control-solid" name="fullname" type="text"
+                            [(ngModel)]="customerFormObj.firstName" #fullname="ngModel" required autocomplete="off"
+                            placeholder="First name" />
+                        <div *ngIf="customerForm.submitted || (fullname.invalid && (fullname.dirty))"
+                            class="is-invalid fv-plugins-message-container">
+                            <div *ngIf="fullname.errors?.required" class="fv-help-block">
+                                Full Name is required.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4 ">
+                        <label>Company Name</label>
+                        <label class="label_required">*</label>
+                        <input class="form-control form-control-lg form-control-solid" name="companyName" type="text"
+                            [(ngModel)]="customerFormObj.companyName" #companyName="ngModel" required autocomplete="off"
+                            placeholder="Company name" />
+                        <div *ngIf="customerForm.submitted || (companyName.invalid && (companyName.dirty))"
+                            class="is-invalid fv-plugins-message-container">
+                            <div *ngIf="companyName.errors?.required" class="fv-help-block">
+                                Company Name is required.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4 ">
+                        <label>Email</label>
+                        <label class="label_required">*</label>
+                        <input class="form-control form-control-lg form-control-solid" name="emailId"
+                            [(ngModel)]="customerFormObj.emailAddress"
+                            pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$" #emailId="ngModel" required
+                            autocomplete="off" placeholder="Email address"
+                            />
+                        <div *ngIf="customerForm.submitted || (emailId.invalid && (emailId.dirty))"
+                            class="is-invalid fv-plugins-message-container">
+                            <div *ngIf="emailId.errors?.required" class="fv-help-block">
+                                Email address is required.
+                            </div>
+                            <div *ngIf="!(emailId.errors?.required) && emailId.errors?.pattern" class="fv-help-block">
+                                Please enter valid email address.
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        
+                    </div>
+                    <div class="form-group col-md-4 " *ngIf="!customer">
+                        <label>Password</label>
+                        <label class="label_required">*</label>
+                        <input class="form-control form-control-lg form-control-solid" name="password"
+                            [(ngModel)]="customerFormObj.password"
+                            #password="ngModel" required
+                            autocomplete="off" placeholder="Password"
+                            type="password"
+                            />
+                        <div *ngIf="(password.invalid && (password.dirty))"
+                            class="is-invalid fv-plugins-message-container">
+                            <div *ngIf="password.errors?.required" class="fv-help-block">
+                                Password is required.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4 " *ngIf="!customer">
+                        <label>Confirm Password</label>
+                        <label class="label_required">*</label>
+                        <input class="form-control form-control-lg form-control-solid" name="confirmpassword"
+                            [(ngModel)]="confirmPassword" #confirmpassword="ngModel" required
+                            autocomplete="off" placeholder="Confirm Password"
+                            type="password"
+                            />
+                        <div *ngIf="customerForm.submitted || ((confirmpassword.invalid && (confirmpassword.dirty)) || (confirmpassword.value && (confirmpassword.value != customerFormObj.password)))"
+                            class="is-invalid fv-plugins-message-container">
+                            <div *ngIf="confirmpassword.errors?.required" class="fv-help-block">
+                                Confirm Password is required.
+                            </div>
+                            <div *ngIf="(!(confirmpassword.errors?.required) && confirmpassword.errors?.pattern) || (confirmpassword.value != customerFormObj.password)" class="fv-help-block">
+                               Passwords do not match
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4 ">
+                        <label>Phone Number</label>
+                        <input class="form-control form-control-lg form-control-solid " name="phoneNumber" type="text"
+                            [(ngModel)]="customerFormObj.phoneNumber" #phone_number="ngModel" autocomplete="off"
+                            placeholder="Phone Number"  maxlength="20"/>
+                            <div *ngIf="customerForm.submitted || (phone_number.invalid && (phone_number.dirty))"
+                            class="is-invalid fv-plugins-message-container">
+                            <div *ngIf="phone_number.errors?.maxlength" class="fv-help-block">
+                                Please do not enter more than 20 characters.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-light btn-elevate mr-2" (click)="modal.dismiss()">Cancel</button>
+                    <button type="submit" id="customer_form" class="btn btn-primary btn-elevate">Save</button>
+                </div>
+
+            </form>
+        </div>
+
+    </ng-container>
+</div>

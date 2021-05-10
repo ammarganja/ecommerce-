@@ -1,0 +1,336 @@
+
+
+Exception Date : 09/04/2021 10:50:37
+Cannot find table 3.  :::::     at System.Data.DataTableCollection.get_Item(Int32 index)
+   at SHKang.Repository.Repository.OrderRepository.GetOrderList(Int32 pageNo, Int32 rowsPerPage, String searchString) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\OrderRepository.cs:line 75
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 10:50:37
+Cannot find table 3.  :::::     at SHKang.Repository.Repository.OrderRepository.GetOrderList(Int32 pageNo, Int32 rowsPerPage, String searchString) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\OrderRepository.cs:line 123
+   at SHKang.API.Controllers.CommonController.OrderList(SearchPaginationListModel searchModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Controllers\CommonController.cs:line 182
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 10:51:10
+Cannot find table 3.  :::::     at System.Data.DataTableCollection.get_Item(Int32 index)
+   at SHKang.Repository.Repository.OrderRepository.GetOrderList(Int32 pageNo, Int32 rowsPerPage, String searchString) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\OrderRepository.cs:line 75
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 10:51:12
+Cannot find table 3.  :::::     at SHKang.Repository.Repository.OrderRepository.GetOrderList(Int32 pageNo, Int32 rowsPerPage, String searchString) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\OrderRepository.cs:line 123
+   at SHKang.API.Controllers.CommonController.OrderList(SearchPaginationListModel searchModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Controllers\CommonController.cs:line 182
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 11:37:15
+Object reference not set to an instance of an object.  :::::     at SHKang.Core.ModelHelper.OrderInvoiceHelper.BindOrderInvoiceDetailModel(List`1 orderInvoiceDetail) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\ModelHelper\OrderInvoiceHelper.cs:line 118
+   at SHKang.API.Areas.Admin.Controllers.OrderInvoiceController.OrderInvoiceDetail(GetOrderInvoiceDetailModel model) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\OrderInvoiceController.cs:line 131
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 11:39:23
+Object reference not set to an instance of an object.  :::::     at SHKang.Core.ModelHelper.OrderInvoiceHelper.BindOrderInvoiceDetailModel(List`1 orderInvoiceDetail) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\ModelHelper\OrderInvoiceHelper.cs:line 132
+   at SHKang.API.Areas.Admin.Controllers.OrderInvoiceController.OrderInvoiceDetail(GetOrderInvoiceDetailModel model) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\OrderInvoiceController.cs:line 131
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 12:13:33
+Object reference not set to an instance of an object.  :::::     at SHKang.Core.ModelHelper.OrderInvoiceHelper.BindOrderInvoiceDetailModel(List`1 orderInvoiceDetail, String scheme) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\ModelHelper\OrderInvoiceHelper.cs:line 114
+   at SHKang.API.Areas.Admin.Controllers.OrderInvoiceController.OrderInvoiceDetail(GetOrderInvoiceDetailModel model) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\OrderInvoiceController.cs:line 140
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 12:13:40
+Object reference not set to an instance of an object.  :::::     at SHKang.Core.ModelHelper.OrderInvoiceHelper.BindOrderInvoiceDetailModel(List`1 orderInvoiceDetail, String scheme) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\ModelHelper\OrderInvoiceHelper.cs:line 114
+   at SHKang.API.Areas.Admin.Controllers.OrderInvoiceController.OrderInvoiceDetail(GetOrderInvoiceDetailModel model) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\OrderInvoiceController.cs:line 140
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 14:21:40
+The property 'SizeDetailId' on entity type 'SizeDetail' has a temporary value while attempting to change the entity's state to 'Deleted'. Either set a permanent value explicitly or ensure that the database is configured to generate values for this property.  :::::     at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Nullable`1 forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry.set_State(EntityState value)
+   at Microsoft.EntityFrameworkCore.DbContext.Remove[TEntity](TEntity entity)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Remove(TEntity entity)
+   at SHKang.Repository.Repository.SizeRepository.UpdateSize(Size size, List`1 sizeDetailModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\SizeRepository.cs:line 180
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 14:21:52
+The property 'SizeDetailId' on entity type 'SizeDetail' has a temporary value while attempting to change the entity's state to 'Deleted'. Either set a permanent value explicitly or ensure that the database is configured to generate values for this property.  :::::     at SHKang.Repository.Repository.SizeRepository.UpdateSize(Size size, List`1 sizeDetailModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\SizeRepository.cs:line 214
+   at SHKang.API.Areas.Admin.Controllers.SizeController.AddSize(AddSizeModel addSizeModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\SizeController.cs:line 81
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 15:49:21
+The SqlParameterCollection only accepts non-null SqlParameter type objects.
+Parameter name: value   ::::      at System.Data.SqlClient.SqlParameterCollection.ValidateType(Object value)
+   at System.Data.SqlClient.SqlParameterCollection.AddRange(Array values)
+   at SHKang.Core.Helpers.DBHelper.GetDataTable(String spName, SqlParameter[] sqlParameters, String connectionString) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\Helpers\DBHelper.cs:line 30
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 15:49:21
+The SqlParameterCollection only accepts non-null SqlParameter type objects.
+Parameter name: value  :::::     at SHKang.Core.Helpers.DBHelper.GetDataTable(String spName, SqlParameter[] sqlParameters, String connectionString) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\Helpers\DBHelper.cs:line 39
+   at SHKang.Repository.Repository.ProductRepository.GetOrderProductList(Int32 pageNo, Int32 rowsPerPage, String searchString, String hostingURL, String column, String direction) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductRepository.cs:line 674
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 15:49:21
+The SqlParameterCollection only accepts non-null SqlParameter type objects.
+Parameter name: value  :::::     at SHKang.Repository.Repository.ProductRepository.GetOrderProductList(Int32 pageNo, Int32 rowsPerPage, String searchString, String hostingURL, String column, String direction) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductRepository.cs:line 729
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 15:49:52
+Cannot find table 5.  :::::     at System.Data.DataTableCollection.get_Item(Int32 index)
+   at SHKang.Repository.Repository.ProductRepository.GetOrderProductList(Int32 pageNo, Int32 rowsPerPage, String searchString, String hostingURL, String column, String direction) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductRepository.cs:line 682
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 15:49:52
+Cannot find table 5.  :::::     at SHKang.Repository.Repository.ProductRepository.GetOrderProductList(Int32 pageNo, Int32 rowsPerPage, String searchString, String hostingURL, String column, String direction) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductRepository.cs:line 729
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 15:50:38
+Cannot find column [ProductColorFK].  :::::     at System.Data.NameNode.Bind(DataTable table, List`1 list)
+   at System.Data.BinaryNode.Bind(DataTable table, List`1 list)
+   at System.Data.DataExpression.Bind(DataTable table)
+   at System.Data.DataExpression..ctor(DataTable table, String expression, Type type)
+   at System.Data.Select..ctor(DataTable table, String filterExpression, String sort, DataViewRowState recordStates)
+   at System.Data.DataTable.Select(String filterExpression)
+   at SHKang.Repository.Repository.ProductRepository.GetOrderProductList(Int32 pageNo, Int32 rowsPerPage, String searchString, String hostingURL, String column, String direction) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductRepository.cs:line 713
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 15:50:38
+Cannot find column [ProductColorFK].  :::::     at SHKang.Repository.Repository.ProductRepository.GetOrderProductList(Int32 pageNo, Int32 rowsPerPage, String searchString, String hostingURL, String column, String direction) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductRepository.cs:line 728
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 15:50:46
+Cannot find column [ProductColorFK].  :::::     at SHKang.Repository.Repository.ProductRepository.GetOrderProductList(Int32 pageNo, Int32 rowsPerPage, String searchString, String hostingURL, String column, String direction) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductRepository.cs:line 735
+   at SHKang.API.Areas.Admin.Controllers.ProductController.ProductOrderList(SearchProductListModel searchModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\ProductController.cs:line 362
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 15:51:32
+Cannot find column [ProductColorFK].  :::::     at System.Data.NameNode.Bind(DataTable table, List`1 list)
+   at System.Data.BinaryNode.Bind(DataTable table, List`1 list)
+   at System.Data.DataExpression.Bind(DataTable table)
+   at System.Data.DataExpression..ctor(DataTable table, String expression, Type type)
+   at System.Data.Select..ctor(DataTable table, String filterExpression, String sort, DataViewRowState recordStates)
+   at System.Data.DataTable.Select(String filterExpression)
+   at SHKang.Repository.Repository.ProductRepository.GetOrderProductList(Int32 pageNo, Int32 rowsPerPage, String searchString, String hostingURL, String column, String direction) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductRepository.cs:line 713
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 15:51:32
+Cannot find column [ProductColorFK].  :::::     at SHKang.Repository.Repository.ProductRepository.GetOrderProductList(Int32 pageNo, Int32 rowsPerPage, String searchString, String hostingURL, String column, String direction) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductRepository.cs:line 728
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 15:51:32
+Cannot find column [ProductColorFK].  :::::     at SHKang.Repository.Repository.ProductRepository.GetOrderProductList(Int32 pageNo, Int32 rowsPerPage, String searchString, String hostingURL, String column, String direction) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductRepository.cs:line 735
+   at SHKang.API.Areas.Admin.Controllers.ProductController.ProductOrderList(SearchProductListModel searchModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\ProductController.cs:line 362
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 15:51:43
+Cannot find column [ProductColorFK].  :::::     at System.Data.NameNode.Bind(DataTable table, List`1 list)
+   at System.Data.BinaryNode.Bind(DataTable table, List`1 list)
+   at System.Data.DataExpression.Bind(DataTable table)
+   at System.Data.DataExpression..ctor(DataTable table, String expression, Type type)
+   at System.Data.Select..ctor(DataTable table, String filterExpression, String sort, DataViewRowState recordStates)
+   at System.Data.DataTable.Select(String filterExpression)
+   at SHKang.Repository.Repository.ProductRepository.GetOrderProductList(Int32 pageNo, Int32 rowsPerPage, String searchString, String hostingURL, String column, String direction) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductRepository.cs:line 713
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 15:51:43
+Cannot find column [ProductColorFK].  :::::     at SHKang.Repository.Repository.ProductRepository.GetOrderProductList(Int32 pageNo, Int32 rowsPerPage, String searchString, String hostingURL, String column, String direction) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductRepository.cs:line 728
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 15:51:45
+Cannot find column [ProductColorFK].  :::::     at SHKang.Repository.Repository.ProductRepository.GetOrderProductList(Int32 pageNo, Int32 rowsPerPage, String searchString, String hostingURL, String column, String direction) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductRepository.cs:line 735
+   at SHKang.API.Areas.Admin.Controllers.ProductController.ProductOrderList(SearchProductListModel searchModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\ProductController.cs:line 362
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 16:00:51
+Invalid column name 'ProductSizeFK'.
+Invalid column name 'ProductSizeRatioFK'.   ::::      at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at SHKang.Core.Helpers.DBHelper.GetDataTable(String spName, SqlParameter[] sqlParameters, String connectionString) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\Helpers\DBHelper.cs:line 33
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 16:00:51
+Invalid column name 'ProductSizeFK'.
+Invalid column name 'ProductSizeRatioFK'.  :::::     at SHKang.Core.Helpers.DBHelper.GetDataTable(String spName, SqlParameter[] sqlParameters, String connectionString) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\Helpers\DBHelper.cs:line 39
+   at SHKang.Repository.Repository.ProductRepository.GetProductDetail(Int64 productId) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductRepository.cs:line 336
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 16:00:51
+Invalid column name 'ProductSizeFK'.
+Invalid column name 'ProductSizeRatioFK'.  :::::     at SHKang.Repository.Repository.ProductRepository.GetProductDetail(Int64 productId) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductRepository.cs:line 412
+   at SHKang.API.Areas.Admin.Controllers.ProductController.ProductDetail(GetProductDetailModel productDetailModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\ProductController.cs:line 194
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 16:58:57
+An error occurred while updating the entries. See the inner exception for details.  :::::     at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(DbContext _, ValueTuple`2 parameters)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IReadOnlyList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IReadOnlyList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
+   at SHKang.Repository.Repository.OrderRepository.AddOrder(Order orderModel, List`1 detailModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\OrderRepository.cs:line 184
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 16:59:05
+An error occurred while updating the entries. See the inner exception for details.  :::::     at SHKang.Repository.Repository.OrderRepository.AddOrder(Order orderModel, List`1 detailModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\OrderRepository.cs:line 205
+   at SHKang.API.Controllers.CommonController.AddOrder(AddNewOrderModel addNewOrderModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Controllers\CommonController.cs:line 329
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 16:59:37
+An error occurred while updating the entries. See the inner exception for details.  :::::     at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(DbContext _, ValueTuple`2 parameters)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IReadOnlyList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IReadOnlyList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
+   at SHKang.Repository.Repository.OrderRepository.AddOrder(Order orderModel, List`1 detailModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\OrderRepository.cs:line 184
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 16:59:37
+An error occurred while updating the entries. See the inner exception for details.  :::::     at SHKang.Repository.Repository.OrderRepository.AddOrder(Order orderModel, List`1 detailModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\OrderRepository.cs:line 205
+   at SHKang.API.Controllers.CommonController.AddOrder(AddNewOrderModel addNewOrderModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Controllers\CommonController.cs:line 329
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 18:03:37
+Column 'UserAddressFK' does not belong to table Table.  :::::     at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at SHKang.Repository.Repository.OrderRepository.GetOrderForEdit(Int64 OrderId, Int32 pageNo, Int32 rowsPerPage, String searchString, String column, String direction, String hostingURL) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\OrderRepository.cs:line 497
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 18:03:37
+Column 'UserAddressFK' does not belong to table Table.  :::::     at SHKang.Repository.Repository.OrderRepository.GetOrderForEdit(Int64 OrderId, Int32 pageNo, Int32 rowsPerPage, String searchString, String column, String direction, String hostingURL) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\OrderRepository.cs:line 506
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 18:03:37
+Column 'UserAddressFK' does not belong to table Table.  :::::     at SHKang.Repository.Repository.OrderRepository.GetOrderForEdit(Int64 OrderId, Int32 pageNo, Int32 rowsPerPage, String searchString, String column, String direction, String hostingURL) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\OrderRepository.cs:line 513
+   at SHKang.API.Controllers.CommonController.GetEditOrder(GetEditOrderModel deleteOrderModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Controllers\CommonController.cs:line 387
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 18:04:15
+Column 'UserAddressFK' does not belong to table Table.  :::::     at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at SHKang.Repository.Repository.OrderRepository.GetOrderForEdit(Int64 OrderId, Int32 pageNo, Int32 rowsPerPage, String searchString, String column, String direction, String hostingURL) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\OrderRepository.cs:line 497
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 18:04:15
+Column 'UserAddressFK' does not belong to table Table.  :::::     at SHKang.Repository.Repository.OrderRepository.GetOrderForEdit(Int64 OrderId, Int32 pageNo, Int32 rowsPerPage, String searchString, String column, String direction, String hostingURL) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\OrderRepository.cs:line 506
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 18:04:15
+Column 'UserAddressFK' does not belong to table Table.  :::::     at SHKang.Repository.Repository.OrderRepository.GetOrderForEdit(Int64 OrderId, Int32 pageNo, Int32 rowsPerPage, String searchString, String column, String direction, String hostingURL) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\OrderRepository.cs:line 513
+   at SHKang.API.Controllers.CommonController.GetEditOrder(GetEditOrderModel deleteOrderModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Controllers\CommonController.cs:line 387
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 19:13:36
+The SqlParameterCollection only accepts non-null SqlParameter type objects.
+Parameter name: value   ::::      at System.Data.SqlClient.SqlParameterCollection.ValidateType(Object value)
+   at System.Data.SqlClient.SqlParameterCollection.AddRange(Array values)
+   at SHKang.Core.Helpers.DBHelper.GetDataTable(String spName, SqlParameter[] sqlParameters, String connectionString) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\Helpers\DBHelper.cs:line 30
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 19:13:57
+The number of rows provided for a FETCH clause must be greater then zero.   ::::      at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at SHKang.Core.Helpers.DBHelper.GetDataTable(String spName, SqlParameter[] sqlParameters, String connectionString) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\Helpers\DBHelper.cs:line 33
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 19:13:57
+The number of rows provided for a FETCH clause must be greater then zero.  :::::     at SHKang.Core.Helpers.DBHelper.GetDataTable(String spName, SqlParameter[] sqlParameters, String connectionString) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\Helpers\DBHelper.cs:line 39
+   at SHKang.Repository.Repository.UserRepository.UserAddressList(Int64 userId, Int32 pageNo, Int32 recordsPerPage, String column, String direction) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\UserRepository.cs:line 355
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 19:14:01
+The number of rows provided for a FETCH clause must be greater then zero.  :::::     at SHKang.Repository.Repository.UserRepository.UserAddressList(Int64 userId, Int32 pageNo, Int32 recordsPerPage, String column, String direction) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\UserRepository.cs:line 387
+   at SHKang.API.Controllers.CommonController.UserAddressList(DeleteUserModel userModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Controllers\CommonController.cs:line 424
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 19:14:16
+The number of rows provided for a FETCH clause must be greater then zero.   ::::      at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at SHKang.Core.Helpers.DBHelper.GetDataTable(String spName, SqlParameter[] sqlParameters, String connectionString) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\Helpers\DBHelper.cs:line 33
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 19:14:16
+The number of rows provided for a FETCH clause must be greater then zero.  :::::     at SHKang.Core.Helpers.DBHelper.GetDataTable(String spName, SqlParameter[] sqlParameters, String connectionString) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\Helpers\DBHelper.cs:line 39
+   at SHKang.Repository.Repository.UserRepository.UserAddressList(Int64 userId, Int32 pageNo, Int32 recordsPerPage, String column, String direction) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\UserRepository.cs:line 355
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 09/04/2021 19:14:16
+The number of rows provided for a FETCH clause must be greater then zero.  :::::     at SHKang.Repository.Repository.UserRepository.UserAddressList(Int64 userId, Int32 pageNo, Int32 recordsPerPage, String column, String direction) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\UserRepository.cs:line 387
+   at SHKang.API.Controllers.CommonController.UserAddressList(DeleteUserModel userModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Controllers\CommonController.cs:line 424
+----------------------------------------------------------------------------------------------

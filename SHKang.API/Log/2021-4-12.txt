@@ -1,0 +1,200 @@
+
+
+Exception Date : 12/04/2021 14:16:57
+Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index  :::::     at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at SHKang.Core.ModelHelper.OrderInvoiceHelper.BindOrderInvoiceDetailModel(List`1 orderInvoiceDetail) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\ModelHelper\OrderInvoiceHelper.cs:line 130
+   at SHKang.API.Areas.Admin.Controllers.OrderInvoiceController.OrderInvoiceDetail(GetOrderInvoiceDetailModel model) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\OrderInvoiceController.cs:line 159
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 12/04/2021 14:17:19
+Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index  :::::     at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at SHKang.Core.ModelHelper.OrderInvoiceHelper.BindOrderInvoiceDetailModel(List`1 orderInvoiceDetail) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\ModelHelper\OrderInvoiceHelper.cs:line 130
+   at SHKang.API.Areas.Admin.Controllers.OrderInvoiceController.OrderInvoiceDetail(GetOrderInvoiceDetailModel model) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\OrderInvoiceController.cs:line 159
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 12/04/2021 14:17:40
+Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index  :::::     at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at SHKang.Core.ModelHelper.OrderInvoiceHelper.BindOrderInvoiceDetailModel(List`1 orderInvoiceDetail) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\ModelHelper\OrderInvoiceHelper.cs:line 130
+   at SHKang.API.Areas.Admin.Controllers.OrderInvoiceController.OrderInvoiceDetail(GetOrderInvoiceDetailModel model) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\OrderInvoiceController.cs:line 159
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 12/04/2021 14:18:24
+Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index  :::::     at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at SHKang.Core.ModelHelper.OrderInvoiceHelper.BindOrderInvoiceDetailModel(List`1 orderInvoiceDetail) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\ModelHelper\OrderInvoiceHelper.cs:line 130
+   at SHKang.API.Areas.Admin.Controllers.OrderInvoiceController.OrderInvoiceDetail(GetOrderInvoiceDetailModel model) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\OrderInvoiceController.cs:line 159
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 12/04/2021 15:34:25
+An error occurred while updating the entries. See the inner exception for details.  :::::     at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(DbContext _, ValueTuple`2 parameters)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IReadOnlyList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IReadOnlyList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
+   at SHKang.Repository.Repository.UserRepository.AddNewUserAddress(UserAddress userAddress) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\UserRepository.cs:line 256
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 12/04/2021 15:34:28
+An error occurred while updating the entries. See the inner exception for details.  :::::     at SHKang.Repository.Repository.UserRepository.AddNewUserAddress(UserAddress userAddress) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\UserRepository.cs:line 267
+   at SHKang.API.Controllers.CommonController.AddUserAddress(AddUserAddressModel addUserAddressModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Controllers\CommonController.cs:line 505
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 12/04/2021 15:35:13
+An error occurred while updating the entries. See the inner exception for details.  :::::     at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(DbContext _, ValueTuple`2 parameters)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IReadOnlyList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IReadOnlyList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
+   at SHKang.Repository.Repository.UserRepository.AddNewUserAddress(UserAddress userAddress) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\UserRepository.cs:line 256
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 12/04/2021 15:35:14
+An error occurred while updating the entries. See the inner exception for details.  :::::     at SHKang.Repository.Repository.UserRepository.AddNewUserAddress(UserAddress userAddress) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\UserRepository.cs:line 267
+   at SHKang.API.Controllers.CommonController.AddUserAddress(AddUserAddressModel addUserAddressModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Controllers\CommonController.cs:line 505
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 12/04/2021 16:00:21
+An error occurred while updating the entries. See the inner exception for details.  :::::     at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(DbContext _, ValueTuple`2 parameters)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IReadOnlyList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IReadOnlyList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
+   at SHKang.Repository.Repository.ProductRepository.AddProduct(Product model, List`1 addProductColorModel, List`1 productCategoryDetails, String hostPath, String[] ProductSizeValues) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductRepository.cs:line 72
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 12/04/2021 16:00:21
+An error occurred while updating the entries. See the inner exception for details.  :::::     at SHKang.Repository.Repository.ProductRepository.AddProduct(Product model, List`1 addProductColorModel, List`1 productCategoryDetails, String hostPath, String[] ProductSizeValues) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductRepository.cs:line 186
+   at SHKang.API.Areas.Admin.Controllers.ProductController.AddProduct(AddProductModel addProduct) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\ProductController.cs:line 78
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 12/04/2021 16:01:03
+An error occurred while updating the entries. See the inner exception for details.  :::::     at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(DbContext _, ValueTuple`2 parameters)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IReadOnlyList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IReadOnlyList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
+   at SHKang.Repository.Repository.ProductRepository.AddProduct(Product model, List`1 addProductColorModel, List`1 productCategoryDetails, String hostPath, String[] ProductSizeValues) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductRepository.cs:line 86
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 12/04/2021 16:01:03
+An error occurred while updating the entries. See the inner exception for details.  :::::     at SHKang.Repository.Repository.ProductRepository.AddProduct(Product model, List`1 addProductColorModel, List`1 productCategoryDetails, String hostPath, String[] ProductSizeValues) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductRepository.cs:line 186
+   at SHKang.API.Areas.Admin.Controllers.ProductController.AddProduct(AddProductModel addProduct) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\ProductController.cs:line 78
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 12/04/2021 16:02:31
+An error occurred while updating the entries. See the inner exception for details.  :::::     at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(DbContext _, ValueTuple`2 parameters)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IReadOnlyList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IReadOnlyList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
+   at SHKang.Repository.Repository.ProductRepository.AddProduct(Product model, List`1 addProductColorModel, List`1 productCategoryDetails, String hostPath, String[] ProductSizeValues) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductRepository.cs:line 156
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 12/04/2021 16:02:32
+An error occurred while updating the entries. See the inner exception for details.  :::::     at SHKang.Repository.Repository.ProductRepository.AddProduct(Product model, List`1 addProductColorModel, List`1 productCategoryDetails, String hostPath, String[] ProductSizeValues) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductRepository.cs:line 187
+   at SHKang.API.Areas.Admin.Controllers.ProductController.AddProduct(AddProductModel addProduct) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\ProductController.cs:line 78
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 12/04/2021 16:04:06
+An error occurred while updating the entries. See the inner exception for details.  :::::     at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(DbContext _, ValueTuple`2 parameters)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IReadOnlyList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IReadOnlyList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
+   at SHKang.Repository.Repository.ProductRepository.AddProduct(Product model, List`1 addProductColorModel, List`1 productCategoryDetails, String hostPath, String[] ProductSizeValues) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductRepository.cs:line 156
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 12/04/2021 16:04:06
+An error occurred while updating the entries. See the inner exception for details.  :::::     at SHKang.Repository.Repository.ProductRepository.AddProduct(Product model, List`1 addProductColorModel, List`1 productCategoryDetails, String hostPath, String[] ProductSizeValues) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductRepository.cs:line 187
+   at SHKang.API.Areas.Admin.Controllers.ProductController.AddProduct(AddProductModel addProduct) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\ProductController.cs:line 78
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 12/04/2021 16:04:40
+An error occurred while updating the entries. See the inner exception for details.  :::::     at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(DbContext _, ValueTuple`2 parameters)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IReadOnlyList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IReadOnlyList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
+   at SHKang.Repository.Repository.ProductRepository.AddProduct(Product model, List`1 addProductColorModel, List`1 productCategoryDetails, String hostPath, String[] ProductSizeValues) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductRepository.cs:line 156
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 12/04/2021 16:04:40
+An error occurred while updating the entries. See the inner exception for details.  :::::     at SHKang.Repository.Repository.ProductRepository.AddProduct(Product model, List`1 addProductColorModel, List`1 productCategoryDetails, String hostPath, String[] ProductSizeValues) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductRepository.cs:line 187
+   at SHKang.API.Areas.Admin.Controllers.ProductController.AddProduct(AddProductModel addProduct) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\ProductController.cs:line 78
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 12/04/2021 18:01:22
+An error occurred while updating the entries. See the inner exception for details.  :::::     at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(DbContext _, ValueTuple`2 parameters)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IReadOnlyList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IReadOnlyList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
+   at SHKang.Repository.Repository.ProductRepository.AddProductColorImage(Int64 ProductId, Int64 ColorId, List`1 productImages, String hostPath) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductRepository.cs:line 718
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 12/04/2021 18:02:38
+An error occurred while updating the entries. See the inner exception for details.  :::::     at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(DbContext _, ValueTuple`2 parameters)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IReadOnlyList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IReadOnlyList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
+   at SHKang.Repository.Repository.ProductRepository.AddProductColorImage(Int64 ProductId, Int64 ColorId, List`1 productImages, String hostPath) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductRepository.cs:line 718
+----------------------------------------------------------------------------------------------

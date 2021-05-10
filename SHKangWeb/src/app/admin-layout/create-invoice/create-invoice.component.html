@@ -1,0 +1,304 @@
+<div class="modal-content">
+  <ng-container>
+    <div class="modal-header">
+      <div class="modal-title h4" id="example-modal-sizes-title-lg">
+        Create Invoice
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container>
+    <div class="overlay overlay-block cursor-default modal-body">
+      <form
+        class="form"
+        id="customer_form"
+        #ordersizeform="ngForm"
+        (ngSubmit)="ordersizeform.form.valid && submit()"
+      >
+        <div class="">
+          <div class="">
+            <div class="row justify-content-center py-8 px-8 py-md-10 px-md-0">
+              <app-order-basic-detail
+                [orderDetail]="orderDetail"
+                class="col-md-12"
+              ></app-order-basic-detail>
+            </div>
+            <div class="row justify-content-center py-8 px-8 py-md-10 px-md-0">
+              <div class="col-md-12">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th
+                          class="pl-0 font-weight-bold text-muted text-uppercase"
+                        ></th>
+                        <th
+                        class="pl-0 font-weight-bold text-muted text-uppercase"
+                      >Product Name</th>
+                        <th
+                          class="pl-0 font-weight-bold text-muted text-uppercase"
+                        >Size Ratio</th>
+                        <th
+                          class="pl-0 font-weight-bold text-muted text-uppercase"
+                        >Shipped Quantity</th>
+                        <th
+                          class="pl-0 font-weight-bold text-muted text-uppercase"
+                        >Remain Quantity</th>
+                        <th
+                          class="pl-0 font-weight-bold text-muted text-uppercase"
+                        >
+                          Ordered Items
+                        </th>
+                        <th
+                          class="pl-0 font-weight-bold text-muted text-uppercase"
+                        >
+                          Shipped Size Ratio
+                        </th>
+                        <th
+                          class="pl-0 font-weight-bold text-muted text-uppercase"
+                        >
+                          Remain Size Ratio
+                        </th>
+                        <th
+                          class="text-right font-weight-bold text-muted text-uppercase"
+                        >
+                          Qty
+                        </th>
+                        <th
+                          class="text-right font-weight-bold text-muted text-uppercase"
+                        >
+                          Unit Price
+                        </th>
+                        <th
+                          class="text-right font-weight-bold text-muted text-uppercase"
+                        >
+                          Total unit Price
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody *ngIf="orderDetail">
+                      <ng-container
+                        *ngFor="let product of orderDetail.productDetails"
+                      >
+                        <tr class="font-weight-boldest">
+                          <td
+                            class="text-right pt-7 align-middle create-invoice-table-td"
+                          >
+                            <mat-checkbox
+                              name="prdCheckBox{{product.productColorId}}"
+                              [(ngModel)]="product.isSelected"
+                              (change)="changecheckBoxEvent(product)"
+                            >
+                            </mat-checkbox>
+                          </td>
+                          <td
+                            class="border-0 pl-0 pt-7 d-flex align-items-center"
+                          >
+                            <!--begin::Symbol-->
+                            <div
+                              class="symbol symbol-40 flex-shrink-0 mr-4 bg-light"
+                            >
+                              <div
+                                class="symbol-label"
+                                style="background-image: url({{product.image}})"
+                              ></div>
+                            </div>
+                            <!--end::Symbol-->
+                            {{ product.productName }}
+                          </td>
+                          <td class="create-invoice-table-required">
+                            {{ product.productSizeRatio }}
+                          </td>
+                          <td class="create-invoice-table-required">
+                            {{ product.shippedQty }}
+                          </td>
+                          <td class="create-invoice-table-required">
+                            {{ product.remainingQty }}
+                          </td>
+                          <td class="create-invoice-table-required">
+                            {{ product.requiredRatio }}
+                          </td>
+                          <td class="create-invoice-table-required">
+                            {{ product.shippedRatio }}
+                          </td>
+                          <td class="create-invoice-table-required">
+                            {{ product.remainingRatio }}
+                          </td>
+                          <td class="text-right pt-7 align-middle">
+                            {{ product.qty }}
+                          </td>
+                          <td class="text-right pt-7 align-middle">
+                            ${{ product.price }}
+                          </td>
+                          <td class="text-right pt-7 align-middle">
+                            ${{ product.subTotal }}
+                          </td>
+                        </tr>
+                        <ng-container *ngIf="product.isSelected">
+                          <tr>
+                            <td colspan="10">
+                              <div
+                                class="mt-3 product-size-deatil"
+                                *ngIf="product.isSelected"
+                              >
+                                <div class="row mb-3">
+                                  <div
+                                    class="col-md-3 mt-3 product-size"
+                                    *ngFor="
+                                      let size of product.sizeGroupList
+                                        .sizeGroupList;
+                                      let i = index
+                                    "
+                                  >
+                                    <label>{{ size.name }}</label>
+                                    <input
+                                      class="form-control form-control-lg form-control-solid ng-pristine ng-touched"
+                                      name="product_{{product.productColorId}}"
+                                      type="number"
+                                      [(ngModel)]="size.value"
+                                      #sizVal="ngModel"
+                                      required
+                                      autocomplete="off"
+                                      (keyup)="changecheckBoxEvent(product)"
+                                      min="0"
+                                      placeholder="{{ size.name }}"
+                                      digitOnly
+                                    />
+                                    <!-- <div *ngIf="ratioError" style="color:red">{{ratioError}}</div> -->
+                                    <div *ngIf="size.ratioError">
+                                      <span style="color: red"
+                                        >You can not enter more than remain
+                                        qty</span
+                                      >
+                                    </div>
+                                  </div>
+                                  <div
+                                    class="col-md-3 mt-3 product-size"
+                                    *ngIf="product.sizeGroupList.qtySubTotal"
+                                  >
+                                    <label>Total</label>
+                                    <input
+                                      class="form-control form-control-lg form-control-solid ng-pristine ng-touched"
+                                      name="product_total{{product.productColorId}}"
+                                      type="number"
+                                      [(ngModel)]="
+                                        product.sizeGroupList.qtySubTotal
+                                      "
+                                      disabled
+                                      autocomplete="off"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </ng-container>
+                      </ng-container>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-center bg-gray-100">
+              <div class="col-md-12">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>
+                          <div class="form-group mr-2">
+                            <label>Vat</label>
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text">%</span>
+                              </div>
+                              <input
+                                type="text"
+                                class="form-control form-control-lg col-md-4"
+                                [(ngModel)]="productVat"
+                                pattern="^[1-9]\d*(\.\d+)?$"
+                                name="productvat"
+                                (keyup)="calculateVat(productVat)"
+                                [ngModelOptions]="{ standalone: true }"
+                                #productvat="ngModel"
+                              />
+                            </div>
+                            <span class="error" *ngIf="!(productvat.valid)">
+                              Please Insert valid Input
+                            </span>
+                          </div>
+                          <div class="form-group mr-2">
+                            <label>Shipping Charge</label>
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text">$</span>
+                              </div>
+                              <input
+                                type="text"
+                                name="shipping"
+                                [(ngModel)]="shippingCharge"
+                                #shipping="ngModel"
+                                pattern="^[1-9]\d*(\.\d+)?$"
+                                (keyup)="calculateShipping(shippingCharge)"
+                                [ngModelOptions]="{ standalone: true }"
+                                class="form-control form-control-lg col-md-4"
+                              />
+                            </div>
+                            <span class="error" *ngIf="!(shipping.valid)">
+                              Please Insert valid Input
+                            </span>
+                          </div>
+                          <div class="form-group">
+                            <label>Tracking Number</label>
+                            <input
+                              class="form-control"
+                              name="tracking"
+                              type="text"
+                              [(ngModel)]="tracking"
+                              required
+                              (keyup)="trackingRequired(tracking)"
+                            />
+                            <div
+                              class="is-invalid fv-plugins-message-container"
+                            >
+                              <div
+                                *ngIf="trckvalError == true"
+                                class="fv-help-block"
+                              >
+                                Tracking Number is required.
+                              </div>
+                            </div>
+                          </div>
+                        </th>
+                        <th
+                          class="create-invoice-pdf-total font-weight-bold text-muted text-uppercase text-right"
+                        >
+                          TOTAL<span
+                            class="text-primary font-size-h3 font-weight-boldest text-right"
+                            >${{ GRandTotal }}</span
+                          >
+                        </th>
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </ng-container>
+</div>
+<div class="modal-footer">
+  <button
+    type="button"
+    class="btn btn-light btn-elevate invoice-btn-size"
+    (click)="modal.dismiss()"
+  >
+    Cancel
+  </button>
+  <button type="submit" class="btn btn-primary btn-elevate" (click)="submit()">
+    Create Invoice
+  </button>
+</div>

@@ -1,0 +1,32 @@
+.btn-mg{
+    margin: 1%;
+}
+.label_required{
+    padding-left: 3px;
+    color: red;
+}
+.modal-body {
+    overflow-x: hidden;
+    height: 70vh;
+  }
+
+  .add-size-group-plus{
+    position: absolute;
+    top: 40px;
+    right: 11px;
+    background-color: #3699FF;
+    padding: 13px;
+    border-radius: 0px 10px 10px 0px
+  }
+  
+  .add-size-group-plus i{
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+  }
+  .add-product-width{width:90% !important;}
+  .inherit-display{display: inherit;}
+  .custom-dropzone{
+    border: 2px dashed #1bc5bd;
+  }
+  

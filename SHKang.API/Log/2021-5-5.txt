@@ -1,0 +1,49 @@
+
+
+Exception Date : 5/5/2021 11:49:08 AM
+Input string was not in a correct format.  :::::     at System.Number.StringToNumber(ReadOnlySpan`1 str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt64(ReadOnlySpan`1 value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.String.System.IConvertible.ToInt64(IFormatProvider provider)
+   at SHKang.Core.Helpers.DBHelper.ParseInt64(Object value, Int64 defaultValue) in E:\Saumil\Projects\Shkang.biz\shkang\SHKang.Core\Helpers\DBHelper.cs:line 90
+   at SHKang.API.Controllers.OrderController.ProcessInvoicePayment(OrderInvoicePayment model) in E:\Saumil\Projects\Shkang.biz\shkang\SHKang.API\Controllers\OrderController.cs:line 207
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 5/5/2021 11:49:33 AM
+You cannot use a Stripe token more than once: tok_1Indr9SEdhE1kSSoex5qIsJM.  :::::     at Stripe.StripeClient.ProcessResponse[T](StripeResponse response) in /_/src/Stripe.net/Infrastructure/Public/StripeClient.cs:line 130
+   at Stripe.StripeClient.RequestAsync[T](HttpMethod method, String path, BaseOptions options, RequestOptions requestOptions, CancellationToken cancellationToken)
+   at Stripe.Service`1.RequestAsync[T](HttpMethod method, String path, BaseOptions options, RequestOptions requestOptions, CancellationToken cancellationToken)
+   at Stripe.Service`1.Request[T](HttpMethod method, String path, BaseOptions options, RequestOptions requestOptions) in /_/src/Stripe.net/Services/_base/Service.cs:line 239
+   at Stripe.CustomerService.Create(CustomerCreateOptions options, RequestOptions requestOptions) in /_/src/Stripe.net/Services/Customers/CustomerService.cs:line 29
+   at SHKang.API.Controllers.OrderController.ProcessInvoicePayment(OrderInvoicePayment model) in E:\Saumil\Projects\Shkang.biz\shkang\SHKang.API\Controllers\OrderController.cs:line 192
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 5/5/2021 12:23:43 PM
+Non-INR transactions in India should have shipping/billing address outside India. More info here: https://stripe.com/docs/india-exports  :::::     at Stripe.StripeClient.ProcessResponse[T](StripeResponse response) in /_/src/Stripe.net/Infrastructure/Public/StripeClient.cs:line 130
+   at Stripe.StripeClient.RequestAsync[T](HttpMethod method, String path, BaseOptions options, RequestOptions requestOptions, CancellationToken cancellationToken)
+   at Stripe.Service`1.RequestAsync[T](HttpMethod method, String path, BaseOptions options, RequestOptions requestOptions, CancellationToken cancellationToken)
+   at Stripe.Service`1.Request[T](HttpMethod method, String path, BaseOptions options, RequestOptions requestOptions) in /_/src/Stripe.net/Services/_base/Service.cs:line 239
+   at Stripe.ChargeService.Create(ChargeCreateOptions options, RequestOptions requestOptions) in /_/src/Stripe.net/Services/Charges/ChargeService.cs:line 39
+   at SHKang.API.Controllers.OrderController.ProcessInvoicePayment(OrderInvoicePayment model) in E:\Saumil\Projects\Shkang.biz\shkang\SHKang.API\Controllers\OrderController.cs:line 208
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 5/5/2021 12:23:52 PM
+You cannot use a Stripe token more than once: tok_1IneZnSEdhE1kSSoZMOsIkrZ.  :::::     at Stripe.StripeClient.ProcessResponse[T](StripeResponse response) in /_/src/Stripe.net/Infrastructure/Public/StripeClient.cs:line 130
+   at Stripe.StripeClient.RequestAsync[T](HttpMethod method, String path, BaseOptions options, RequestOptions requestOptions, CancellationToken cancellationToken)
+   at Stripe.Service`1.RequestAsync[T](HttpMethod method, String path, BaseOptions options, RequestOptions requestOptions, CancellationToken cancellationToken)
+   at Stripe.Service`1.Request[T](HttpMethod method, String path, BaseOptions options, RequestOptions requestOptions) in /_/src/Stripe.net/Services/_base/Service.cs:line 239
+   at Stripe.CustomerService.Create(CustomerCreateOptions options, RequestOptions requestOptions) in /_/src/Stripe.net/Services/Customers/CustomerService.cs:line 29
+   at SHKang.API.Controllers.OrderController.ProcessInvoicePayment(OrderInvoicePayment model) in E:\Saumil\Projects\Shkang.biz\shkang\SHKang.API\Controllers\OrderController.cs:line 192
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 5/5/2021 1:21:08 PM
+Non-INR transactions in India should have shipping/billing address outside India. More info here: https://stripe.com/docs/india-exports  :::::     at Stripe.StripeClient.ProcessResponse[T](StripeResponse response) in /_/src/Stripe.net/Infrastructure/Public/StripeClient.cs:line 130
+   at Stripe.StripeClient.RequestAsync[T](HttpMethod method, String path, BaseOptions options, RequestOptions requestOptions, CancellationToken cancellationToken)
+   at Stripe.Service`1.RequestAsync[T](HttpMethod method, String path, BaseOptions options, RequestOptions requestOptions, CancellationToken cancellationToken)
+   at Stripe.Service`1.Request[T](HttpMethod method, String path, BaseOptions options, RequestOptions requestOptions) in /_/src/Stripe.net/Services/_base/Service.cs:line 239
+   at Stripe.ChargeService.Create(ChargeCreateOptions options, RequestOptions requestOptions) in /_/src/Stripe.net/Services/Charges/ChargeService.cs:line 39
+   at SHKang.API.Controllers.OrderController.ProcessInvoicePayment(OrderInvoicePayment model) in E:\Saumil\Projects\Shkang.biz\shkang\SHKang.API\Controllers\OrderController.cs:line 208
+----------------------------------------------------------------------------------------------

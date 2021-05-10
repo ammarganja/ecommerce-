@@ -1,0 +1,13 @@
+
+
+Exception Date : 07/04/2021 11:00:18
+Column 'TotalOrder' does not belong to table Table2.  :::::     at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at SHKang.Repository.Repository.DashboardRepository.GetDashboardData(DateTime fromDate, DateTime toDate) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\DashboardRepository.cs:line 117
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 07/04/2021 11:00:18
+Column 'TotalOrder' does not belong to table Table2.  :::::     at SHKang.Repository.Repository.DashboardRepository.GetDashboardData(DateTime fromDate, DateTime toDate) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\DashboardRepository.cs:line 145
+   at SHKang.API.Areas.Admin.Controllers.DashboardController.DashboardData() in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\DashboardController.cs:line 56
+----------------------------------------------------------------------------------------------

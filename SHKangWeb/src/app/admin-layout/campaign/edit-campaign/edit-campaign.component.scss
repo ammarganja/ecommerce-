@@ -1,0 +1,122 @@
+.datatable-row-detail {
+  height: 100px;
+  overflow-y: auto;
+}
+.prd-table {
+  margin: 15px 15px 15px 0;
+}
+.prd-img {
+  height: 60px;
+}
+.mg-top {
+  margin-left: -12px;
+  margin-top: 23px;
+}
+.label_required {
+  padding-left: 3px;
+  color: red;
+}
+.datatable-row-detail {
+  height: 100px;
+  overflow-y: auto;
+}
+.prd-table {
+  margin: 15px 15px 15px 0;
+}
+.prd-img {
+  height: 60px;
+}
+.mg-top {
+  margin-left: -12px;
+  margin-top: 23px;
+}
+.modal-body {
+  overflow-x: hidden;
+  height: 60vh;
+}
+.custom-dropzone{
+  border: 2px dashed #1bc5bd;
+}
+
+
+.upload_block {
+  position: relative;
+  width: 300px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin-top: 10px;
+  background: #fff;
+}
+
+.preview_image:before {
+  z-index: 1;
+}
+
+.upload_block:before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(255,255,255,0.25);
+  margin: auto;
+}
+
+.img_parent {
+  position: relative;
+  z-index: 0;
+  padding-bottom: 61.25%;
+}
+
+.upload_block img {
+  max-width: 100%;
+}
+
+.img_parent img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+img {
+  vertical-align: middle;
+  border-style: none;
+}
+
+.btn:not(:disabled):not(.disabled) {
+  cursor: pointer;
+}
+.upload_block .delete_btn {
+  right: 15px !important;
+  top: 15px !important;
+}
+.upload_block .btn-default {
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  padding: 0;
+  line-height: 27px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: #fff;
+  color: #fff;
+  opacity: 1;
+  transition: 0.5s;
+  border: 1px solid #fff;
+  z-index: 1;
+}
+
+.upload_block .edit_btn {
+  right: 52px !important;
+  top: 15px !important;
+}
+
+.btn .svg-icon {
+   margin-right: 0rem; 
+}

@@ -1,0 +1,84 @@
+
+
+Exception Date : 08/04/2021 10:02:03
+An error occurred while updating the entries. See the inner exception for details.  :::::     at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(DbContext _, ValueTuple`2 parameters)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IReadOnlyList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IReadOnlyList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
+   at SHKang.Repository.Repository.ProductCategoryTypeRepository.AddNewProductCategoryType(ProductCategoryType productCategoryType) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductCategoryTypeRepository.cs:line 56
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 08/04/2021 10:02:14
+An error occurred while updating the entries. See the inner exception for details.  :::::     at SHKang.Repository.Repository.ProductCategoryTypeRepository.AddNewProductCategoryType(ProductCategoryType productCategoryType) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductCategoryTypeRepository.cs:line 67
+   at SHKang.API.Areas.Admin.Controllers.ProductCategoryTypeController.AddProductCategoryType(UpdateProductCategoryTypeModel addProductCategoryType) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\ProductCategoryTypeController.cs:line 64
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 08/04/2021 10:07:37
+An error occurred while updating the entries. See the inner exception for details.  :::::     at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(DbContext _, ValueTuple`2 parameters)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IReadOnlyList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IReadOnlyList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
+   at SHKang.Repository.Repository.ProductCategoryTypeRepository.UpdateProductCategoryType(ProductCategoryType productCategoryType, Int64 updatedBy) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductCategoryTypeRepository.cs:line 175
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 08/04/2021 10:07:44
+An error occurred while updating the entries. See the inner exception for details.  :::::     at SHKang.Repository.Repository.ProductCategoryTypeRepository.UpdateProductCategoryType(ProductCategoryType productCategoryType, Int64 updatedBy) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductCategoryTypeRepository.cs:line 191
+   at SHKang.API.Areas.Admin.Controllers.ProductCategoryTypeController.AddProductCategoryType(UpdateProductCategoryTypeModel addProductCategoryType) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\ProductCategoryTypeController.cs:line 82
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 08/04/2021 16:41:10
+Column 'ProductId' does not belong to table Table.  :::::     at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at SHKang.Repository.Repository.ProductRepository.GetProductList(Int32 pageNo, Int32 rowsPerPage, String searchString, String hostingPath) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductRepository.cs:line 217
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 08/04/2021 16:41:13
+Column 'ProductId' does not belong to table Table.  :::::     at SHKang.Repository.Repository.ProductRepository.GetProductList(Int32 pageNo, Int32 rowsPerPage, String searchString, String hostingPath) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductRepository.cs:line 270
+   at SHKang.API.Areas.Admin.Controllers.ProductController.ProductList(SearchPaginationListModel searchModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Areas\Admin\Controllers\ProductController.cs:line 127
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 08/04/2021 19:35:53
+Incorrect syntax near '.'.   ::::      at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at System.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at System.Data.SqlClient.SqlDataReader.TryNextResult(Boolean& more)
+   at System.Data.SqlClient.SqlDataReader.NextResult()
+   at System.Data.ProviderBase.DataReaderContainer.NextResult()
+   at System.Data.Common.DataAdapter.FillNextResult(DataReaderContainer dataReader)
+   at System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   at System.Data.Common.DataAdapter.Fill(DataSet dataSet, String srcTable, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at SHKang.Core.Helpers.DBHelper.GetDataTable(String spName, SqlParameter[] sqlParameters, String connectionString) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\Helpers\DBHelper.cs:line 33
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 08/04/2021 19:35:53
+Incorrect syntax near '.'.  :::::     at SHKang.Core.Helpers.DBHelper.GetDataTable(String spName, SqlParameter[] sqlParameters, String connectionString) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\Helpers\DBHelper.cs:line 39
+   at SHKang.Repository.Repository.OrderRepository.GetOrderList(Int32 pageNo, Int32 rowsPerPage, String searchString) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\OrderRepository.cs:line 69
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 08/04/2021 19:35:53
+Incorrect syntax near '.'.  :::::     at SHKang.Repository.Repository.OrderRepository.GetOrderList(Int32 pageNo, Int32 rowsPerPage, String searchString) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\OrderRepository.cs:line 119
+   at SHKang.API.Controllers.CommonController.OrderList(SearchPaginationListModel searchModel) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.API\Controllers\CommonController.cs:line 182
+----------------------------------------------------------------------------------------------

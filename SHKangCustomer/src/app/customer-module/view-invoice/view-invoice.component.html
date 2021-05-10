@@ -1,0 +1,153 @@
+<div class="modal-content signup-modal">
+    <div class="" id="contentToConvert">
+    <div>
+        <div>
+            <div class="modal-header">
+                <div class="modal-title h4" id="example-modal-sizes-title-lg">
+                    Invoice
+                </div>
+            </div>
+        </div>
+        <div class="overlay overlay-block cursor-default modal-body" >
+            <form>
+                <div class="we">
+                    <div class="sd">
+                        <div class="row justify-content-center py-8 px-8 py-md-10 px-md-0">
+                            <div class="col-md-12">
+                                <div class="d-flex justify-content-between pb-10 pb-md-20 flex-column flex-md-row">
+                                    <h1 class="display-4 font-weight-boldest mb-10 col-md-8">ORDER DETAILS</h1>
+                                    <div class="d-flex flex-column align-items-md-end px-0 mt-10 col-md-4">
+                                        <!--begin::Logo-->
+                                        <a class="mb-5">
+                                            <img src="../../../assets/images/Logo.png" width="150">
+                                        </a>
+                                        <br>
+                                        <!--end::Logo-->
+                                        <span class="d-flex flex-column align-items-md-end opacity-70">
+                                            <span>Shane Warn</span>
+                                            <span>Cecilia Chapman, 711-2880 Nulla St, Mankato</span>
+                                            <span>Fredrick Nebraska 20620</span>
+                                            <!-- <span>{{orderDetail.city}} {{orderDetail.country}} {{orderDetail.zipcode}}</span> -->
+                                        </span>
+                                    </div>
+                                    <br>
+                                </div>
+                                <div class="border-bottom w-100"></div>
+                            </div>
+                        </div>
+                        <div class="row mt-50">
+                            <div class="d-flex flex-column flex-root col-md-3">
+                                <span class="font-weight-bolder mb-2"><b>ORDER DATE</b></span><br>
+                                <span class="opacity-70" *ngIf="orderDetail">{{orderDetail.invoiceDate}}</span>
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="d-flex flex-column flex-root col-md-3">
+                                <span class="font-weight-bolder mb-2"><b>ORDER NO.</b></span><br>
+                                <span class="opacity-70" *ngIf="orderDetail">{{orderDetail.poNumber}}</span>
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="d-flex flex-column flex-root col-md-3">
+                                <span class="font-weight-bolder mb-2"><b>DELIVERED TO.</b></span><br>
+                                <span class="opacity-70" *ngIf="orderDetail">{{orderDetail.firstName}},<br> {{orderDetail.address1}}.
+                                    <br>{{orderDetail.city}}, {{orderDetail.state}} {{orderDetail.zipcode}}</span>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-center py-8 px-8 py-md-10 px-md-0 mt-50">
+                            <div class="col-md-11">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="pl-0 font-weight-bold text-muted text-uppercase">Ordered Items</th>
+                                                <th class="pl-0 font-weight-bold text-muted text-uppercase">Group</th>
+                                                <th class="text-right font-weight-bold text-muted text-uppercase">Qty</th>
+                                                <th class="text-right font-weight-bold text-muted text-uppercase">Unit Price</th>
+                                                <th class="text-right pr-0 font-weight-bold text-muted text-uppercase">Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                           
+                                           
+                                            <tr class="font-weight-boldest" *ngFor="let product of orderDetail.productDetails">
+                                                <td class="pl-0 font-weight-bold text-muted text-uppercase">
+                                                    <!--begin::Symbol-->
+                                                    <div class="symbol symbol-40 flex-shrink-0 mr-4 bg-light">
+                                                        <div class="symbol-label" style="background-image: url({{product.image}})"></div>
+                                                    </div>
+                                                    <!--end::Symbol-->
+                                                    {{product.name}}
+                                                </td>
+                                                <td>{{product.ratio}}</td>
+                                                <td class="pl-0 font-weight-bold text-muted text-uppercase">{{product.quantity}}</td>
+                                                <td class="pl-0 font-weight-bold text-muted text-uppercase">${{product.price}}</td>
+                                                <td class="pl-0 font-weight-bold text-muted text-uppercase">$ {{product.quantity * product.price}}</td>
+                                            </tr>
+                                            
+                                     
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center bg-gray-100 mt-50">
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="font-weight-bold text-muted text-uppercase">Extras</th>
+                                                <th class="font-weight-bold text-muted text-uppercase"></th>
+                                                <th class="font-weight-bold text-muted text-uppercase text-right">Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="font-weight-bolder">
+                                                <td>Product Vat</td>
+                                                <td></td>
+                                                <td class="text-primary font-size-h3 font-weight-boldest text-right">{{orderDetail.totalGSTAmount}}</td>
+                                            </tr>
+                                            <tr class="font-weight-bolder">
+                                                <td>Shipping Charge</td>
+                                                <td></td>
+                                                <td class="text-primary font-size-h3 font-weight-boldest text-right">{{orderDetail.shippingCharges}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center bg-gray-100 mt-50">
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="font-weight-bold text-muted text-uppercase">PAYMENT TYPE</th>
+                                                <th class="font-weight-bold text-muted text-uppercase">PAYMENT STATUS</th>
+                                                <th class="font-weight-bold text-muted text-uppercase text-right">TOTAL</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="font-weight-bolder">
+                                                <td>Invoice</td>
+                                                <td>{{orderDetail.orderStatus}}</td>
+                                                <td class="text-primary font-size-h3 font-weight-boldest text-right">{{orderDetail.payableAmount}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-light btn-elevate mr-2 invoice-btn-size" (click)="close()">Cancel</button>
+    <button type="submit" class="btn btn-danger btn-elevate" (click)="print()">Download Invoice</button>
+    <!-- <button type="button" class="btn btn-danger" ></button> -->
+</div>
+</div>

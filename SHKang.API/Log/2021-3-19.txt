@@ -1,0 +1,133 @@
+
+
+Exception Date : 19/03/2021 10:57:55
+Must declare the scalar variable "@PAGENO".
+Must declare the scalar variable "@RECORDPERPAGE".
+Must declare the scalar variable "@PAGENO".
+Must declare the scalar variable "@RECORDPERPAGE".   ::::      at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at SHKang.Core.Helpers.DBHelper.GetDataTable(String spName, SqlParameter[] sqlParameters, String connectionString) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\Helpers\DBHelper.cs:line 34
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 19/03/2021 10:59:05
+Conversion failed when converting the varchar value 'SELECT [ORDER].OrderId,
+	[ORDER].PONumber,
+	[ORDER].UniqueOrderId,
+	[ORDER].OrderDate,
+	[ORDER].SubTotalAmount,
+	[ORDER].PayableAmount,
+	[USER].FirstName,
+	[USER].LastName,
+	[USER].Companyname
+	FROM [ORDER] 
+		INNER JOIN [USER] ON [USER].UserId=[ORDER].UserFK
+		WHERE [ORDER].IsDelete=0 
+		ORDER BY [ORDER].OrderId DESC
+		OFFSET ( ' to data type int.   ::::      at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at SHKang.Core.Helpers.DBHelper.GetDataTable(String spName, SqlParameter[] sqlParameters, String connectionString) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\Helpers\DBHelper.cs:line 34
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 19/03/2021 10:59:12
+Conversion failed when converting the varchar value 'SELECT [ORDER].OrderId,
+	[ORDER].PONumber,
+	[ORDER].UniqueOrderId,
+	[ORDER].OrderDate,
+	[ORDER].SubTotalAmount,
+	[ORDER].PayableAmount,
+	[USER].FirstName,
+	[USER].LastName,
+	[USER].Companyname
+	FROM [ORDER] 
+		INNER JOIN [USER] ON [USER].UserId=[ORDER].UserFK
+		WHERE [ORDER].IsDelete=0 
+		ORDER BY [ORDER].OrderId DESC
+		OFFSET ( ' to data type int.  :::::     at SHKang.Core.Helpers.DBHelper.GetDataTable(String spName, SqlParameter[] sqlParameters, String connectionString) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\Helpers\DBHelper.cs:line 40
+   at SHKang.Repository.Repository.OrderRepository.GetOrderList(Int32 PageNo, Int32 RowsPerPage, String searchString) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\OrderRepository.cs:line 68
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 19/03/2021 11:16:33
+Conversion failed when converting the varchar value 'SELECT Product.ProductId,
+	Product.Name,
+	Product.ProductDescription,
+	Product.Price,
+	Product.IsDelete
+	FROM Product 
+	WHERE Product.IsDelete=0  
+	ORDER BY Product.ProductId DESC
+	OFFSET ( ' to data type int.   ::::      at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at SHKang.Core.Helpers.DBHelper.GetDataTable(String spName, SqlParameter[] sqlParameters, String connectionString) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\Helpers\DBHelper.cs:line 34
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 19/03/2021 11:16:37
+Conversion failed when converting the varchar value 'SELECT Product.ProductId,
+	Product.Name,
+	Product.ProductDescription,
+	Product.Price,
+	Product.IsDelete
+	FROM Product 
+	WHERE Product.IsDelete=0  
+	ORDER BY Product.ProductId DESC
+	OFFSET ( ' to data type int.  :::::     at SHKang.Core.Helpers.DBHelper.GetDataTable(String spName, SqlParameter[] sqlParameters, String connectionString) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\Helpers\DBHelper.cs:line 40
+   at SHKang.Repository.Repository.ProductRepository.GetProductList(Int32 pageNo, Int32 rowsPerPage, String searchString) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductRepository.cs:line 174
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 19/03/2021 11:17:40
+Must declare the scalar variable "@1".   ::::      at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at System.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at System.Data.SqlClient.SqlDataReader.TryNextResult(Boolean& more)
+   at System.Data.SqlClient.SqlDataReader.NextResult()
+   at System.Data.ProviderBase.DataReaderContainer.NextResult()
+   at System.Data.Common.DataAdapter.FillNextResult(DataReaderContainer dataReader)
+   at System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   at System.Data.Common.DataAdapter.Fill(DataSet dataSet, String srcTable, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at SHKang.Core.Helpers.DBHelper.GetDataTable(String spName, SqlParameter[] sqlParameters, String connectionString) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\Helpers\DBHelper.cs:line 34
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 19/03/2021 11:18:17
+Must declare the scalar variable "@1".  :::::     at SHKang.Core.Helpers.DBHelper.GetDataTable(String spName, SqlParameter[] sqlParameters, String connectionString) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Core\Helpers\DBHelper.cs:line 40
+   at SHKang.Repository.Repository.ProductRepository.GetProductList(Int32 pageNo, Int32 rowsPerPage, String searchString) in E:\Yash\Projects\Shkang ECommerce\Source\shkang\SHKang.Repository\Repository\ProductRepository.cs:line 174
+----------------------------------------------------------------------------------------------

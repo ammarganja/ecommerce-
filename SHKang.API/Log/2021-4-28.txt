@@ -1,0 +1,20 @@
+
+
+Exception Date : 4/28/2021 5:57:18 PM
+An error occurred while updating the entries. See the inner exception for details.  :::::     at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(DbContext _, ValueTuple`2 parameters)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IReadOnlyList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IReadOnlyList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
+   at SHKang.Repository.Repository.UserRepository.AddUser(User user) in E:\Saumil\Projects\Shkang.biz\shkang\SHKang.Repository\Repository\UserRepository.cs:line 89
+----------------------------------------------------------------------------------------------
+
+
+Exception Date : 4/28/2021 5:57:18 PM
+An error occurred while updating the entries. See the inner exception for details.  :::::     at SHKang.Repository.Repository.UserRepository.AddUser(User user) in E:\Saumil\Projects\Shkang.biz\shkang\SHKang.Repository\Repository\UserRepository.cs:line 96
+   at SHKang.API.Areas.Admin.Controllers.UserController.AddNewUser(AddNewUserModel addNewUserModel) in E:\Saumil\Projects\Shkang.biz\shkang\SHKang.API\Areas\Admin\Controllers\UserController.cs:line 67
+----------------------------------------------------------------------------------------------

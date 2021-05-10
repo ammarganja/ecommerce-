@@ -1,0 +1,24 @@
+<!--begin::Container-->
+<div
+  [ngClass]="headerContainerCSSClasses"
+  class="d-flex align-items-stretch justify-content-between"
+>
+  <ng-container *ngIf="loader$ | async as _loader">
+    <ngb-progressbar
+      class="loading-bar"
+      height="3px"
+      [value]="_loader"
+    ></ngb-progressbar>
+  </ng-container>
+
+</div>
+
+<div class="dropup mt-3 mr-5" ngbDropdown>
+  <button class="btn btn-icon btn-icon-mobile w-auto btn-clean d-flex align-items-center btn-lg px-2" id="dropupMenuButton" ngbDropdownToggle>
+    <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">Hi, {{username}}</span>
+  </button>
+  <div class="dropdown-menu tx-13" ngbDropdownMenu aria-labelledby="dropupMenuButton">
+    <a class="dropdown-item" (click)="logout()">Logout</a>
+  </div>
+</div>
+<!--end::Container-->
